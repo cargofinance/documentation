@@ -1,0 +1,64 @@
+---
+title: "Cargo API Developer Reference"
+description: "Integrate with the Cargo API to fetch vault metadata, TVL, and yield metrics using standard HTTP requests and JSON responses."
+sidebarTitle: "Cargo API"
+---
+
+The Cargo API provides programmatic access to protocol data, including vault statistics, asset prices, and historical yield. It is intended for dashboards, aggregators, and programmatic deposit workflows.
+
+## Base URL
+
+```text
+https://api.example.com
+```
+
+Replace the base URL with the production endpoint once it is live.
+
+## Endpoints
+
+| Method | Path | Description |
+| --- | --- | --- |
+| GET | `/v1/vaults` | List all vaults with basic metadata. |
+| GET | `/v1/vaults/{vaultId}` | Fetch detailed data for a specific vault. |
+| GET | `/v1/vaults/{vaultId}/yield` | Retrieve current and historical yield for a vault. |
+| GET | `/v1/assets` | List supported real-world assets. |
+
+## Authentication
+
+<Info>
+  If the API requires authentication, include a Bearer token in the `Authorization` header. [Describe token issuance and scopes here.]
+</Info>
+
+## Example Request
+
+```bash
+curl -X GET "https://api.example.com/v1/vaults" \
+  -H "Accept: application/json"
+```
+
+## Example Response
+
+```json
+{
+  "vaults": [
+    {
+      "id": "[vault-id]",
+      "name": "[Vault Name]",
+      "asset": "[Underlying Asset Symbol]",
+      "tvl": "[total value locked]",
+      "apy": "[current APY]"
+    }
+  ]
+}
+```
+
+## Rate Limits
+
+- Standard tier: [N requests per minute]
+- Premium tier: [M requests per minute]
+
+## Developer Notes
+
+- Error codes: [List expected HTTP status codes and error shapes.]
+- Pagination: [Describe cursor or offset pagination strategy.]
+- Webhooks: [Document available webhook events if supported.]

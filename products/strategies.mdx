@@ -1,0 +1,43 @@
+---
+title: "Cargo Strategies: How Vaults Generate Yield"
+sidebarTitle: "Strategies"
+description: "Learn how Cargo generates yield across real-world asset strategies. Understand allocation rules, reinvestment, and rebalancing for vault deposits."
+---
+
+Each Cargo Vault follows a defined strategy that governs how deposits are allocated to real-world assets, reinvested, and rebalanced. Strategies are set at launch and adjusted through governance when market conditions change.
+
+## Strategy Overview
+
+A strategy defines the target asset mix, duration, and reinvestment rules for a vault.
+
+<AccordionGroup>
+  <Accordion title="Allocation Rules">
+    [Describe the target allocation percentages and the maximum exposure limits per asset type or counterparty. Include any single-asset caps.]
+  </Accordion>
+
+  <Accordion title="Reinvestment Logic">
+    [Explain how earned yield is handled: auto-compounded back into the vault, distributed to depositors, or held in reserves. Include the reinvestment frequency.]
+  </Accordion>
+
+  <Accordion title="Rebalancing Triggers">
+    [Describe the conditions that trigger rebalancing, such as deviation from target allocation, maturity events, or credit rating changes.]
+  </Accordion>
+</AccordionGroup>
+
+## Strategy Lifecycle
+
+<Steps>
+  <Step title="Proposal">
+    A new strategy or update is proposed through the [governance/governance](/governance/governance) process.
+  </Step>
+  <Step title="Review">
+    [Describe the review period and any risk or compliance checks performed before approval.]
+  </Step>
+  <Step title="Deployment">
+    Approved strategy changes are deployed via the vault contracts. [Include whether there is a timelock and its duration.]
+  </Step>
+</Steps>
+
+<Info>
+  Strategy details for each vault are viewable on the app. Check the vault page for current allocation and recent rebalancing history.
+</Info>

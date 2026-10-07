@@ -1,0 +1,46 @@
+---
+title: "Other Smart Contract References"
+description: "Review helper, oracle, and utility contracts that support Cargo vaults and strategies, including access control and price feed integrations."
+sidebarTitle: "Other Contracts"
+---
+
+In addition to vaults and strategies, the Cargo protocol relies on supporting contracts for pricing, access control, and automation.
+
+## Oracle Contracts
+
+Oracle contracts supply off-chain asset valuations to on-chain strategies.
+
+| Contract | Purpose |
+| --- | --- |
+| [OracleManager.sol] | Aggregates price updates and validates staleness thresholds. |
+| [RWAPriceFeed.sol] | Returns the current NAV or market price for a specific real-world asset. |
+
+## Access Control
+
+Role-based access control restricts sensitive operations.
+
+<AccordionGroup>
+  <Accordion title="Roles and permissions">
+    - `DEFAULT_ADMIN_ROLE`: protocol configuration
+    - `GUARDIAN_ROLE`: emergency pause and unpause
+    - `STRATEGY_MANAGER_ROLE`: add or retire strategies
+  </Accordion>
+
+  <Accordion title="Deployment checklist">
+    1. Deploy AccessControl contract.
+    2. Grant admin, guardian, and manager roles.
+    3. Wire roles into vault and strategy constructors.
+  </Accordion>
+</AccordionGroup>
+
+## Utility Contracts
+
+| Contract | Purpose |
+| --- | --- |
+| [SwapRouter.sol] | Facilitates token swaps during harvest or rebalancing. |
+| [RewardsDistributor.sol] | Distributes protocol incentive allocations to vault depositors. |
+
+## Developer Notes
+
+- Keep oracle freshness parameters conservative to avoid stale pricing.
+- Document every trusted signer or data provider address used by oracle contracts.

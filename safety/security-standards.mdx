@@ -1,0 +1,51 @@
+---
+title: "Security Standards at Cargo Finance"
+description: "Learn about the security practices, code review procedures, and access controls that protect Cargo Finance RWA vaults and user deposits."
+sidebarTitle: "Security Standards"
+---
+
+Cargo Finance applies a multi-layered security model across on-chain vaults, off-chain RWA integrations, and internal operations. This page outlines the standards and checks you should expect from the protocol.
+
+## Code Review and Testing
+
+All vault and strategy contracts undergo internal review before deployment.
+
+[Describe your code review process, number of reviewers required, and how long a typical review cycle lasts.]
+
+## Access Controls and Permissions
+
+Privileged functions (such as strategy upgrades and parameter changes) are restricted to specific addresses.
+
+[List the key roles or multisig wallets and their responsibilities, such as [Multisig address].]
+
+## Operational Security
+
+Off-chain systems that manage RWA allocation or reporting use secure infrastructure.
+
+<Note>
+  [Describe hosting, key management, and signer hardware or cloud-HSM details.]
+</Note>
+
+## Incident Response
+
+Cargo maintains an incident response plan for emergency contract pauses or strategy exits.
+
+<Steps>
+  <Step title="Detect">
+    [Describe monitoring and alerting channels.]
+  </Step>
+  <Step title="Contain">
+    [Describe how a pause or emergency withdrawal is triggered.]
+  </Step>
+  <Step title="Communicate">
+    [Describe where updates are posted and how quickly.]
+  </Step>
+</Steps>
+
+## Third-Party Dependencies
+
+Cargo relies on external oracle providers, custodians, and legal structures for RWA exposure.
+
+<Warning>
+  Review the security practices of each third party. Cargo standards do not eliminate counterparty risk.
+</Warning>

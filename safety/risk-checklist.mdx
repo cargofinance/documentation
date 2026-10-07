@@ -1,0 +1,49 @@
+---
+title: "Risk Checklist for Cargo RWA Vaults"
+description: "Review the key risk categories for Cargo Finance RWA vaults, including smart contract, counterparty, liquidity, regulatory, and oracle risks."
+sidebarTitle: "Risk Checklist"
+---
+
+Before depositing into a Cargo Finance RWA vault, you should understand the risks involved. This checklist covers the main categories that can affect your deposit and yield.
+
+<AccordionGroup>
+  <Accordion title="Smart Contract Risk">
+    Vault and strategy contracts are on-chain code and may contain bugs or vulnerabilities.
+
+    <Info>
+      [Describe mitigations: audits, timelocks, open-source verification, or bug bounties.]
+    </Info>
+  </Accordion>
+
+  <Accordion title="Counterparty Risk">
+    RWA vaults route capital to real-world asset providers, custodians, or legal entities.
+
+    <Info>
+      [Name the current counterparties and how they are vetted or diversified.]
+    </Info>
+  </Accordion>
+
+  <Accordion title="Liquidity Risk">
+    Withdrawals depend on available on-chain liquidity and the settlement speed of underlying RWAs.
+
+    <Info>
+      [Describe withdrawal windows, lock-up periods, and estimated settlement times.]
+    </Info>
+  </Accordion>
+
+  <Accordion title="Regulatory / Legal Risk">
+    RWA structures may be subject to changing regulations in multiple jurisdictions.
+
+    <Info>
+      [Describe the legal wrappers used and how compliance is maintained.]
+    </Info>
+  </Accordion>
+
+  <Accordion title="Oracle / Pricing Risk">
+    Vault valuations and yield calculations rely on external price feeds or off-chain attestations.
+
+    <Info>
+      [List oracle providers and how often valuations are updated.]
+    </Info>
+  </Accordion>
+</AccordionGroup>

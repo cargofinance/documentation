@@ -1,0 +1,46 @@
+---
+title: "Strategy Contract Developer Reference"
+description: "Understand how Cargo strategy contracts allocate vault deposits into real-world asset positions, harvest yield, and report back to the vault."
+sidebarTitle: "Strategy Contract"
+---
+
+Strategy contracts implement the actual investment logic for Cargo vaults. Each vault can route funds into one or more strategies that target specific real-world asset pools or instruments.
+
+## Core Responsibilities
+
+- Allocation: receive capital from the vault and deploy it into target positions.
+- Harvesting: claim rewards or interest from the underlying instrument.
+- Reporting: return the current total value of deployed assets to the vault on demand.
+
+## Key Functions
+
+| Function | Visibility | Description |
+| --- | --- | --- |
+| `invest(uint256 amount)` | `external` | Deploy `amount` of underlying assets into the target position. |
+| `divest(uint256 amount)` | `external` | Withdraw up to `amount` from the position and return it to the vault. |
+| `harvest()` | `external` | Claim available yield and either compound or forward it. |
+| `estimatedTotalAssets()` | `view` | Return the current value of assets held in the strategy. |
+
+## Integration Points
+
+<Steps>
+  <Step title="Vault calls invest">
+    The vault sends funds to the strategy after a user deposit.
+  </Step>
+  <Step title="Strategy deploys assets">
+    Assets enter the target instrument or custodial arrangement.
+  </Step>
+  <Step title="Periodic harvest">
+    Yield is realized and either reinvested or sent to the vault for distribution.
+  </Step>
+</Steps>
+
+<Warning>
+  Every strategy must enforce a maximum loss threshold and implement an emergency exit path. [Describe safeguards here.]
+</Warning>
+
+## Developer Notes
+
+- Supported asset types: [List supported RWAs, e.g., treasury bills, private credit, commodities.]
+- Oracle dependency: [Specify which price feeds or valuation providers the strategy relies on.]
+- Permissions: [Define which addresses can trigger harvest or migration.]

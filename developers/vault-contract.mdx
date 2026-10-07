@@ -1,0 +1,42 @@
+---
+title: "Vault Contract Developer Reference"
+description: "Explore the main Cargo vault contract interface, storage layout, and deposit/withdraw flows for developers building on or integrating with the protocol."
+sidebarTitle: "Vault Contract"
+---
+
+The Cargo vault contract is the core entry point for users. It manages deposits, withdrawals, share accounting, and interaction with underlying strategy contracts.
+
+## Key Functions
+
+| Function | Visibility | Description |
+| --- | --- | --- |
+| `deposit(uint256 assets, address receiver)` | `external` | Deposit `assets` into the vault and mint shares to `receiver`. |
+| `withdraw(uint256 assets, address receiver, address owner)` | `external` | Withdraw `assets` to `receiver`, burning shares from `owner`. |
+| `totalAssets()` | `view` | Return the total managed assets, including funds deployed into strategies. |
+| `convertToShares(uint256 assets)` | `view` | Convert an asset amount to vault shares at the current exchange rate. |
+| `convertToAssets(uint256 shares)` | `view` | Convert vault shares to the equivalent asset amount. |
+
+<Note>
+  Decide whether the contract will implement [ERC-4626?] for standard vault token behavior, or a custom share model. [Add implementation note here.]
+</Note>
+
+## Interface Skeleton
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+interface ICargoVault {
+    function deposit(uint256 assets, address receiver) external returns (uint256 shares);
+    function withdraw(uint256 assets, address receiver, address owner) external returns (uint256 shares);
+    function totalAssets() external view returns (uint256);
+    function convertToShares(uint256 assets) external view returns (uint256);
+    function convertToAssets(uint256 shares) external view returns (uint256);
+}
+```
+
+## Developer Notes
+
+- Rebase or share-based accounting: [Choose and document the approach.]
+- Access control for strategy updates: [Describe owner/guardian roles.]
+- Events to emit: [List Deposit, Withdraw, and custom events.]

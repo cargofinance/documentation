@@ -1,0 +1,36 @@
+---
+title: "RWA Vault Mechanism: On-Chain to Off-Chain"
+sidebarTitle: "RWA Vault Mechanism"
+description: "Learn how Cargo Finance RWA Vaults bridge on-chain deposits with off-chain real-world assets, covering backing, NAV, pricing, and redemption."
+---
+
+RWA Vaults are the core product of Cargo Finance. They accept crypto deposits, allocate capital to real-world asset strategies, and return yield to depositors while maintaining on-chain transparency.
+
+## How RWA vaults work
+
+[Describe the deposit-to-allocation flow. Example: deposits are pooled in a smart contract vault, then directed to a strategy that holds or manages off-chain assets through legal structures and custodians.]
+
+## Asset backing
+
+[Explain what backs the vault. Example: the vault represents a claim on a portfolio of real-world assets held by a custodian or special purpose vehicle. Include asset types and jurisdiction placeholders.]
+
+## On-chain vs off-chain components
+
+| Component | On-chain | Off-chain |
+| --- | --- | --- |
+| Deposit/withdrawal | Smart contract | Settlement instructions |
+| Ownership record | Tokenized position | Legal agreements |
+| Asset holding | Transparency/NAV reporting | Custodian / SPV |
+| Yield accrual | Automated distribution | Asset cash flows |
+
+## NAV and pricing
+
+[Explain how the net asset value is calculated and updated. Include frequency and oracle/provider placeholders.]
+
+## Redemption
+
+[Describe the withdrawal and redemption process. Mention any notice periods, liquidity buffers, or lock-up terms.]
+
+<Warning>
+  Real-world asset strategies may involve settlement delays or liquidity constraints that differ from standard DeFi vaults. Review the vault-specific terms before depositing.
+</Warning>

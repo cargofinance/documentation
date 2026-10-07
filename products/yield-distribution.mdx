@@ -1,0 +1,41 @@
+---
+title: "How Cargo Distributes Yield to Depositors"
+sidebarTitle: "Yield Distribution"
+description: "Understand how Cargo Vaults accrue and distribute yield from real-world assets, including payment timing, reinvestment choices, and tracking your earnings."
+---
+
+Yield from real-world assets backing Cargo Vaults is collected off-chain, brought on-chain, and distributed to depositors according to each vault's rules. This page covers how accrual works and what you can do with your earnings.
+
+## Accrual and Payout Mechanics
+
+<AccordionGroup>
+  <Accordion title="How yield accrues">
+    [Describe whether yield accrues continuously, daily, or at fixed intervals tied to underlying asset coupons or maturities.]
+  </Accordion>
+
+  <Accordion title="Payout timing">
+    [Describe when yield is credited, e.g., at each asset maturity, weekly, or monthly. Include any delay between off-chain collection and on-chain distribution.]
+  </Accordion>
+
+  <Accordion title="Reinvestment options">
+    [Explain whether depositors can auto-compound yield back into the vault or claim it to their wallet. Include how to toggle this setting in the app.]
+  </Accordion>
+</AccordionGroup>
+
+## Tracking Your Earnings
+
+You can monitor yield in the Cargo app or by reading vault share value directly from the contract. [Include the relevant contract page if helpful, e.g., /developers/vault-contract.]
+
+<CardGroup cols={2}>
+  <Card title="On the App" icon="chart-line" href="/products/vaults">
+    View current APY, earned yield, and reinvestment status from your portfolio dashboard.
+  </Card>
+
+  <Card title="On-Chain" icon="code" href="/developers/vault-contract">
+    Query vault share price or pending distributions from the vault contract for programmatic access.
+  </Card>
+</CardGroup>
+
+<Note>
+  APY figures are estimates based on current strategy performance. Past performance does not guarantee future results. Review [faq/vault-apy](/faq/vault-apy) for details.
+</Note>

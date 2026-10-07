@@ -1,0 +1,101 @@
+{
+  "theme": "maple",
+  "name": "Cargo Finance",
+  "colors": {
+    "primary": "#0B3A52",
+    "light": "#5BB4DB",
+    "dark": "#062433"
+  },
+  "logo": {
+    "light": "/images/cargo-logo.png",
+    "dark": "/images/cargo-logo.png"
+  },
+  "favicon": "/images/cargo-logo.png",
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ],
+    "display": "header"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "index",
+          "quickstart"
+        ]
+      },
+      {
+        "group": "Cargo Ecosystem",
+        "pages": [
+          "ecosystem/introduction",
+          "ecosystem/protocol",
+          "ecosystem/rwa-vault-mechanism",
+          "ecosystem/updates"
+        ]
+      },
+      {
+        "group": "Products",
+        "pages": [
+          "products/vaults",
+          "products/strategies",
+          "products/real-world-assets",
+          "products/deposits-and-withdrawals",
+          "products/yield-distribution"
+        ]
+      },
+      {
+        "group": "Governance",
+        "pages": [
+          "governance/team-and-goals",
+          "governance/governance",
+          "governance/treasury",
+          "governance/partnerships",
+          "governance/community"
+        ]
+      },
+      {
+        "group": "Safety",
+        "pages": [
+          "safety/security-standards",
+          "safety/risk-checklist",
+          "safety/contracts-and-timelocks",
+          "safety/audits-and-bug-bounty",
+          "safety/insurance"
+        ]
+      },
+      {
+        "group": "FAQ",
+        "pages": [
+          "faq/general",
+          "faq/vault-apy",
+          "faq/how-to-guides"
+        ]
+      },
+      {
+        "group": "Developer Documentation",
+        "pages": [
+          "developers/vault-contract",
+          "developers/strategy-contract",
+          "developers/other-contracts",
+          "developers/api"
+        ]
+      },
+      {
+        "group": "Additional Resources",
+        "pages": [
+          "resources/contract-addresses",
+          "resources/code-repositories"
+        ]
+      }
+    ]
+  }
+}
