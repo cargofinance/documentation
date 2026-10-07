@@ -7,10 +7,10 @@
     "dark": "#062433"
   },
   "logo": {
-    "light": "/images/cargo-logo.png",
-    "dark": "/images/cargo-logo.png"
+    "light": "/images/cargo-logo-v2.png",
+    "dark": "/images/cargo-logo-v2.png"
   },
-  "favicon": "/images/cargo-logo.png",
+  "favicon": "/images/cargo-logo-v2.png",
   "contextual": {
     "options": [
       "copy",
