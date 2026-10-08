@@ -8,7 +8,7 @@
   },
   "logo": {
     "light": "/images/cargo-letterhead.png",
-    "dark": "/images/cargo-logo-v2.png"
+    "dark": "/images/cargo-letterhead-dark.png"
   },
   "favicon": "/images/cargo-logo-v2.png",
   "contextual": {
