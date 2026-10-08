@@ -4,24 +4,32 @@ sidebarTitle: "Cargo Protocol"
 description: "An overview of the Cargo Protocol architecture and how revenue and fees flow between depositors, strategies, and the protocol treasury."
 ---
 
-The Cargo Protocol coordinates on-chain vaults, strategy contracts, and real-world asset allocation. This page describes how the protocol is structured and how value flows through it.
+Cargo Finance connects on-chain capital with real-world yield-generating assets through a structured vault architecture. The protocol facilitates capital allocation, yield distribution, and transparent revenue management across its ecosystem.
 
-## Protocol architecture
+## Protocol Architecture
 
-[Describe the high-level architecture in 2-3 sentences. Mention vault contracts, strategy contracts, and any protocol-level contracts that coordinate between them.]
+Cargo operates through **RWA Vault smart contracts** that receive investor deposits and allocate capital to curated investment strategies. Strategy contracts manage the on-chain allocation and accounting of capital deployed into real-world assets, while protocol-level contracts coordinate vault operations, fee collection, and distributions.
 
-## Revenue and fee flow
+## Revenue and Fee Flow
 
-[Explain how fees are collected and distributed. Example: a performance fee is taken from yield, a management fee may be charged on assets under management, and the remainder is distributed to depositors. Include treasury allocation if applicable.]
+Revenue is generated through underlying real-world financing activities, including private credit interest, financing fees, and profit-sharing arrangements.
 
-## Fee parameters
+As strategies generate returns, applicable protocol fees are deducted from realized yield, with the remaining returns allocated to depositors according to their vault participation.
 
-| Fee type | Value | Recipient |
-| --- | --- | --- |
-| Performance fee | [X%] | [Treasury / governance / other] |
-| Management fee | [Y%] | [Treasury / governance / other] |
-| Withdrawal fee | [Z%] | [Treasury / governance / other] |
+Protocol revenue may be directed to the **Cargo Treasury** to support ecosystem development, operations, and long-term sustainability.
 
-<Info>
-  Fee parameters are set per vault and may be adjusted through governance proposals. Always review the current fee schedule before depositing.
-</Info>
+## Fee Parameters
+
+| Fee Type | Value | Recipient |
+| :-- | :-- | :-- |
+| Performance Fee | TBD (% of realized yield) | Cargo Treasury |
+| Management Fee | TBD (% of AUM annually) | Cargo Treasury |
+| Withdrawal Fee | TBD (% of withdrawal) | Cargo Treasury |
+
+_Fee parameters are subject to final protocol configuration and may vary by vault or investment strategy._
+
+## Revenue Flow Summary
+
+**Depositors → RWA Vaults → Investment Strategies → Real-World Assets → Generated Yield → Protocol Fees + Depositor Returns**
+
+Cargo's revenue model is designed to align protocol sustainability with investor returns through transparent, performance-linked fee structures.Fee parameters are set per vault and may be adjusted through governance proposals. Always review the current fee schedule before depositing.

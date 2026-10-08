@@ -10,21 +10,40 @@ Yield from real-world assets backing Cargo Vaults is collected off-chain, brough
 
 <AccordionGroup>
   <Accordion title="How yield accrues">
-    [Describe whether yield accrues continuously, daily, or at fixed intervals tied to underlying asset coupons or maturities.]
+    Yield is generated through interest payments, financing fees, and profit-sharing arrangements from underlying real-world assets.
+
+    Returns accrue according to each asset's repayment schedule and may be reflected in the vault's Net Asset Value (NAV) as income is recognized.
+
+    Actual yield depends on the performance of the underlying investments and is not guaranteed.
   </Accordion>
 
   <Accordion title="Payout timing">
-    [Describe when yield is credited, e.g., at each asset maturity, weekly, or monthly. Include any delay between off-chain collection and on-chain distribution.]
+    Yield distributions follow each vault's investment duration and underlying asset repayment schedules.
+
+    - **90-Day Vaults:** Distributions according to the short-term investment cycle.
+    - **180-Day Vaults:** Distributions according to the medium-term investment cycle.
+    - **360-Day Vaults:** Distributions according to the long-term investment cycle.
+
+    Once off-chain payments are received, verified, and reconciled, eligible returns are made available for on-chain distribution, subject to applicable fees and processing timelines.
   </Accordion>
 
   <Accordion title="Reinvestment options">
-    [Explain whether depositors can auto-compound yield back into the vault or claim it to their wallet. Include how to toggle this setting in the app.]
+    Depending on the vault's configuration, depositors may have two options for managing their earnings:
+
+    - **Auto-Compound:** Reinvest earned yield into the vault to increase capital exposure and potential future returns.
+    - **Claim Yield:** Withdraw available earnings to a connected wallet without redeeming the original principal, where permitted.
+
+    Reinvestment preferences are managed through the vault's dashboard, where supported. Available options, payout schedules, and withdrawal restrictions depend on each vault's investment terms.
   </Accordion>
 </AccordionGroup>
 
 ## Tracking Your Earnings
 
-You can monitor yield in the Cargo app or by reading vault share value directly from the contract. [Include the relevant contract page if helpful, e.g., /developers/vault-contract.]
+Cargo aims to provide depositors with visibility into vault performance through on-chain accounting and investment reporting.
+
+Key metrics may include **current APY, accrued yield, distributed earnings, NAV, and historical performance**.
+
+_Displayed APYs are estimates based on the applicable methodology and do not represent guaranteed returns. Off-chain settlement delays, asset performance, and liquidity conditions may affect actual distributions._
 
 <CardGroup cols={2}>
   <Card title="On the App" icon="chart-line" href="/products/vaults">

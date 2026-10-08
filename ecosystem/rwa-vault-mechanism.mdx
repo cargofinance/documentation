@@ -4,32 +4,56 @@ sidebarTitle: "RWA Vault Mechanism"
 description: "Learn how Cargo Finance RWA Vaults bridge on-chain deposits with off-chain real-world assets, covering backing, NAV, pricing, and redemption."
 ---
 
-RWA Vaults are the core product of Cargo Finance. They accept crypto deposits, allocate capital to real-world asset strategies, and return yield to depositors while maintaining on-chain transparency.
+RWA Vaults are the core product of Cargo Finance. They accept crypto deposits, allocate capital to curated real-world asset strategies, and generate potential yield for depositors while maintaining on-chain transparency.
 
-## How RWA vaults work
+## How RWA Vaults Work
 
-[Describe the deposit-to-allocation flow. Example: deposits are pooled in a smart contract vault, then directed to a strategy that holds or manages off-chain assets through legal structures and custodians.]
+Depositors provide capital through smart contract vaults, typically using stablecoins. Funds are pooled and allocated to selected strategies financing real-world economic activities, including private credit and trade finance.
 
-## Asset backing
+As underlying assets generate returns, yield is attributed to depositors based on their vault participation, after applicable fees.
 
-[Explain what backs the vault. Example: the vault represents a claim on a portfolio of real-world assets held by a custodian or special purpose vehicle. Include asset types and jurisdiction placeholders.]
+## Asset Backing
 
-## On-chain vs off-chain components
+Cargo Vaults are designed to provide exposure to real-world financing opportunities backed by identifiable assets, contractual receivables, or collateral.
 
-| Component | On-chain | Off-chain |
-| --- | --- | --- |
-| Deposit/withdrawal | Smart contract | Settlement instructions |
-| Ownership record | Tokenized position | Legal agreements |
-| Asset holding | Transparency/NAV reporting | Custodian / SPV |
-| Yield accrual | Automated distribution | Asset cash flows |
+Underlying investments may include:
 
-## NAV and pricing
+- **Private Credit:** Loans to businesses and institutional borrowers.
+- **Trade Finance:** Financing backed by trade receivables and commercial transactions.
+- **Asset-Backed Financing:** Credit secured against physical or financial assets.
 
-[Explain how the net asset value is calculated and updated. Include frequency and oracle/provider placeholders.]
+Assets are originated primarily across Africa and emerging markets, with legal ownership, custody, and investor claims determined by each vault's structure and jurisdiction.
+
+## On-Chain vs. Off-Chain Components
+
+| Component | On-Chain | Off-Chain |
+| :-- | :-- | :-- |
+| Deposits & Withdrawals | Smart contract vaults | Fiat settlement, where required |
+| Ownership Records | Tokenized vault positions | Legal agreements and investor records |
+| Asset Management | Strategy allocation and accounting | Origination, servicing, and custody |
+| Transparency & NAV | Vault reporting and valuation updates | Asset verification and financial reporting |
+| Yield Distribution | Smart contract accounting and distributions | Interest payments and asset cash flows |
+
+## NAV and Pricing
+
+**Net Asset Value (NAV)** represents the total value of a vault's underlying assets, including accrued income, less liabilities and applicable fees.
+
+NAV is calculated using verified asset valuations and financial reporting, with updates reflected on-chain through designated data providers or reporting mechanisms.
+
+- **Valuation Frequency:** [To be confirmed]
+- **NAV Data Provider / Oracle:** [To be confirmed]
 
 ## Redemption
 
-[Describe the withdrawal and redemption process. Mention any notice periods, liquidity buffers, or lock-up terms.]
+Depositors request withdrawals through the Cargo Vault interface. Redemption is processed according to the vault's available liquidity and investment terms.
+
+Depending on the underlying strategy, vaults may include:
+
+- **Lock-Up Periods:** Defined investment durations, potentially 90, 180, or 360 days.
+- **Redemption Windows:** Scheduled opportunities to withdraw capital.
+- **Liquidity Buffers:** Available reserves to support eligible withdrawals.
+
+Withdrawal timing and liquidity depend on the underlying assets, repayment schedules, and vault-specific conditions. Returns and principal are not guaranteed.
 
 <Warning>
   Real-world asset strategies may involve settlement delays or liquidity constraints that differ from standard DeFi vaults. Review the vault-specific terms before depositing.

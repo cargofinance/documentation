@@ -4,24 +4,47 @@ sidebarTitle: "Vault APY"
 description: "Learn how Cargo Finance calculates and displays vault APY for RWA-backed pools, including yield sources and compounding assumptions."
 ---
 
-Vault APY on Cargo Finance reflects the expected annual yield from the real-world assets backing each vault. Understanding how it is calculated helps you compare opportunities and set realistic expectations.
+Cargo Finance Vaults generate potential yield through real-world investment strategies, including private credit, trade finance, and asset-backed financing. Each vault displays an estimated Annual Percentage Yield (APY) to help depositors evaluate potential returns.
 
 ## APY vs. APR
 
-[Clarify whether Cargo Finance displays APY or APR, and explain the compounding assumptions used in the calculation.]
+**Annual Percentage Yield (APY)** represents the estimated annual return on an investment, including the effects of compounding.
+
+**Annual Percentage Rate (APR)** represents the annualized return without compounding.
+
+Cargo uses APY as its target yield metric. Where compounding is supported, projected APY reflects the applicable reinvestment frequency. Otherwise, returns are presented on a non-compounded basis.
 
 ## Yield Sources
 
-The yield comes from a combination of sources, which may include:
+Vault returns are generated through underlying real-world economic activities, including:
 
-- [RWA yield source, e.g., Treasury yields or private credit returns]
-- [Incentive or reward source, if applicable]
-- [Any protocol fee structure that affects net APY]
+- **Private Credit:** Interest earned from business lending and structured financing.
+- **Trade Finance:** Returns generated through short-term commercial financing and receivables.
+- **Profit Sharing:** Additional returns linked to the profitability of eligible underlying transactions.
+- **Protocol Incentives:** Additional rewards, where applicable, reported separately from underlying asset yield.
+
+Displayed net APY accounts for applicable management and performance fees, based on each vault's fee structure.
 
 ## How Often Is APY Updated?
 
-[State the frequency of APY updates, for example in real time, every block, or once per day.]
+APY estimates are updated as new asset performance data, repayment information, and valuations become available.
+
+- **Update Frequency:** [To be confirmed]
+- **Reporting Basis:** Underlying asset performance and vault NAV.
+- **Historical Performance:** Available through vault reporting, where supported.
+
+Because returns originate from off-chain assets, APY updates may not occur with every blockchain transaction.
 
 ## Why Does APY Change?
 
-APY can fluctuate based on [factors such as RWA market conditions, vault utilization, or reward program changes]. [Add guidance on how users should interpret short-term variance versus long-term expectations.]
+Vault APY may fluctuate due to:
+
+- **Market Conditions:** Changes in lending rates and credit demand.
+- **Asset Performance:** Borrower repayments, defaults, and financing profitability.
+- **Capital Allocation:** Changes in vault utilization and available investment opportunities.
+- **Reinvestment:** Compounding frequency and reinvestment availability.
+- **Protocol Fees:** Changes to applicable management or performance fees.
+
+Short-term APY fluctuations do not necessarily reflect long-term performance. Depositors should consider the vault's underlying assets, risk profile, and investment duration when evaluating projected returns.
+
+_APY figures are estimates, not guaranteed returns. Actual performance may differ due to credit risk, market conditions, liquidity constraints, and underlying asset performance._

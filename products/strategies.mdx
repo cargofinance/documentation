@@ -4,23 +4,43 @@ sidebarTitle: "Strategies"
 description: "Learn how Cargo generates yield across real-world asset strategies. Understand allocation rules, reinvestment, and rebalancing for vault deposits."
 ---
 
-Each Cargo Vault follows a defined strategy that governs how deposits are allocated to real-world assets, reinvested, and rebalanced. Strategies are set at launch and adjusted through governance when market conditions change.
+Each Cargo Vault follows a defined investment strategy governing capital allocation, yield distribution, and portfolio management. Strategies are established at launch and may be adjusted through governance to reflect changing market conditions.
 
 ## Strategy Overview
 
-A strategy defines the target asset mix, duration, and reinvestment rules for a vault.
+Each strategy defines the vault's target asset allocation, investment duration, risk exposure, and reinvestment approach.
 
 <AccordionGroup>
   <Accordion title="Allocation Rules">
-    [Describe the target allocation percentages and the maximum exposure limits per asset type or counterparty. Include any single-asset caps.]
+    Capital is allocated across curated real-world asset opportunities, including private credit, trade finance, and asset-backed financing.
+
+    - **Target Allocation:** Defined individually for each vault.
+    - **Counterparty Exposure:** Limited to reduce concentration risk.
+    - **Single-Asset Cap:** Maximum exposure determined by the vault's risk parameters.
+    - **Liquidity Reserves:** A portion of capital may be retained to support withdrawals and operational requirements.
+
+    Specific allocation percentages and exposure limits are published in each vault's strategy parameters.
   </Accordion>
 
   <Accordion title="Reinvestment Logic">
-    [Explain how earned yield is handled: auto-compounded back into the vault, distributed to depositors, or held in reserves. Include the reinvestment frequency.]
+    Generated yield is managed according to the vault's investment terms and may be:
+
+    - **Auto-Compounded:** Reinvested to generate additional returns.
+    - **Distributed:** Paid to depositors at scheduled intervals.
+    - **Reserved:** Retained to support liquidity and risk management.
+
+    Reinvestment frequency and distribution schedules are defined at vault launch.
   </Accordion>
 
   <Accordion title="Rebalancing Triggers">
-    [Describe the conditions that trigger rebalancing, such as deviation from target allocation, maturity events, or credit rating changes.]
+    Vault allocations may be adjusted in response to:
+
+    - Portfolio deviations from target allocations.
+    - Maturity or repayment of underlying investments.
+    - Changes in borrower creditworthiness or collateral quality.
+    - Market conditions and liquidity requirements.
+
+    Rebalancing follows predefined risk limits and applicable governance approvals.
   </Accordion>
 </AccordionGroup>
 
@@ -28,13 +48,22 @@ A strategy defines the target asset mix, duration, and reinvestment rules for a 
 
 <Steps>
   <Step title="Proposal">
-    A new strategy or update is proposed through the [governance/governance](/governance/governance) process.
+    New strategies or changes to existing allocations are submitted through the [Cargo Governance](https://cargo-finance.mintlify.site/governance/governance) process.
   </Step>
   <Step title="Review">
-    [Describe the review period and any risk or compliance checks performed before approval.]
+    Proposals undergo risk assessment, asset due diligence, and compliance checks before approval. Reviews evaluate expected returns, collateral quality, counterparty exposure, and alignment with vault objectives.
+
+    - **Review Period:** To be confirmed.
+    - **Approval Requirements:** Defined by the governance framework.
   </Step>
   <Step title="Deployment">
-    Approved strategy changes are deployed via the vault contracts. [Include whether there is a timelock and its duration.]
+    Approved strategies are implemented through the relevant vault and strategy contracts, subject to applicable authorization controls.
+
+    - **Timelock:** To be confirmed.
+    - **Execution:** Authorized protocol operators or governance mechanisms.
+    - **Transparency:** On-chain strategy updates and allocation records, where supported.
+
+    All strategy changes remain subject to the vault's investment mandate and applicable risk controls.
   </Step>
 </Steps>
 
