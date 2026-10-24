@@ -23,6 +23,21 @@ The insurer and policy terms are shared with investors on signing and in the dat
 
 ## Loss absorption, in order
 
+```mermaid
+flowchart TD
+    S["A shortfall or loss on a lot"] --> T{"Weight or grade<br/>shortfall?"}
+    T -- "Yes" --> U["1 · Originator tops up<br/>within five business days"]
+    U -- "if not" --> V["2 · Met from the originator's<br/>10% subordinated shares"]
+    T -- "Physical loss or damage" --> I["3 · Claim under the<br/>all-risks stock policy"]
+    V -- "if still short" --> E["4 · Security agent enforces the pledge;<br/>the SPV sells the goods"]
+    I -- "if still short" --> E
+    E --> H(["Senior holders"])
+    classDef navy fill:#0B2A37,stroke:#0B2A37,color:#ffffff
+    classDef orange fill:#F47A20,stroke:#F47A20,color:#ffffff
+    class H navy
+    class U,V,I,E orange
+```
+
 <Steps>
   <Step title="Originator top-up">A weight or grade shortfall is topped up by the originator within five business days.</Step>
   <Step title="Subordinated shares">If not, it is met from the originator's 10% subordinated shares (first loss).</Step>

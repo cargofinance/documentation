@@ -20,7 +20,25 @@ Cargo Vault One is a **venue for receipted commodities**. The Vault SPV is the o
 
 ## How money and goods flow
 
-**Originator lot → collateral manager receipt → mint (90% senior, 10% subordinated) → batch auction → buyer's wallet → hold, redeem, bridge or deliver → export sale at parity → USDC back to the vault**
+How cocoa and money move between the parties. Buyers settle atomically in the auction, and the Vault SPV is paid when the cocoa is exported.
+
+```mermaid
+flowchart TD
+    O["Originator"] -- "delivers cocoa" --> CM["Collateral manager<br/>receipts it in the SPV's name"]
+    CM -- "receipted kilos" --> M["Mint: 90% senior · 10% subordinated"]
+    M -- "new shares" --> A["Batch auction"]
+    W(["Buyer's wallet"]) -- "USDC" --> A
+    A -- "shares" --> W
+    A -- "proceeds" --> SPV["Vault SPV"]
+    SPV -- "EUR or XAF, via a CEMAC bank" --> O
+    CM -- "cocoa released at export" --> X["Offtaker or exporter"]
+    X -- "payment at export parity" --> SPV
+    SPV -- "USDC on redemption" --> W
+    classDef navy fill:#0B2A37,stroke:#0B2A37,color:#ffffff
+    classDef orange fill:#F47A20,stroke:#F47A20,color:#ffffff
+    class SPV navy
+    class W orange
+```
 
 ## Fee schedule
 

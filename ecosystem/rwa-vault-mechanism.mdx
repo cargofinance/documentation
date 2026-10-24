@@ -8,6 +8,37 @@ Every cvCOCOA share is backed by one kilogram of cocoa that already exists, sits
 
 ## What stands behind a share
 
+Three layers stand behind every share: the token on-chain, the legal title and pledge, and the physical cocoa under independent control.
+
+```mermaid
+flowchart TB
+    subgraph CHAIN["On-chain"]
+        W(["Holder wallet<br/>cvCOCOA · ERC-3643"])
+        IR["Identity registry<br/>whitelisted wallets only"]
+    end
+    subgraph LEGAL["Legal"]
+        SPV["Vault SPV, Seychelles<br/>owns every lot · limited recourse"]
+        SA["Security agent<br/>one OHADA pledge for all holders"]
+    end
+    subgraph PHYSICAL["Physical"]
+        CM["Collateral manager<br/>sole release authority"]
+        LOTS[("Receipted lots<br/>graded · insured")]
+        V["Vallis<br/>inspects, weighs, grades"]
+        O["Originator<br/>keeps 10% first loss"]
+    end
+    W -. "transfers checked against" .-> IR
+    W -- "1 share = 1 kg owned by" --> SPV
+    SPV -- "title to" --> LOTS
+    SA -- "pledge with dispossession" --> CM
+    CM -- "holds and controls" --> LOTS
+    V -- "verifies" --> LOTS
+    O -- "delivers and warrants" --> LOTS
+    classDef navy fill:#0B2A37,stroke:#0B2A37,color:#ffffff
+    classDef orange fill:#F47A20,stroke:#F47A20,color:#ffffff
+    class SPV,SA navy
+    class LOTS orange
+```
+
 <AccordionGroup>
   <Accordion title="Title" icon="file-contract">
     A bankruptcy-remote Seychelles **Vault SPV** owns every receipted lot under a supply agreement that takes effect on receipt. It has no other business and no other creditors, and every contract carries non-petition and limited-recourse terms.
@@ -56,9 +87,32 @@ Every cvCOCOA share is backed by one kilogram of cocoa that already exists, sits
 
 The trade it captures, per kilogram: farmgate **2,600 FCFA** → receipted cost in Douala **2,756 FCFA ($4.793)** → NAV **3,034 FCFA ($5.277)**. The **10.1% delta** is the margin that normally goes to whoever exports.
 
+<Frame caption="ONCC prices of 9 Oct 2026. NAV is restruck every day.">
+  <img className="block dark:hidden" src="/images/charts/farm-to-export-light.svg" alt="Bar chart: farmgate 2,600, receipted cost 2,756, NAV 3,034 and ONCC FOB 3,259 FCFA per kg, with a 10.1% spread between receipted cost and NAV" />
+  <img className="hidden dark:block" src="/images/charts/farm-to-export-dark.svg" alt="Bar chart: farmgate 2,600, receipted cost 2,756, NAV 3,034 and ONCC FOB 3,259 FCFA per kg, with a 10.1% spread between receipted cost and NAV" />
+</Frame>
+
 **iNAV.** Between daily fixes, an indicative NAV moves NAV with ICE London cocoa (second position), converted through GBP, EUR and the peg. It is published every minute by API and WebSocket and every 15 minutes on-chain during ICE hours. Creations and redemptions always strike at NAV, not iNAV.
 
 ## Price guards
+
+How each day's NAV is set, and what happens when the ONCC price and ICE disagree:
+
+```mermaid
+flowchart TD
+    A["ONCC publishes its daily FOB price"] --> B{"Published within<br/>two business days?"}
+    B -- "No" --> F["Fallback NAV:<br/>ICE London + 30-day median differential"]
+    B -- "Yes" --> C{"ONCC-implied differential to ICE<br/>moved more than $250/t<br/>from its 30-day median?"}
+    C -- "Yes" --> F
+    C -- "No" --> D["NAV = ONCC FOB − export levy − FOB costs<br/>converted at 575 XAF/USD"]
+    F --> P["Creations and redemptions<br/>pause for that batch"]
+    D --> E(["NAV posted on-chain<br/>iNAV moves with ICE between fixes"])
+    F --> E
+    classDef navy fill:#0B2A37,stroke:#0B2A37,color:#ffffff
+    classDef orange fill:#F47A20,stroke:#F47A20,color:#ffffff
+    class D navy
+    class F,P orange
+```
 
 | Guard | Rule |
 | :-- | :-- |
