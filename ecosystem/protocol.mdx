@@ -1,6 +1,7 @@
 ---
 title: "Cargo Protocol Overview and Revenue Flow"
 sidebarTitle: "Cargo Protocol"
+icon: "sitemap"
 description: "How a Cargo vault is structured, how money and goods move between holders, originators and buyers, and the full fee schedule."
 ---
 
@@ -12,8 +13,8 @@ Every vault is built from the same layers. The examples in brackets are the Gene
 
 | Layer | What it does |
 | :-- | :-- |
-| Goods | Receipted lots in a warehouse or vault under an independent collateral manager (Genesis Vault: lots of 25 t or more at AGL Bonabéri, Douala) |
-| Title and security | Vault SPV owns every lot; one registered pledge over the goods, held by a security agent for all holders (Genesis Vault: an OHADA pledge with dispossession, registered at the RCCM) |
+| Goods | Receipted lots in a warehouse or vault under an independent collateral manager (Genesis Vault: lots of 25 t or more) |
+| Title and security | Vault SPV owns every lot; one registered pledge over the goods, held by a security agent for all holders (a pledge with dispossession) |
 | Token | One ERC-3643 token per vault, 1 share = 1 unit of the asset; transfers only between whitelisted identities (Genesis Vault: cvCOCOA, 1 share = 1 kg) |
 | Primary market | Genesis curve, then a sealed batch auction at a fixed interval; the SPV is the only seller (Genesis Vault: every 12 days) |
 | Anchor | Creation at NAV + 0.10%, redemption at NAV − 0.10%, Liquidity Bridge at NAV − 1.0%, physical delivery above a set size |
@@ -39,13 +40,11 @@ sequenceDiagram
     B->>A: Sealed bid in USDC
     A-->>B: Shares at the clearing price
     A-->>SPV: Auction proceeds
-    SPV-->>O: Local currency via a local bank
+    SPV-->>O: Local currency via a partner bank
     CM->>X: Releases the goods at sale
     X-->>SPV: Payment at the reference price
     SPV-->>B: USDC on redemption
 ```
-
-In the Genesis Vault, originators are paid in EUR or XAF through a CEMAC bank, and the cocoa is released at export and paid at export parity.
 
 ## Fee schedule
 

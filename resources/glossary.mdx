@@ -1,10 +1,11 @@
 ---
 title: "Glossary"
 sidebarTitle: "Glossary"
+icon: "spell-check"
 description: "Plain definitions of the commodity, legal and on-chain terms used across the Cargo Finance docs, for DeFi readers and commodity desks alike, plus the terms specific to the Genesis Vault."
 ---
 
-Cargo Finance sits between the physical trade in real-world assets and DeFi. Each side has its own vocabulary. This page defines both, then the local terms used for the Genesis Vault (Cameroon cocoa).
+Cargo Finance sits between the physical trade in real-world assets and DeFi. Each side has its own vocabulary. This page defines both, then the terms specific to the Genesis Vault.
 
 ## Commodity and trade terms
 
@@ -13,14 +14,13 @@ Cargo Finance sits between the physical trade in real-world assets and DeFi. Eac
 | **Collateral manager** | An independent firm that controls the warehouse or vault, weighs, grades and signs for goods, and releases them only against payment |
 | **Delivery costs** | The fixed costs of moving goods from storage to the point where the reference price applies (for example port, handling and insurance). They are deducted in NAV |
 | **EUDR** | The EU Deforestation Regulation; it requires plot-level origin data for commodities such as cocoa, coffee and cattle products sold into the EU |
-| **Export parity** | What goods are worth at the point of export, after export costs |
 | **Farmgate price** | The price paid to farmers or cooperatives at origin |
 | **FOB (free on board)** | A price for goods loaded on the vessel at the port of export, with the buyer paying freight from there |
 | **Hedge market** | The liquid futures or benchmark market a vault's asset is checked and hedged against (for example ICE for softs, LME for base metals, LBMA for gold) |
 | **Lot** | A batch of goods received into custody, with its own lot ID, weight, grade and receipt |
 | **Offtaker** | A buyer (exporter, processor, refiner or trader) that buys the goods for export or processing |
 | **Receipt** | The collateral manager's signed record that a lot is in custody, with its weight and grade. No receipt, no mint |
-| **Reference price** | The published price a vault's NAV starts from: a national board's price, an exchange price or a benchmark |
+| **Reference price** | The published price a vault's NAV starts from: an exchange settlement price or a benchmark |
 
 ## Legal and regulatory terms
 
@@ -29,8 +29,8 @@ Cargo Finance sits between the physical trade in real-world assets and DeFi. Eac
 | **Limited recourse, non-petition** | Contract terms that stop creditors from claiming beyond the SPV's assets or forcing it into insolvency |
 | **Pledge with dispossession** | A pledge where the goods are handed to a third party (here, the collateral manager) rather than staying with the owner |
 | **Regulation S** | The US rule for offers made outside the United States. Cargo vaults are offered only to non-US persons |
-| **Seychelles FSA** | The Financial Services Authority of Seychelles, which Cargo has asked to confirm how it classifies cvCOCOA |
-| **SPV** | Special purpose vehicle. The bankruptcy-remote Seychelles company that owns every receipted lot in a vault |
+| **Seychelles FSA** | The Financial Services Authority of Seychelles, where the Vault SPV is incorporated. Cargo has asked it to confirm how it classifies cvCOCOA |
+| **SPV** | Special purpose vehicle. The bankruptcy-remote company that owns every receipted lot in a vault |
 
 ## Vault and market terms
 
@@ -43,7 +43,7 @@ Cargo Finance sits between the physical trade in real-world assets and DeFi. Eac
 | **Discount to NAV** | How far below NAV new shares sell. It is the main source of return for holders |
 | **First loss (subordination)** | The 10% of each lot that originators keep as subordinated shares; it absorbs shortfalls before senior holders |
 | **Genesis Auction** | The first sale of a vault's shares, on a bonding curve, with a minimum and a cap |
-| **Genesis Vault** | The first Cargo vault: export-grade Cameroon cocoa in Douala, issued as cvCOCOA |
+| **Genesis Vault** | The first Cargo vault: West African Grade 1 cocoa priced off ICE London Cocoa, issued as cvCOCOA |
 | **Hold / Rotate** | Hold: keep shares bought below NAV. Rotate: buy in each batch, pre-sell the units, redeem and bid again |
 | **iNAV** | Indicative NAV between daily fixes, moved with the asset's hedge market |
 | **Liquidity Bridge** | A pool of LP capital that buys shares instantly from holders at NAV − 1.0% |
@@ -51,8 +51,7 @@ Cargo Finance sits between the physical trade in real-world assets and DeFi. Eac
 | **Reserve price** | The lowest price an originator will accept for a lot in a batch, published before the window opens |
 | **RFQ** | Request for quote: a holder asks panel market makers for firm prices on a block |
 | **Tape** | The public record of each batch: clearing price, discount to NAV, volume, bid-to-cover and lot IDs |
-| **UN/LOCODE** | The UN code for a port (DLA for Douala, KBI for Kribi), used to name port vaults |
-| **Vault** | One asset in one location, held as receipted, pledged inventory by a Vault SPV, with its own lots, NAV and token |
+| **Vault** | One asset, held as receipted, pledged inventory by a Vault SPV, with its own lots, NAV and token |
 
 ## On-chain terms
 
@@ -69,17 +68,10 @@ Cargo Finance sits between the physical trade in real-world assets and DeFi. Eac
 
 ## Genesis Vault terms
 
-Terms that apply to the Genesis Vault's Cameroon cocoa and its local legal setting.
-
 | Term | Meaning |
 | :-- | :-- |
-| **AGL Bonabéri** | The port terminal in Douala, Cameroon, where Genesis Vault lots are stored in a collateral-managed bay |
-| **BEAC** | The central bank of the CEMAC region. Its exchange rules govern how export proceeds are repatriated |
-| **CEMAC** | The Central African Economic and Monetary Community: Cameroon, Central African Republic, Chad, Republic of the Congo, Equatorial Guinea and Gabon. Residents are excluded from the Genesis Vault |
+| **CEMAC** | The Central African Economic and Monetary Community. Its residents are excluded from the Genesis Vault offer |
 | **Cut test, bean count, moisture** | Standard cocoa quality checks recorded on every Genesis Vault receipt |
-| **cvCOCOA** | Cargo Vault Cocoa · Douala, the Genesis Vault token. One share is one kilogram of receipted cocoa |
-| **FCFA (XAF)** | The Central African CFA franc, pegged at 655.957 per euro |
-| **ICE London cocoa** | The cocoa futures contract on ICE Futures Europe. One lot is 10 tonnes; it is the hedge reference for cvCOCOA |
-| **OHADA** | The Organisation for the Harmonisation of Business Law in Africa. Its Uniform Act on secured transactions governs the pledge over the Genesis Vault's cocoa |
-| **ONCC** | Office National du Cacao et du Café, Cameroon's cocoa and coffee board. It publishes the daily FOB reference price that the Genesis Vault's NAV starts from |
-| **RCCM** | The trade and personal property credit register where companies and pledges are recorded in OHADA countries |
+| **cvCOCOA** | Cargo Vault Cocoa, the Genesis Vault token. One share is one kilogram of receipted cocoa |
+| **ICE London Cocoa** | The cocoa futures contract on ICE Futures Europe, quoted in GBP per tonne. One lot is 10 tonnes. It is the price reference and hedge for cvCOCOA |
+| **West African Grade 1** | The top export grade for West African cocoa beans: well fermented and dried, with the tightest limits on moisture, mould, slate and defective beans. The Genesis Vault holds only this grade |

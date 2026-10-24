@@ -1,6 +1,7 @@
 ---
 title: "Returns, NAV and Pricing FAQ"
 sidebarTitle: "Returns & NAV"
+icon: "chart-line"
 description: "Why Cargo vaults show NAV and discounts instead of an APY, how NAV is calculated and updated, what moves it, and how to read the figures, with the Genesis Vault (cvCOCOA) as the worked example."
 ---
 
@@ -10,13 +11,13 @@ description: "Why Cargo vaults show NAV and discounts instead of an APY, how NAV
   </Accordion>
 
   <Accordion title="How is NAV calculated?">
-    Every vault uses the same shape: NAV per share = (reference price − statutory levies − delivery costs) ÷ FX. The reference is a published price for the asset, such as a national board's export price, an exchange price or the LBMA benchmark for gold.
+    Every vault uses the same shape: NAV per share = (reference price − statutory levies − delivery costs) ÷ FX. The reference is a published price for the asset, such as an exchange settlement price or the LBMA benchmark for gold.
 
-    In the Genesis Vault: NAV per share = (ONCC FOB reference − export levy − FOB costs) ÷ FX. At ONCC prices of 9 Oct 2026: (3,259 − 125 − 100) FCFA/kg = 3,034 FCFA/kg, divided by 575 XAF per USD = **$5.277**.
+    In the Genesis Vault, the reference is **ICE London Cocoa** for West African Grade 1 beans, less delivery costs, converted from GBP to USD. At 9 Oct 2026 prices, NAV was **$5.277** per share.
   </Accordion>
 
   <Accordion title="How often is NAV updated?">
-    NAV is struck daily after the reference price publishes and posted on-chain. iNAV, which moves NAV with the asset's hedge market between fixes, updates every minute by API and WebSocket and every 15 minutes on-chain during market hours. Creations and redemptions strike at NAV. In the Genesis Vault, NAV follows ONCC and iNAV follows ICE London cocoa.
+    NAV is struck daily after the reference price publishes and posted on-chain. iNAV, which moves NAV with the asset's hedge market between fixes, updates every minute by API and WebSocket and every 15 minutes on-chain during market hours. Creations and redemptions strike at NAV. In the Genesis Vault, both follow ICE London Cocoa.
   </Accordion>
 
   <Accordion title="Why does NAV change?">
@@ -25,7 +26,7 @@ description: "Why Cargo vaults show NAV and discounts instead of an APY, how NAV
     - Delivery costs are re-based periodically on invoices, or at once if realised sales run well below NAV.
     - Statutory levies change only if the law changes.
 
-    In the Genesis Vault: the ONCC FOB price of cocoa, EUR/USD (the CFA franc is pegged to the euro), FOB costs re-based quarterly or at once if realised sales run $150/t below NAV for 30 days, and the export levy.
+    In the Genesis Vault: ICE London Cocoa, GBP/USD, and delivery costs, re-based quarterly or at once if realised sales run $150/t below NAV for 30 days.
   </Accordion>
 
   <Accordion title="What is the discount, and why does it change?">
@@ -35,7 +36,7 @@ description: "Why Cargo vaults show NAV and discounts instead of an APY, how NAV
   <Accordion title="Who pays for the discount?">
     The originator. Originators acquire goods at origin below their reference value, and selling shares below NAV passes part of that margin to holders. Each lot carries a reserve price, published before the batch window, so a lot never clears below what its originator will accept.
 
-    In the Genesis Vault, Nova buys at the farm gate and receipts the cocoa in Douala at a cost below export parity: 2,756 FCFA/kg against a NAV of 3,034 FCFA/kg at 9 Oct 2026 prices, a 10.1% spread. At those prices, Nova's reserve means a batch clears no more than about 7.3% below NAV.
+    In the Genesis Vault, Nova buys at the farm gate and receipts the cocoa at $4.793/kg, against a NAV of $5.277/kg at 9 Oct 2026 prices: a 10.1% spread. At those prices, Nova's reserve means a batch clears no more than about 7.3% below NAV.
   </Accordion>
 
   <Accordion title="Is NAV the price I can sell at?">
@@ -47,7 +48,7 @@ description: "Why Cargo vaults show NAV and discounts instead of an APY, how NAV
   </Accordion>
 
   <Accordion title="What happens if the reference price and the hedge market disagree?">
-    Every vault has a differential check and an outage fallback. In the Genesis Vault, if the ONCC-implied differential to ICE moves more than $250/t from its 30-day median, or ONCC does not publish for two business days, NAV falls back to ICE plus the median differential and creations and redemptions pause for that batch.
+    Every vault has a differential check and an outage fallback. In the Genesis Vault, if the physical differential to ICE London Cocoa moves more than $250/t from its 30-day median, or no reference price publishes for two business days, NAV uses the median differential and creations and redemptions pause for that batch.
   </Accordion>
 
   <Accordion title="Can I borrow against my shares?">
@@ -56,5 +57,5 @@ description: "Why Cargo vaults show NAV and discounts instead of an APY, how NAV
 </AccordionGroup>
 
 <Note>
-  Genesis Vault figures are at ONCC prices of 9 Oct 2026, before price moves. They are illustrations, not forecasts. Capital is at risk.
+  Genesis Vault figures are at prices of 9 Oct 2026, before price moves. They are illustrations, not forecasts. Capital is at risk.
 </Note>

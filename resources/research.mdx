@@ -1,6 +1,7 @@
 ---
 title: "Research: how real-world assets find buyers, exits and prices"
 sidebarTitle: "Research"
+icon: "flask"
 description: "Cargo's three public research notes on RFQ, auctions and distribution for real-world assets, and how each one shaped the design of Cargo vaults."
 ---
 
@@ -20,7 +21,7 @@ Its evidence comes from fixed income. US investment-grade corporate bonds moved 
 
 ## 2. How to build a secondary market for a commodity token
 
-A token backed by receipted physical goods has a public reference price (an exchange such as ICE London for softs), moves in discrete lots, receives information in events (receipts, sales, payments), has a short life per lot and is held only by whitelisted wallets. The article turns those properties into eight design rules:
+A token backed by receipted physical goods has a public reference price (an exchange such as ICE for softs), moves in discrete lots, receives information in events (receipts, sales, payments), has a short life per lot and is held only by whitelisted wallets. The article turns those properties into eight design rules:
 
 | Rule | Why |
 | :-- | :-- |
@@ -37,14 +38,14 @@ A token backed by receipted physical goods has a public reference price (an exch
 
 Issuing a token creates supply, not holders. The real-world asset products that broke out in 2025 and 2026 had three things: somewhere useful to put the asset (for example as trading collateral), dealers who always make a price, and a fair primary market that built a wide holder base.
 
-The article argues for pairing an open, price-setting auction with a committed set of participants, as the US Treasury does with primary dealers and Côte d'Ivoire does with licensed cocoa exporters. For commodity tokens, distribution has to carry lot-level information (grade, warehouse, crop year, documents), because a tonne of cocoa is not a gold bar.
+The article argues for pairing an open, price-setting auction with a committed set of participants, as the US Treasury does with primary dealers and cocoa boards do with licensed exporters. For commodity tokens, distribution has to carry lot-level information (grade, warehouse, crop year, documents), because a tonne of cocoa is not a gold bar.
 
 ## How the research shaped Cargo vaults
 
 | Finding | Where it shows up |
 | :-- | :-- |
 | Batch auctions concentrate thin liquidity | [A sealed batch auction at a fixed interval](/products/deposits-and-withdrawals#batch-auctions-every-12-days) |
-| A verifiable anchor keeps prices honest | [NAV from a published reference price, cross-checked against a hedge market](/ecosystem/rwa-vault-mechanism#nav-a-published-reference-price-struck-daily) (in the Genesis Vault, ONCC against ICE) |
+| A verifiable anchor keeps prices honest | [NAV from a published reference price, cross-checked against a hedge market](/ecosystem/rwa-vault-mechanism#nav-a-published-reference-price-struck-daily) (ICE London Cocoa in the Genesis Vault) |
 | Committed dealers make RFQ work | [Panel market makers and authorised participants](/governance/partnerships#partner-programmes) |
 | A physical anchor stops drift | Creation and redemption near NAV, and physical delivery |
 | A public tape builds a price history | [The batch tape and lot registry](/developers/api#feeds) |

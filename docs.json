@@ -11,6 +11,22 @@
     "dark": "/images/cargo-letterhead-dark.png"
   },
   "favicon": "/images/cargo-logo-v2.png",
+  "background": {
+    "decoration": "gradient"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Website",
+        "href": "https://cargotrading.xyz"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Get started",
+      "href": "https://cargo-finance.mintlify.app/quickstart"
+    }
+  },
   "contextual": {
     "options": [
       "copy",
@@ -31,7 +47,8 @@
         "pages": [
           "index",
           "quickstart"
-        ]
+        ],
+        "icon": "rocket"
       },
       {
         "group": "Cargo Ecosystem",
@@ -40,7 +57,8 @@
           "ecosystem/protocol",
           "ecosystem/rwa-vault-mechanism",
           "ecosystem/updates"
-        ]
+        ],
+        "icon": "globe"
       },
       {
         "group": "Products",
@@ -50,7 +68,8 @@
           "products/real-world-assets",
           "products/deposits-and-withdrawals",
           "products/yield-distribution"
-        ]
+        ],
+        "icon": "cube"
       },
       {
         "group": "Governance",
@@ -60,7 +79,8 @@
           "governance/treasury",
           "governance/partnerships",
           "governance/community"
-        ]
+        ],
+        "icon": "scale-balanced"
       },
       {
         "group": "Safety",
@@ -70,7 +90,8 @@
           "safety/contracts-and-timelocks",
           "safety/audits-and-bug-bounty",
           "safety/insurance"
-        ]
+        ],
+        "icon": "shield-halved"
       },
       {
         "group": "FAQ",
@@ -78,7 +99,8 @@
           "faq/general",
           "faq/vault-apy",
           "faq/how-to-guides"
-        ]
+        ],
+        "icon": "circle-question"
       },
       {
         "group": "Developer Documentation",
@@ -87,7 +109,8 @@
           "developers/strategy-contract",
           "developers/other-contracts",
           "developers/api"
-        ]
+        ],
+        "icon": "code"
       },
       {
         "group": "Additional Resources",
@@ -96,8 +119,17 @@
           "resources/glossary",
           "resources/contract-addresses",
           "resources/code-repositories"
-        ]
+        ],
+        "icon": "book"
       }
     ]
+  },
+  "footer": {
+    "socials": {
+      "website": "https://cargotrading.xyz",
+      "x": "https://x.com/cargovaults",
+      "linkedin": "https://www.linkedin.com/company/cargo-nova123",
+      "medium": "https://medium.com/@cargovaults"
+    }
   }
 }
