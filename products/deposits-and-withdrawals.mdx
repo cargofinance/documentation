@@ -1,20 +1,20 @@
 ---
-title: "Buying and Exiting cvCOCOA"
+title: "Buying and Exiting Vault Shares"
 sidebarTitle: "Deposits & Withdrawals"
-description: "How to buy cvCOCOA in the Genesis curve and the 12-day batch auctions, and every way out: redemption at NAV, the Liquidity Bridge, RFQ and physical delivery."
+description: "How to buy Cargo vault shares in a Genesis curve and the batch auctions, and every way out: redemption at NAV, the Liquidity Bridge, RFQ and physical delivery. With the Genesis Vault (cvCOCOA) terms."
 ---
 
-New shares are sold only by the Vault SPV, below NAV. You hold them in your own whitelisted wallet. There are four ways out.
+In every Cargo vault, new shares are sold only by the Vault SPV, below NAV. You hold them in your own whitelisted wallet. There are four ways out. The figures below are the Genesis Vault's (cvCOCOA, Cameroon cocoa); each new vault publishes its own in its term sheet.
 
 ## Buying
 
-### Genesis Auction (Cycle 1)
+### Genesis Auction
 
-A bonding curve that stops below NAV. The price rises with the USDC raised, so earlier money buys at a deeper discount.
+Each vault opens with a Genesis Auction: a bonding curve that stops below NAV. The price rises with the USDC raised, so earlier money buys at a deeper discount.
 
-**Price per share P(R) = 4.793 + (5.118 − 4.793) × R ÷ 1,500,000**, where R is USDC raised so far.
+**Genesis Vault (Cycle 1).** Price per share **P(R) = 4.793 + (5.118 − 4.793) × R ÷ 1,500,000**, where R is USDC raised so far.
 
-<Frame caption="Earlier money buys at a deeper discount. Every seat is below NAV.">
+<Frame caption="Genesis Vault: earlier money buys at a deeper discount. Every seat is below NAV.">
   <img className="block dark:hidden" src="/images/charts/genesis-curve-light.svg" alt="Line chart: Genesis price rising linearly from $4.793 at $0 raised to $5.118 at $1.5M, below the NAV of $5.277 and the 97% of NAV ceiling" />
   <img className="hidden dark:block" src="/images/charts/genesis-curve-dark.svg" alt="Line chart: Genesis price rising linearly from $4.793 at $0 raised to $5.118 at $1.5M, below the NAV of $5.277 and the 97% of NAV ceiling" />
 </Frame>
@@ -31,7 +31,7 @@ A bonding curve that stops below NAV. The price rises with the USDC raised, so e
 | Fill order | By time; the priority window fills first |
 | Window | A priority window, then a public window, then settlement. Rescheduled from 14–23 Oct 2026; new dates to be announced |
 
-Price along the curve, against the NAV of 9 Oct 2026 ($5.277):
+Price along the Genesis Vault curve, against the NAV of 9 Oct 2026 ($5.277):
 
 | Raised before you | Price per share | Below NAV |
 | :-- | --: | --: |
@@ -42,15 +42,17 @@ Price along the curve, against the NAV of 9 Oct 2026 ($5.277):
 
 ### Batch auctions, every 12 days
 
+After its Genesis Auction, each vault sells new shares in sealed batch auctions at a fixed interval. In the Genesis Vault, the interval is 12 days.
+
 <Steps>
   <Step title="Lots are published">
-    Lot ID, tonnage, grade, warehouse, receipt, originator and reserve are published before the window opens.
+    Lot ID, quantity, grade, warehouse, receipt, originator and reserve are published before the window opens.
   </Step>
   <Step title="Place a sealed bid">
     Price per share and quantity, minimum $5,000. Bids can be edited until clearing.
   </Step>
   <Step title="Clearing">
-    Every 12 days at 12:00 UTC, starting after Genesis settlement (weekends and ICE holidays roll to the next ICE trading day). One uniform price, the lowest winning bid, pro rata at the margin.
+    Every 12 days at 12:00 UTC, starting after Genesis settlement (weekends and reference-market holidays roll to the next trading day). One uniform price, the lowest winning bid, pro rata at the margin.
   </Step>
   <Step title="Settlement">
     Atomic and on-chain: USDC against shares. 0.25% fee per side; panel market makers bid fee-free. The clearing price, discount to NAV, volume, bid-to-cover and lot IDs go on the public tape.
@@ -61,10 +63,10 @@ Price along the curve, against the NAV of 9 Oct 2026 ($5.277):
 
 ```mermaid
 flowchart LR
-    H(["You hold cvCOCOA"]) --> R["Redemption · NAV − 0.10%<br/>from 1,000 shares, at a batch"] --> U(["USDC"])
+    H(["You hold vault shares"]) --> R["Redemption · NAV − 0.10%<br/>above the vault minimum, at a batch"] --> U(["USDC"])
     H --> B["Liquidity Bridge · NAV − 1.0%<br/>instant, up to capacity"] --> U
     H --> Q["RFQ · firm quotes<br/>blocks from $25,000"] --> U
-    H --> P["Physical delivery · at cost<br/>from 10,000 shares"] --> K(["Cocoa to your exporter"])
+    H --> P["Physical delivery · at cost<br/>above the vault minimum"] --> K(["Goods to your buyer"])
     classDef key fill:#0E4A66,stroke:#5BB4DB,stroke-width:2px,color:#ffffff
     classDef accent fill:#F47A20,stroke:#F47A20,color:#ffffff
     class H accent
@@ -73,11 +75,11 @@ flowchart LR
 
 | Route | Who | Price | Timing |
 | :-- | :-- | :-- | :-- |
-| **Redemption** | Any holder from 1,000 shares | NAV − 0.10% | Request until 24 h before a batch; struck at that batch; paid within 12 days |
+| **Redemption** | Any holder above the vault minimum (Genesis Vault: 1,000 shares) | NAV − 0.10% | Request until 24 h before a batch; struck at that batch; paid within 12 days in the Genesis Vault |
 | **Liquidity Bridge** | Any holder | NAV − 1.0% | Instant, up to published capacity |
 | **RFQ** | Any holder | Firm quotes from panel market makers | From Genesis settlement; blocks from $25,000; settled atomically |
-| **Physical delivery** | From 10,000 shares | At cost | Ex-warehouse Douala, to your ONCC-registered exporter |
+| **Physical delivery** | Above the vault minimum (Genesis Vault: 10,000 shares) | At cost | Ex-warehouse to your nominated buyer (Genesis Vault: ex-warehouse Douala, to your ONCC-registered exporter) |
 
 <Warning>
-  The first redemptions strike at **Batch 4**. If redemption requests exceed bridge capacity for two batches, capacity is raised and redemptions may be filled pro rata. There is no guarantee of a bid on RFQ.
+  In the Genesis Vault, the first redemptions strike at **Batch 4**. If redemption requests exceed bridge capacity for two batches, capacity is raised and redemptions may be filled pro rata. There is no guarantee of a bid on RFQ.
 </Warning>

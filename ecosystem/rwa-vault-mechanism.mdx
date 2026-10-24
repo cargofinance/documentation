@@ -1,33 +1,33 @@
 ---
-title: "RWA Vault Mechanism: from the bay to your wallet"
+title: "RWA Vault Mechanism: from the warehouse to your wallet"
 sidebarTitle: "RWA Vault Mechanism"
-description: "How Cargo Vault One links each cvCOCOA share to a receipted kilogram of cocoa: title, pledge, proof of reserve, NAV, iNAV, price guards and redemption."
+description: "How a Cargo vault links each share to a receipted unit of a real-world asset: title, pledge, proof of reserve, NAV, iNAV, price guards and redemption, with the Genesis Vault (Cameroon cocoa) as the worked example."
 ---
 
-Every cvCOCOA share is backed by one kilogram of cocoa that already exists, sits in a named bay and has been signed for by an independent collateral manager. This page explains how that link is built and how the price is set.
+Every Cargo vault share is backed by one unit of a real-world asset that already exists, sits in a named warehouse or vault and has been signed for by an independent collateral manager. The unit depends on the asset: a kilogram of cocoa, a tonne of sugar, an ounce of gold. This page explains how that link is built and how the price is set. Figures and names in the examples are from the **Genesis Vault**: export-grade Cameroon cocoa in Douala, issued as cvCOCOA.
 
 ## What stands behind a share
 
-Three layers stand behind every share: the token on-chain, the legal title and pledge, and the physical cocoa under independent control.
+Three layers stand behind every share: the token on-chain, the legal title and pledge, and the physical goods under independent control.
 
 ```mermaid
 flowchart LR
     subgraph CHAIN["On-chain"]
         direction TB
-        W(["Holder wallet<br/>cvCOCOA · ERC-3643"]) -. "checked against" .-> IR["Identity registry<br/>whitelisted wallets"]
+        W(["Holder wallet<br/>vault token · ERC-3643"]) -. "checked against" .-> IR["Identity registry<br/>whitelisted wallets"]
     end
     subgraph LEGAL["Legal"]
         direction TB
         SPV["Vault SPV, Seychelles<br/>owns every lot"]
-        SA["Security agent<br/>one OHADA pledge"]
+        SA["Security agent<br/>one pledge for all holders"]
     end
     subgraph PHYSICAL["Physical"]
         direction TB
         CM["Collateral manager<br/>sole release authority"] --> LOTS[("Receipted lots<br/>graded · insured")]
-        V["Vallis verifies"] --> LOTS
+        V["Independent inspector verifies"] --> LOTS
         O["Originator<br/>10% first loss"] --> LOTS
     end
-    W -- "1 share = 1 kg" --> SPV
+    W -- "1 share = 1 unit" --> SPV
     SPV -- "title" --> LOTS
     SA -- "pledge" --> CM
     classDef key fill:#0E4A66,stroke:#5BB4DB,stroke-width:2px,color:#ffffff
@@ -44,36 +44,44 @@ flowchart LR
     A bankruptcy-remote Seychelles **Vault SPV** owns every receipted lot under a supply agreement that takes effect on receipt. It has no other business and no other creditors, and every contract carries non-petition and limited-recourse terms.
   </Accordion>
   <Accordion title="Pledge" icon="lock">
-    As a backstop, the delivering company pledges the goods **with dispossession** to the collateral manager as agreed third-party holder, under the OHADA Uniform Act on secured transactions, registered at the RCCM. One pledge, one security agent, for all holders.
+    As a backstop, the delivering company pledges the goods to the collateral manager as agreed third-party holder, under the secured-transactions law where the goods are stored, and registers the pledge. One pledge, one security agent, for all holders. In the Genesis Vault, the pledge is **with dispossession** under the OHADA Uniform Act on secured transactions, registered at the RCCM.
   </Accordion>
   <Accordion title="Custody" icon="warehouse">
-    An independent collateral manager controls the bay at **AGL Bonabéri, Douala**, and releases goods only against payment.
+    An independent collateral manager controls the warehouse or vault and releases goods only against payment. In the Genesis Vault, that is the bay at **AGL Bonabéri, Douala**.
   </Accordion>
   <Accordion title="Proof" icon="magnifying-glass">
-    Vallis inspects, weighs and grades every lot. Lot IDs, weights and grades are public, and the collateral manager's weekly stock report is hashed on-chain.
+    An independent inspector checks, weighs and grades every lot (Vallis in the Genesis Vault). Lot IDs, weights and grades are public, and the collateral manager's weekly stock report is hashed on-chain.
   </Accordion>
   <Accordion title="First loss" icon="shield-halved">
-    Originators keep **10% of every lot** as subordinated shares, released only when the lot exports and reconciles. Senior cover at origination is 111% of senior shares, in kilograms.
+    Originators keep **10% of every lot** as subordinated shares, released only when the lot is sold and reconciles. Senior cover at origination is 111% of senior shares, in units of the asset.
   </Accordion>
   <Accordion title="Insurance" icon="umbrella">
-    All-risks stock insurance on every lot, paid by the originator until export.
+    All-risks stock insurance on every lot, paid by the originator until the goods are sold.
   </Accordion>
 </AccordionGroup>
 
 ## The mint
 
 <Steps>
-  <Step title="Deliver">A lot of 25 t or more enters the bay.</Step>
-  <Step title="Receipt">The collateral manager weighs, grades and samples it and issues a receipt in the SPV's name. Moisture, cut test and bean count are recorded.</Step>
-  <Step title="Mint 1:1">Shares are minted per kilogram: 90% senior, held for sale; 10% subordinated, held for the originator.</Step>
-  <Step title="List">The lot ID, tonnage, grade, receipt, originator and reserve price are published before the next batch window opens.</Step>
+  <Step title="Deliver">A lot of at least the vault's minimum size enters the warehouse (25 t in the Genesis Vault).</Step>
+  <Step title="Receipt">The collateral manager weighs, grades and samples it and issues a receipt in the SPV's name, with the quality checks the asset's trade standard requires (for cocoa: moisture, cut test and bean count; for gold: fineness and weight).</Step>
+  <Step title="Mint 1:1">Shares are minted per unit: 90% senior, held for sale; 10% subordinated, held for the originator.</Step>
+  <Step title="List">The lot ID, quantity, grade, receipt, originator and reserve price are published before the next batch window opens.</Step>
 </Steps>
 
-**The backing rule.** Supply can never exceed receipted kilograms in the bay, and the same kilogram can never count both as physical stock and as sale proceeds. The minting guard enforces this on-chain, and the weekly stock report reconciles it.
+**The backing rule.** Supply can never exceed receipted units in custody, and the same unit can never count both as physical stock and as sale proceeds. The minting guard enforces this on-chain, and the weekly stock report reconciles it.
 
-**Legal opinions.** Counsel in Seychelles and in Cameroon give their opinions on title, the pledge and enforcement before the first mint. Investors' counsel can review them in the data room.
+**Legal opinions.** Counsel in Seychelles and in the country where the goods are stored give their opinions on title, the pledge and enforcement before a vault's first mint (for the Genesis Vault, Seychelles and Cameroon). Investors' counsel can review them in the data room.
 
-## NAV: export parity, struck daily
+## NAV: a published reference price, struck daily
+
+Each vault's NAV starts from a published reference price for the asset at the point where it is sold, less the fixed costs of getting it there, converted to USD:
+
+**NAV per share = (reference price − statutory levies − delivery costs) ÷ FX**
+
+The reference is chosen per vault: a national board's published export price, an exchange settlement price (for example ICE for cocoa, coffee or sugar) or a benchmark such as the LBMA price for gold. Every vault also has a liquid market to cross-check and hedge against.
+
+### In the Genesis Vault: export parity off ONCC
 
 **NAV per share = (ONCC FOB reference − export levy − FOB costs) ÷ FX**
 
@@ -87,16 +95,16 @@ flowchart LR
 
 The trade it captures, per kilogram: farmgate **2,600 FCFA** → receipted cost in Douala **2,756 FCFA ($4.793)** → NAV **3,034 FCFA ($5.277)**. The **10.1% delta** is the margin that normally goes to whoever exports.
 
-<Frame caption="ONCC prices of 9 Oct 2026. NAV is restruck every day.">
+<Frame caption="Genesis Vault, ONCC prices of 9 Oct 2026. NAV is restruck every day.">
   <img className="block dark:hidden" src="/images/charts/farm-to-export-light.svg" alt="Bar chart: farmgate 2,600, receipted cost 2,756, NAV 3,034 and ONCC FOB 3,259 FCFA per kg, with a 10.1% spread between receipted cost and NAV" />
   <img className="hidden dark:block" src="/images/charts/farm-to-export-dark.svg" alt="Bar chart: farmgate 2,600, receipted cost 2,756, NAV 3,034 and ONCC FOB 3,259 FCFA per kg, with a 10.1% spread between receipted cost and NAV" />
 </Frame>
 
-**iNAV.** Between daily fixes, an indicative NAV moves NAV with ICE London cocoa (second position), converted through GBP, EUR and the peg. It is published every minute by API and WebSocket and every 15 minutes on-chain during ICE hours. Creations and redemptions always strike at NAV, not iNAV.
+**iNAV.** Between daily fixes, an indicative NAV moves NAV with the asset's reference market. In the Genesis Vault, that is ICE London cocoa (second position), converted through GBP, EUR and the peg. iNAV is published every minute by API and WebSocket and every 15 minutes on-chain during market hours. Creations and redemptions always strike at NAV, not iNAV.
 
 ## Price guards
 
-How each day's NAV is set, and what happens when the ONCC price and ICE disagree:
+Every vault's NAV is protected by the same set of guards: a check against the hedge market, a fallback if the reference stops publishing, a reset if realised sales run below NAV, and a conservative oracle for lending. This is how they work in the Genesis Vault, where the ONCC price is checked against ICE:
 
 ```mermaid
 flowchart LR
@@ -113,24 +121,26 @@ flowchart LR
     class F accent
 ```
 
-| Guard | Rule |
+| Guard | Rule (Genesis Vault values) |
 | :-- | :-- |
 | Differential check | If the ONCC-implied differential to ICE moves more than $250/t from its 30-day median, NAV falls back to ICE plus the median differential, and creations and redemptions pause for that batch |
-| ONCC outage | If ONCC does not publish for two business days, the same fallback applies |
-| Realised-price reset | If the vault's own export sales average more than $150/t below NAV over 30 days, the FOB-cost line is re-based at once |
-| Lending oracle | Any lending market reads the lower of ONCC NAV and ICE-implied NAV |
+| Reference outage | If ONCC does not publish for two business days, the same fallback applies |
+| Realised-price reset | If the vault's own sales average more than $150/t below NAV over 30 days, the cost line is re-based at once |
+| Lending oracle | Any lending market reads the lower of reference NAV and hedge-market-implied NAV |
+
+Each new vault publishes its own thresholds in its term sheet.
 
 ## Redemption and exit
 
 | Route | Who | Price | Timing |
 | :-- | :-- | :-- | :-- |
-| Redemption | Any holder from 1,000 shares | NAV − 0.10% | Request until 24 h before a batch; struck at that batch; paid within 12 days of the strike |
-| Liquidity Bridge | Any holder | NAV − 1.0% | Instant, up to published capacity ($250k at launch) |
-| Physical delivery | From 10,000 shares (10 t) | At cost | Ex-warehouse Douala, to your ONCC-registered exporter |
-| Creation | Authorised participants | NAV + 0.10% | Any business day, blocks of 1,000 shares, T+1 |
+| Redemption | Any holder above the vault minimum (1,000 shares in the Genesis Vault) | NAV − 0.10% | Request until 24 h before a batch; struck at that batch; paid within the vault's settlement period (12 days of the strike in the Genesis Vault) |
+| Liquidity Bridge | Any holder | NAV − 1.0% | Instant, up to published capacity ($250k at Genesis Vault launch) |
+| Physical delivery | Above a set size (10,000 shares, 10 t, in the Genesis Vault) | At cost | Ex-warehouse, to your nominated buyer or exporter (Genesis Vault: ex-warehouse Douala, to your ONCC-registered exporter) |
+| Creation | Authorised participants | NAV + 0.10% | Any business day, in blocks, T+1 |
 
-Because anyone can create near NAV and redeem near NAV, a premium or discount on the secondary market can be arbitraged away. What remains is cocoa price, which market makers hedge on ICE London (10,000 shares move like one 10 t lot), and credit, which the structure above bounds.
+Because anyone can create near NAV and redeem near NAV, a premium or discount on the secondary market can be arbitraged away. What remains is the asset's price, which market makers hedge on its reference market (in the Genesis Vault, 10,000 shares move like one 10 t ICE London cocoa lot), and credit, which the structure above bounds.
 
 <Info>
-  **Credit floor.** If export ever failed and the goods had to be sold in Douala at ONCC's exporter bid (2,700–2,800 FCFA/kg), a senior share would still be covered at **98.9%–102.5%** of NAV, thanks to the 10% subordination.
+  **Credit floor, Genesis Vault.** If export ever failed and the cocoa had to be sold in Douala at ONCC's exporter bid (2,700–2,800 FCFA/kg), a senior share would still be covered at **98.9%–102.5%** of NAV, thanks to the 10% subordination.
 </Info>

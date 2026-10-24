@@ -1,21 +1,23 @@
 ---
 title: "Auction and Redemption Contracts"
 sidebarTitle: "Strategy Contract"
-description: "How the Genesis curve, the sealed batch auction and the creation and redemption flows work on-chain in Cargo Vault One."
+description: "How the Genesis curve, the sealed batch auction and the creation and redemption flows work on-chain in every Cargo vault, with the Genesis Vault's parameters."
 ---
 
-Cargo Vault One has no yield strategy contract. Capital is not deployed by code; it buys shares that are already backed by receipted cocoa. The on-chain logic that matters is how shares are sold and how they come back.
+Cargo vaults have no yield strategy contract. Capital is not deployed by code; it buys shares that are already backed by receipted goods. The on-chain logic that matters is how shares are sold and how they come back. The same contracts run every vault; each vault sets its own parameters, shown here for the Genesis Vault (cvCOCOA).
 
 ## Genesis curve
 
-A primary sale by the Vault SPV on a linear price curve.
+A primary sale by the Vault SPV on a linear price curve from a start price P₀ to an end price P₁ over the cap C:
 
 ```text
-P(R) = 4.793 + (5.118 − 4.793) × R / 1,500,000      R = USDC raised so far
-Shares for a ticket D = (1/b) × ln( P(R + D) / P(R) ),   b = 0.325 / 1,500,000
+P(R) = P₀ + (P₁ − P₀) × R / C                    R = USDC raised so far
+Shares for a ticket D = (1/b) × ln( P(R + D) / P(R) ),   b = (P₁ − P₀) / C
 ```
 
-Each ticket pays the average price across its slice of the curve, so splitting a ticket gives exactly the same number of shares. Fills are ordered by time, the priority window first. Below the $500,000 minimum, all USDC is refunded; the cap is $1,500,000.
+**Genesis Vault parameters:** P₀ = 4.793, P₁ = 5.118, C = 1,500,000, so b = 0.325 / 1,500,000.
+
+Each ticket pays the average price across its slice of the curve, so splitting a ticket gives exactly the same number of shares. Fills are ordered by time, the priority window first. Below the minimum ($500,000 in the Genesis Vault), all USDC is refunded.
 
 ## Batch auction
 
@@ -23,7 +25,7 @@ Each ticket pays the average price across its slice of the curve, so splitting a
 | :-- | :-- |
 | Seller | The Vault SPV only, against newly receipted lots |
 | Bids | Sealed limit bids (price, quantity), minimum $5,000, editable until clearing |
-| Clearing | Every 12 days at 12:00 UTC; uniform price at the lowest winning bid; pro rata at the margin |
+| Clearing | At a fixed interval (every 12 days in the Genesis Vault) at 12:00 UTC; uniform price at the lowest winning bid; pro rata at the margin |
 | Settlement | Atomic: USDC against shares |
 | Fees | 0.25% each side; panel market makers fee-free |
 | Tape | Clearing price, discount to NAV, volume, bid-to-cover and lot IDs, emitted at clearing |
@@ -33,8 +35,8 @@ Each ticket pays the average price across its slice of the curve, so splitting a
 
 | Flow | Who | Price | Settlement |
 | :-- | :-- | :-- | :-- |
-| Creation | Authorised participants | NAV + 0.10% | Blocks of 1,000 shares, any business day, T+1 in USDC |
-| Redemption | Any holder from 1,000 shares | NAV − 0.10% | Requested until 24 h before a batch; struck at the batch; paid within 12 days |
+| Creation | Authorised participants | NAV + 0.10% | In blocks (1,000 shares in the Genesis Vault), any business day, T+1 in USDC |
+| Redemption | Any holder above the vault minimum (1,000 shares in the Genesis Vault) | NAV − 0.10% | Requested until 24 h before a batch; struck at the batch; paid within 12 days in the Genesis Vault |
 
 ## Safeguards
 

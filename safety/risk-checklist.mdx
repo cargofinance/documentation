@@ -1,46 +1,46 @@
 ---
-title: "Risk Checklist for Cargo Vault One"
+title: "Risk Checklist for Cargo Vaults"
 sidebarTitle: "Risk Checklist"
-description: "The risks of holding cvCOCOA, from cocoa price and basis to custody, legal, liquidity, oracle and smart-contract risk, and what absorbs each one."
+description: "The risks of holding Cargo vault shares, from asset price and basis to custody, legal, liquidity, oracle and smart-contract risk, and what absorbs each one. With Genesis Vault (cvCOCOA) specifics."
 ---
 
-Read this before you bid. The binding version is the Risk Statement in the data room, which every investor signs.
+Read this before you bid. The risks below apply to every Cargo vault; the examples are from the Genesis Vault (cvCOCOA, Cameroon cocoa). The binding version is the Risk Statement for each vault in the data room, which every investor signs.
 
 <AccordionGroup>
-  <Accordion title="Cocoa price">
-    NAV follows the ONCC export price of cocoa and can fall.
+  <Accordion title="Asset price">
+    NAV follows the reference price of the underlying asset (for cvCOCOA, the ONCC export price of cocoa) and can fall.
 
-    <Info>The discount you buy at is your cushion. Holders and market makers can hedge on ICE London: 10,000 shares move like one 10 t lot.</Info>
+    <Info>The discount you buy at is your cushion. Holders and market makers can hedge on the asset's reference market. In the Genesis Vault, 10,000 shares move like one 10 t ICE London cocoa lot.</Info>
   </Accordion>
 
   <Accordion title="Basis and oracle">
-    ONCC's reference can diverge from ICE, ONCC can fail to publish, and the vault's realised sale prices can come in below NAV.
+    The reference price can diverge from the hedge market, the reference can fail to publish, and the vault's realised sale prices can come in below NAV.
 
-    <Info>Differential check at $250/t from the 30-day median with ICE fallback and a pause; outage fallback after two business days; FOB-cost reset if realised sales average $150/t below NAV over 30 days; lower-of oracle for lending.</Info>
+    <Info>Every vault has a differential check with a hedge-market fallback and a pause, an outage fallback, a cost reset when realised sales run below NAV, and a lower-of oracle for lending. Genesis Vault values: $250/t from the 30-day median against ICE; outage fallback after two business days of no ONCC price; FOB-cost reset if realised sales average $150/t below NAV over 30 days.</Info>
   </Accordion>
 
   <Accordion title="Custody, quality and fraud">
     Goods could be missing, short-weight, off-grade or damaged.
 
-    <Info>Independent collateral manager with sole release authority; Vallis verification of every lot; weekly reports hashed on-chain; suspension and recount above 0.5% discrepancy; all-risks insurance; 10% subordinated first loss.</Info>
+    <Info>Independent collateral manager with sole release authority; independent verification of every lot (Vallis in the Genesis Vault); weekly reports hashed on-chain; suspension and recount above 0.5% discrepancy; all-risks insurance; 10% subordinated first loss.</Info>
   </Accordion>
 
   <Accordion title="Counterparty and sponsor">
-    The originator, buyer, exporter of record or Nova could fail.
+    The originator, buyer, exporter or dealer, or the sponsor (Nova for the Genesis Vault) could fail.
 
-    <Info>The Vault SPV owns the goods, not Nova; one pledge for all holders; originators warrant weight, grade and title and top up shortfalls; physical delivery from 10 t.</Info>
+    <Info>The Vault SPV owns the goods, not the sponsor; one pledge for all holders; originators warrant weight, grade and title and top up shortfalls; physical delivery above a set size (10 t in the Genesis Vault).</Info>
   </Accordion>
 
   <Accordion title="Liquidity">
     You may not be able to exit when you want, at the price you want.
 
-    <Info>Redemption at NAV − 0.10% at each batch (first at Batch 4), paid within 12 days; Liquidity Bridge at NAV − 1.0% up to its capacity; RFQ with panel market makers, with no guarantee of a bid; redemptions may be pro rata if the queue exceeds bridge capacity.</Info>
+    <Info>Redemption at NAV − 0.10% at each batch (in the Genesis Vault, first at Batch 4, paid within 12 days); Liquidity Bridge at NAV − 1.0% up to its capacity; RFQ with panel market makers, with no guarantee of a bid; redemptions may be pro rata if the queue exceeds bridge capacity.</Info>
   </Accordion>
 
   <Accordion title="Legal and regulatory">
-    Security could be harder to enforce than expected, and rules in Seychelles or CEMAC could change or be applied differently.
+    Security could be harder to enforce than expected, and rules in Seychelles or in the country where the goods are stored could change or be applied differently.
 
-    <Info>Title to the SPV plus a registered OHADA pledge; legal opinions from counsel in Seychelles and Cameroon before the first mint; private offers to eligible investors only; the Seychelles FSA has been asked to classify cvCOCOA, and the venue will move to a licensed route if required.</Info>
+    <Info>Title to the SPV plus a registered pledge where the goods are stored; legal opinions from counsel in Seychelles and that country before a vault's first mint (Seychelles and Cameroon, under OHADA, for the Genesis Vault); private offers to eligible investors only; the Seychelles FSA has been asked to classify cvCOCOA, and the venue will move to a licensed route if required.</Info>
   </Accordion>
 
   <Accordion title="Smart contract and keys">
@@ -50,9 +50,9 @@ Read this before you bid. The binding version is the Risk Statement in the data 
   </Accordion>
 
   <Accordion title="Concentration">
-    Cycle 1 is one commodity, one origin, one port.
+    Each vault is one asset in one location. The Genesis Vault, the only vault at launch, is one commodity, one origin, one port.
 
-    <Info>Ring-fenced lots; insurance; later vaults add Kribi, robusta and a second OHADA port.</Info>
+    <Info>Ring-fenced lots; insurance; later vaults spread exposure across assets and locations, such as more ports, coffee and sugar, each only after the eight tests.</Info>
   </Accordion>
 </AccordionGroup>
 

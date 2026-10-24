@@ -1,13 +1,13 @@
 ---
 title: "Research: how real-world assets find buyers, exits and prices"
 sidebarTitle: "Research"
-description: "Cargo's three public research notes on RFQ, auctions and distribution for real-world assets, and how each one shaped the design of Cargo Vault One."
+description: "Cargo's three public research notes on RFQ, auctions and distribution for real-world assets, and how each one shaped the design of Cargo vaults."
 ---
 
-Tokenising an asset is the easy part. Selling it, exiting it and pricing it are harder. Cargo published three research notes on these questions on 10 October 2026. Each draws on evidence from bonds, swaps, Treasury auctions, cocoa and crypto markets. Read them in full at [cargotrading.xyz/research](https://cargotrading.xyz/research).
+Tokenising an asset is the easy part. Selling it, exiting it and pricing it are harder. Cargo published three research notes on these questions on 10 October 2026. Each draws on evidence from bonds, swaps, Treasury auctions, physical commodities and crypto markets. Read them in full at [cargotrading.xyz/research](https://cargotrading.xyz/research).
 
 <Note>
-  The articles were written when Cargo Vault One still used the v4 design (the KG unit and an exit auction at every rotation close). The market-design reasoning still holds; the current parameters are on [Buying and exiting cvCOCOA](/products/deposits-and-withdrawals).
+  The articles were written when Cargo Vault One still used the v4 design (the KG unit and an exit auction at every rotation close). The market-design reasoning still holds; the current parameters are on [Buying and exiting vault shares](/products/deposits-and-withdrawals).
 </Note>
 
 ## 1. Tokenised is not liquid: is RFQ the right market for real-world assets?
@@ -20,7 +20,7 @@ Its evidence comes from fixed income. US investment-grade corporate bonds moved 
 
 ## 2. How to build a secondary market for a commodity token
 
-A token backed by receipted soft commodities has a public reference price (ICE London), moves in discrete lots, receives information in events (receipts, sales, payments), has a short life per lot and is held only by whitelisted wallets. The article turns those properties into eight design rules:
+A token backed by receipted physical goods has a public reference price (an exchange such as ICE London for softs), moves in discrete lots, receives information in events (receipts, sales, payments), has a short life per lot and is held only by whitelisted wallets. The article turns those properties into eight design rules:
 
 | Rule | Why |
 | :-- | :-- |
@@ -39,14 +39,14 @@ Issuing a token creates supply, not holders. The real-world asset products that 
 
 The article argues for pairing an open, price-setting auction with a committed set of participants, as the US Treasury does with primary dealers and Côte d'Ivoire does with licensed cocoa exporters. For commodity tokens, distribution has to carry lot-level information (grade, warehouse, crop year, documents), because a tonne of cocoa is not a gold bar.
 
-## How the research shaped Vault One
+## How the research shaped Cargo vaults
 
 | Finding | Where it shows up |
 | :-- | :-- |
-| Batch auctions concentrate thin liquidity | [A sealed batch auction every 12 days](/products/deposits-and-withdrawals#batch-auctions-every-12-days) |
-| A verifiable anchor keeps prices honest | [NAV from ONCC's published price, cross-checked against ICE](/ecosystem/rwa-vault-mechanism#nav-export-parity-struck-daily) |
+| Batch auctions concentrate thin liquidity | [A sealed batch auction at a fixed interval](/products/deposits-and-withdrawals#batch-auctions-every-12-days) |
+| A verifiable anchor keeps prices honest | [NAV from a published reference price, cross-checked against a hedge market](/ecosystem/rwa-vault-mechanism#nav-a-published-reference-price-struck-daily) (in the Genesis Vault, ONCC against ICE) |
 | Committed dealers make RFQ work | [Panel market makers and authorised participants](/governance/partnerships#partner-programmes) |
-| A physical anchor stops drift | Creation and redemption near NAV, and delivery from 10 t |
+| A physical anchor stops drift | Creation and redemption near NAV, and physical delivery |
 | A public tape builds a price history | [The batch tape and lot registry](/developers/api#feeds) |
 
 <Info>

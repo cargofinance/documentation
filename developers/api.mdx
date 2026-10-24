@@ -1,26 +1,26 @@
 ---
 title: "Cargo Data API"
 sidebarTitle: "Cargo API"
-description: "The Cargo Vault One data feeds: NAV, iNAV, lot registry, batch tape, redemption queue and RFQ access for market makers and integrators."
+description: "The Cargo data feeds for every vault: NAV, iNAV, lot registry, batch tape, redemption queue and RFQ access for market makers and integrators."
 ---
 
-Cargo publishes the data needed to value, quote and monitor cvCOCOA. Feeds are free for panel market makers, authorised participants, LPs and licensed venues.
+Cargo publishes the data needed to value, quote and monitor every vault token, starting with the Genesis Vault's cvCOCOA. Each vault has its own set of feeds. Feeds are free for panel market makers, authorised participants, LPs and licensed venues.
 
 ## Feeds
 
 | Feed | Contents | Frequency | Access |
 | :-- | :-- | :-- | :-- |
-| NAV | NAV per share and its inputs (ONCC FOB, levy, FOB costs, FX) | Daily, after ONCC publishes; also on-chain | Public on-chain; API key |
-| iNAV | Indicative NAV moved with ICE London cocoa | Every minute (API and WebSocket); every 15 min on-chain in ICE hours | API key |
-| Lot registry | Lot ID, tonnage, grade, warehouse, receipt hash, status | Per lot | Public |
+| NAV | NAV per share and its inputs (reference price, levies, delivery costs, FX; for cvCOCOA: ONCC FOB, export levy, FOB costs, FX) | Daily, after the reference price publishes; also on-chain | Public on-chain; API key |
+| iNAV | Indicative NAV moved with the asset's hedge market (ICE London cocoa for cvCOCOA) | Every minute (API and WebSocket); every 15 min on-chain in market hours | API key |
+| Lot registry | Lot ID, quantity, grade, warehouse, receipt hash, status | Per lot | Public |
 | Stock reports | Collateral manager's weekly report hash | Weekly | Public on-chain |
 | Batch tape | Clearing price, discount to NAV, volume, bid-to-cover, lot IDs | Each batch | Public |
 | Redemption queue and bridge capacity | Live queue and available bridge USDC | Continuous | API key |
-| Offtake tape | Anonymised export sale prices against NAV | Per sale | Panel members |
+| Offtake tape | Anonymised sale prices against NAV | Per sale | Panel members |
 
 ## RFQ
 
-Requests for quote are routed free to panel market makers by API and Telegram from Genesis settlement. Market makers trade as principals; trades settle atomically on-chain. Block size from $25,000.
+Requests for quote are routed free to panel market makers by API and Telegram from each vault's Genesis settlement. Market makers trade as principals; trades settle atomically on-chain. Block size from $25,000.
 
 ## Getting access
 
