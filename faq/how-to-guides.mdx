@@ -1,7 +1,7 @@
 ---
 title: "Cargo Finance How-To Guides"
 sidebarTitle: "How-To Guides"
-description: "Step-by-step guides for Cargo Vault One: KYC and wallet whitelisting, verifying a deposit address, bidding in a batch, redeeming, using the bridge and taking delivery."
+description: "Step-by-step guides for Cargo Vault One: KYC and wallets, the Genesis Auction, verifying a deposit address, bidding, redeeming, the bridge, data, security reports and delivery."
 ---
 
 ## Complete KYC and whitelist a wallet
@@ -28,6 +28,23 @@ description: "Step-by-step guides for Cargo Vault One: KYC and wallet whitelisti
   <Step title="Confirmation">
     After screening, the wallet is added to the identity registry and you receive a confirmation. Screening re-runs on new orders and every six months. Tell compliance about any new beneficial owner, country of residence or wallet before your next trade.
   </Step>
+</Steps>
+
+## Add or change a wallet
+
+<Steps>
+  <Step title="Tell compliance">Send the new address and its chain. You can have up to three registered wallets at a time.</Step>
+  <Step title="Sign the ownership message">Sign the message above from the new wallet, with a fresh nonce from compliance.</Step>
+  <Step title="Wait for confirmation">Only trade from the new wallet once it shows as verified. A transfer to an unregistered wallet fails on-chain.</Step>
+</Steps>
+
+## Take part in the Genesis Auction
+
+<Steps>
+  <Step title="Be ready before the window">Finish KYC or KYB and whitelist your wallets. The rescheduled dates are announced on [Updates](/ecosystem/updates) and the official channels.</Step>
+  <Step title="Commit USDC on the curve">Each ticket pays the average price across its slice of the curve, so earlier money buys at a deeper discount. There is no fee on the curve.</Step>
+  <Step title="Choose to lock, or not">Locking Genesis shares for 90 or 180 days adds +1.0% or +2.5% bonus shares.</Step>
+  <Step title="Settlement">If the $500,000 minimum is reached, shares are delivered to your wallet at settlement. If it is not, every dollar is refunded.</Step>
 </Steps>
 
 ## Verify a deposit address
@@ -58,6 +75,19 @@ description: "Step-by-step guides for Cargo Vault One: KYC and wallet whitelisti
 ## Exit instantly through the Liquidity Bridge
 
 Sell shares to the bridge at NAV − 1.0%, up to its published capacity. Check live capacity before you sell.
+
+## Check NAV and lot data
+
+- **NAV:** posted on-chain every day after ONCC publishes.
+- **iNAV:** every minute by API and WebSocket, and every 15 minutes on-chain during ICE hours. API keys come with onboarding.
+- **Lots:** the public lot registry shows each lot's ID, tonnage, grade, receipt hash and status.
+- **Batches:** the batch tape shows clearing price, discount to NAV, volume, bid-to-cover and lot IDs.
+
+See the [Data API](/developers/api).
+
+## Report a security issue
+
+Email **cargovaults@gmail.com** with the subject line "Security". Do not post details publicly, and never test against mainnet contracts or real funds. See [Audits & Bug Bounty](/safety/audits-and-bug-bounty#reporting-a-vulnerability).
 
 ## Take physical delivery
 

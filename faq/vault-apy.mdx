@@ -28,6 +28,18 @@ description: "Why Cargo Vault One shows NAV and discounts instead of an APY, how
     It is how far below NAV new shares sell. On the Genesis curve it runs from 9.2% to 3.0%; in each batch auction it is set by competing sealed bids. It will compress as more capital arrives.
   </Accordion>
 
+  <Accordion title="Who pays for the discount?">
+    The originator. Nova buys at the farm gate and receipts the cocoa in Douala at a cost below export parity: 2,756 FCFA/kg against a NAV of 3,034 FCFA/kg at 9 Oct 2026 prices, a 10.1% spread. Selling shares below NAV passes part of that export margin to holders. Each lot carries a reserve price, published before the batch window, so a lot never clears below what its originator will accept. At 9 Oct prices, Nova's reserve means a batch clears no more than about 7.3% below NAV.
+  </Accordion>
+
+  <Accordion title="Is NAV the price I can sell at?">
+    Not exactly. NAV is the value of the cocoa at export parity. To turn shares into USDC you can redeem at NAV − 0.10% at a batch, sell instantly to the Liquidity Bridge at NAV − 1.0%, ask panel market makers for an RFQ quote, or take delivery from 10 t. A bid on RFQ is never guaranteed. See [Buying and exiting](/products/deposits-and-withdrawals#exiting).
+  </Accordion>
+
+  <Accordion title="Will the Genesis prices change now the auction has moved?">
+    They may. The published curve ($4.793 to $5.118 per share) was set against the NAV of 9 Oct 2026. The term sheet for the rescheduled window sets the prices that apply, and they are announced with the new dates.
+  </Accordion>
+
   <Accordion title="What happens if ONCC and ICE disagree?">
     If the ONCC-implied differential to ICE moves more than $250/t from its 30-day median, or ONCC does not publish for two business days, NAV falls back to ICE plus the median differential and creations and redemptions pause for that batch.
   </Accordion>

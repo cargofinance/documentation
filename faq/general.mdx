@@ -1,7 +1,7 @@
 ---
 title: "Cargo Finance General FAQ"
 sidebarTitle: "General"
-description: "Answers to common questions about Cargo Finance and Cargo Vault One: cvCOCOA, eligibility, chains, wallets, audits, fees, risk and support."
+description: "Answers to common questions about Cargo Finance and Cargo Vault One: cvCOCOA, the Genesis Auction, eligibility, minimums, backing, fees, audits, scams and support."
 ---
 
 <AccordionGroup>
@@ -11,6 +11,10 @@ description: "Answers to common questions about Cargo Finance and Cargo Vault On
 
   <Accordion title="What is cvCOCOA, and what happened to KG?">
     cvCOCOA (Cargo Vault Cocoa · Douala) is the vault share. Earlier documents (v4) called the unit **KG**. From Launch Pack v5.0 (11 Oct 2026) the unit is renamed cvCOCOA and priced off ONCC; the v4 coupon tiers and 8-day rotations are withdrawn.
+  </Accordion>
+
+  <Accordion title="When is the Genesis Auction?">
+    The Genesis Auction for Cycle 1 was planned for 14–23 Oct 2026 and has been rescheduled. New dates will be announced on the [official channels](/governance/community#official-channels) and on [Updates](/ecosystem/updates). The curve published in Launch Pack v5.0 was priced against the NAV of 9 Oct 2026, so the final term sheet for the new window is the one that applies. You can complete KYC and whitelist your wallets now, so you are ready when the window opens. See the [Quickstart](/quickstart).
   </Accordion>
 
   <Accordion title="Who can take part?">
@@ -29,8 +33,30 @@ description: "Answers to common questions about Cargo Finance and Cargo Vault On
     Any EVM wallet you control, including hardware wallets and Safe multisigs, as long as it is registered and whitelisted. You can register up to three wallets. Because cvCOCOA is an ERC-3643 token, a transfer to an unregistered wallet fails on-chain.
   </Accordion>
 
+  <Accordion title="Is there a minimum?">
+    It depends on the route:
+
+    | Route | Minimum |
+    | :-- | :-- |
+    | Batch auction bid | $5,000 |
+    | RFQ block | $25,000 |
+    | Redemption at NAV | 1,000 shares |
+    | Physical delivery | 10,000 shares (10 t) |
+    | Liquidity Bridge LP mandate | $50,000 |
+
+    The Genesis Auction itself needs $500,000 raised in total, or every dollar is refunded.
+  </Accordion>
+
   <Accordion title="What backs each share?">
     One kilogram of export-grade Cameroon cocoa in a bay at AGL Bonabéri, Douala, signed for by an independent collateral manager, owned by the Vault SPV, pledged under OHADA law, insured, with 10% subordinated first loss from the originator. See [RWA Vault Mechanism](/ecosystem/rwa-vault-mechanism).
+  </Accordion>
+
+  <Accordion title="Can I check that the cocoa exists?">
+    Yes. Every lot's ID, tonnage, grade and receipt hash is in the public lot registry, and the collateral manager's weekly stock report is hashed on-chain. Total supply can never exceed receipted kilograms, and an independent accountant checks stock against shares every quarter. Investors also get the lot records in the data room.
+  </Accordion>
+
+  <Accordion title="What happens if Nova or an originator fails?">
+    The goods do not belong to Nova. The bankruptcy-remote Vault SPV owns every receipted lot, the goods are pledged to the collateral manager for all holders under OHADA law, and the originator's 10% subordinated shares take the first loss on any shortfall. If needed, the security agent enforces the pledge and the SPV sells the goods. From 10,000 shares you can also take the cocoa itself. See the [Risk Checklist](/safety/risk-checklist).
   </Accordion>
 
   <Accordion title="Can I take delivery of the cocoa?">
@@ -41,7 +67,11 @@ description: "Answers to common questions about Cargo Finance and Cargo Vault On
     No fee on the Genesis curve and no management or storage fee for holders. Batch auctions cost 0.25% per side, redemption 0.10% and the Liquidity Bridge 1.0%. See the [fee schedule](/ecosystem/protocol#fee-schedule).
   </Accordion>
 
-  <Accordion title="Is Cargo audited?">
+  <Accordion title="How does Cargo make money?">
+    From venue fees on the flow of lots, not from a share of your cocoa. Originators pay 0.50% of NAV to list a lot; buyers and sellers pay 0.25% per side in a batch auction; creations and redemptions pay 0.10%. The 1.0% Liquidity Bridge fee goes to the bridge LPs, not to Cargo. See [Treasury](/governance/treasury).
+  </Accordion>
+
+  <Accordion title="Have the smart contracts been audited?">
     The minting, Genesis curve and batch auction contracts will be independently audited before mainnet. No audit has been completed yet; reports will be published on [Audits & Bug Bounty](/safety/audits-and-bug-bounty). The stock is verified lot by lot, reported weekly, and checked quarterly by agreed-upon procedures.
   </Accordion>
 
@@ -51,6 +81,10 @@ description: "Answers to common questions about Cargo Finance and Cargo Vault On
 
   <Accordion title="Is Cargo regulated?">
     The issuer group is in Seychelles and the goods are in Cameroon. Offers are private and only to eligible investors. The Seychelles Financial Services Authority has been asked to confirm how it classifies cvCOCOA, and Cargo will move to the matching licence or a licensed partner if required. This is not legal advice.
+  </Accordion>
+
+  <Accordion title="How do I know a message really comes from Cargo?">
+    Use only the contacts and accounts listed under [Official channels](/governance/community#official-channels). Cargo never sends a deposit address by chat, DM or email alone and never asks for a seed phrase or private key. Your deposit address is the one in your signed agreement, confirmed by phone with a named director using a number from the data room. If anything else asks you to send funds, treat it as a scam and tell us.
   </Accordion>
 
   <Accordion title="Where can I get help or report an issue?">
