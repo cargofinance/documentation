@@ -14,6 +14,11 @@ A bonding curve that stops below NAV. The price rises with the USDC raised, so e
 
 **Price per share P(R) = 4.793 + (5.118 − 4.793) × R ÷ 1,500,000**, where R is USDC raised so far.
 
+<Frame caption="Earlier money buys at a deeper discount. Every seat is below NAV.">
+  <img className="block dark:hidden" src="/images/charts/genesis-curve-light.svg" alt="Line chart: Genesis price rising linearly from $4.793 at $0 raised to $5.118 at $1.5M, below the NAV of $5.277 and the 97% of NAV ceiling" />
+  <img className="hidden dark:block" src="/images/charts/genesis-curve-dark.svg" alt="Line chart: Genesis price rising linearly from $4.793 at $0 raised to $5.118 at $1.5M, below the NAV of $5.277 and the 97% of NAV ceiling" />
+</Frame>
+
 | | |
 | :-- | :-- |
 | First seat | $4.793, 9.2% below NAV |
@@ -53,6 +58,18 @@ Price along the curve, against the NAV of 9 Oct 2026 ($5.277):
 </Steps>
 
 ## Exiting
+
+```mermaid
+flowchart LR
+    H(["You hold cvCOCOA"]) --> R["Redemption · NAV − 0.10%<br/>from 1,000 shares, at a batch"] --> U(["USDC"])
+    H --> B["Liquidity Bridge · NAV − 1.0%<br/>instant, up to capacity"] --> U
+    H --> Q["RFQ · firm quotes<br/>blocks from $25,000"] --> U
+    H --> P["Physical delivery · at cost<br/>from 10,000 shares"] --> K(["Cocoa to your exporter"])
+    classDef key fill:#0E4A66,stroke:#5BB4DB,stroke-width:2px,color:#ffffff
+    classDef accent fill:#F47A20,stroke:#F47A20,color:#ffffff
+    class H accent
+    class U,K key
+```
 
 | Route | Who | Price | Timing |
 | :-- | :-- | :-- | :-- |

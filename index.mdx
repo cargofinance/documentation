@@ -45,6 +45,27 @@ Trade finance is short of money, not of trades. Africa's trade-finance gap was e
   </Step>
 </Steps>
 
+The whole journey, from the farm gate to your wallet and back out:
+
+```mermaid
+flowchart TB
+    subgraph IN["Into the vault"]
+        direction LR
+        A["Farm gate<br/>Nova buys cocoa"] --> B["Bay at AGL Bonabéri<br/>under a collateral manager"] --> C{{"Receipt<br/>weighed · graded · 25 t+"}} --> D["Mint 1 share per kg<br/>90% senior · 10% first loss"]
+    end
+    subgraph OUT["To you, and back out"]
+        direction LR
+        E["Genesis curve, then<br/>batch auction every 12 days"] --> F(["Your wallet<br/>cvCOCOA below NAV"]) --> X["Hold · Redeem at NAV − 0.10%<br/>Bridge at NAV − 1.0% · Delivery from 10 t"]
+    end
+    IN --> OUT
+    classDef key fill:#0E4A66,stroke:#5BB4DB,stroke-width:2px,color:#ffffff
+    classDef accent fill:#F47A20,stroke:#F47A20,color:#ffffff
+    class C,D key
+    class F accent
+    style IN fill:transparent,stroke:#8A96A0,stroke-dasharray:4 4
+    style OUT fill:transparent,stroke:#8A96A0,stroke-dasharray:4 4
+```
+
 <Warning>
   Cargo Vault One is offered only to eligible non-US professional or institutional investors who are not resident in a CEMAC country or in Seychelles. Nothing in these docs is an offer where it would be unlawful. Figures are illustrations at stated prices, not forecasts. Capital is at risk.
 </Warning>

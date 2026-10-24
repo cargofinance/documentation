@@ -20,7 +20,28 @@ Cargo Vault One is a **venue for receipted commodities**. The Vault SPV is the o
 
 ## How money and goods flow
 
-**Originator lot → collateral manager receipt → mint (90% senior, 10% subordinated) → batch auction → buyer's wallet → hold, redeem, bridge or deliver → export sale at parity → USDC back to the vault**
+How cocoa and money move between the parties, step by step. Solid arrows are goods and actions; dashed arrows are payments. Buyers settle atomically in the auction, and the Vault SPV is paid when the cocoa is exported.
+
+```mermaid
+%%{init: {"sequence": {"mirrorActors": false}}}%%
+sequenceDiagram
+    participant O as Originator
+    participant CM as Collateral manager
+    participant SPV as Vault SPV
+    participant A as Batch auction
+    participant B as Buyer
+    participant X as Offtaker
+    O->>CM: Delivers cocoa (25 t+ lots)
+    CM->>SPV: Receipt in the SPV's name
+    SPV->>A: Mints shares, lists the lot
+    B->>A: Sealed bid in USDC
+    A-->>B: Shares at the clearing price
+    A-->>SPV: Auction proceeds
+    SPV-->>O: EUR or XAF via a CEMAC bank
+    CM->>X: Releases cocoa at export
+    X-->>SPV: Payment at export parity
+    SPV-->>B: USDC on redemption
+```
 
 ## Fee schedule
 

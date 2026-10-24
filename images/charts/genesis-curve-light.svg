@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="316.8pt" viewBox="0 0 576 316.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-24T01:35:02.356490</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 316.8 
+L 576 316.8 
+L 576 0 
+L 0 0 
+L 0 316.8 
+z
+" style="fill: none; opacity: 0"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 47.64 263.148 
+L 564.12 263.148 
+L 564.12 27.96 
+L 47.64 27.96 
+L 47.64 263.148 
+z
+" style="fill: none; opacity: 0"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="57.572308" y="275.006281" transform="rotate(-0 57.572308 275.006281)">$0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="123.787692" y="275.006281" transform="rotate(-0 123.787692 275.006281)">$0.2M</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="190.003077" y="275.006281" transform="rotate(-0 190.003077 275.006281)">$0.4M</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="256.218462" y="275.006281" transform="rotate(-0 256.218462 275.006281)">$0.6M</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5"/>
+     <g id="text_5">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="322.433846" y="275.006281" transform="rotate(-0 322.433846 275.006281)">$0.8M</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6"/>
+     <g id="text_6">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="388.649231" y="275.006281" transform="rotate(-0 388.649231 275.006281)">$1.0M</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7"/>
+     <g id="text_7">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="454.864615" y="275.006281" transform="rotate(-0 454.864615 275.006281)">$1.2M</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_8"/>
+     <g id="text_8">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="521.08" y="275.006281" transform="rotate(-0 521.08 275.006281)">$1.4M</text>
+     </g>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="305.88" y="289.652219" transform="rotate(-0 305.88 289.652219)">USDC raised so far</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_9">
+      <path d="M 47.64 263.148 
+L 564.12 263.148 
+" clip-path="url(#pc2a29d7cb2)" style="fill: none; stroke: #e3e8ec; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10"/>
+     <g id="text_10">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end; fill: #5e6b75" x="44.14" y="267.327141" transform="rotate(-0 44.14 267.327141)">4.7</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_11">
+      <path d="M 47.64 225.816571 
+L 564.12 225.816571 
+" clip-path="url(#pc2a29d7cb2)" style="fill: none; stroke: #e3e8ec; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12"/>
+     <g id="text_11">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end; fill: #5e6b75" x="44.14" y="229.995712" transform="rotate(-0 44.14 229.995712)">4.8</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_13">
+      <path d="M 47.64 188.485143 
+L 564.12 188.485143 
+" clip-path="url(#pc2a29d7cb2)" style="fill: none; stroke: #e3e8ec; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14"/>
+     <g id="text_12">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end; fill: #5e6b75" x="44.14" y="192.664283" transform="rotate(-0 44.14 192.664283)">4.9</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_15">
+      <path d="M 47.64 151.153714 
+L 564.12 151.153714 
+" clip-path="url(#pc2a29d7cb2)" style="fill: none; stroke: #e3e8ec; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16"/>
+     <g id="text_13">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end; fill: #5e6b75" x="44.14" y="155.332855" transform="rotate(-0 44.14 155.332855)">5.0</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_17">
+      <path d="M 47.64 113.822286 
+L 564.12 113.822286 
+" clip-path="url(#pc2a29d7cb2)" style="fill: none; stroke: #e3e8ec; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_18"/>
+     <g id="text_14">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end; fill: #5e6b75" x="44.14" y="118.001426" transform="rotate(-0 44.14 118.001426)">5.1</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_19">
+      <path d="M 47.64 76.490857 
+L 564.12 76.490857 
+" clip-path="url(#pc2a29d7cb2)" style="fill: none; stroke: #e3e8ec; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_20"/>
+     <g id="text_15">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end; fill: #5e6b75" x="44.14" y="80.669998" transform="rotate(-0 44.14 80.669998)">5.2</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_21">
+      <path d="M 47.64 39.159429 
+L 564.12 39.159429 
+" clip-path="url(#pc2a29d7cb2)" style="fill: none; stroke: #e3e8ec; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_22"/>
+     <g id="text_16">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end; fill: #5e6b75" x="44.14" y="43.338569" transform="rotate(-0 44.14 43.338569)">5.3</text>
+     </g>
+    </g>
+    <g id="text_17">
+     <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="20.358906" y="145.554" transform="rotate(-90 20.358906 145.554)">USD per share</text>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 57.572308 263.148 
+L 223.110769 263.148 
+L 223.110769 27.96 
+L 57.572308 27.96 
+z
+" clip-path="url(#pc2a29d7cb2)" style="fill: #f47a20; opacity: 0.1"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 223.110769 263.148 
+L 388.649231 263.148 
+L 388.649231 27.96 
+L 223.110769 27.96 
+z
+" clip-path="url(#pc2a29d7cb2)" style="fill: #f47a20; opacity: 0.06"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 388.649231 263.148 
+L 554.187692 263.148 
+L 554.187692 27.96 
+L 388.649231 27.96 
+z
+" clip-path="url(#pc2a29d7cb2)" style="fill: #f47a20; opacity: 0.03"/>
+   </g>
+   <g id="line2d_23">
+    <path d="M 57.572308 228.429771 
+L 554.187692 107.102629 
+L 554.187692 107.102629 
+" clip-path="url(#pc2a29d7cb2)" style="fill: none; stroke: #f47a20; stroke-width: 2.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_24">
+    <path d="M 47.64 47.745657 
+L 564.12 47.745657 
+" clip-path="url(#pc2a29d7cb2)" style="fill: none; stroke-dasharray: 5.18,2.24; stroke-dashoffset: 0; stroke: #0b3a52; stroke-width: 1.4"/>
+   </g>
+   <g id="line2d_25">
+    <path d="M 47.64 106.845042 
+L 564.12 106.845042 
+" clip-path="url(#pc2a29d7cb2)" style="fill: none; stroke-dasharray: 1.2,1.98; stroke-dashoffset: 0; stroke: #8a96a0; stroke-width: 1.2"/>
+   </g>
+   <g id="line2d_26">
+    <path d="M 223.110769 263.148 
+L 223.110769 27.96 
+" clip-path="url(#pc2a29d7cb2)" style="fill: none; stroke: #5e6b75; stroke-opacity: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_27">
+    <defs>
+     <path id="m7b068d9ba8" d="M 0 3.5 
+C 0.928211 3.5 1.81853 3.131218 2.474874 2.474874 
+C 3.131218 1.81853 3.5 0.928211 3.5 0 
+C 3.5 -0.928211 3.131218 -1.81853 2.474874 -2.474874 
+C 1.81853 -3.131218 0.928211 -3.5 0 -3.5 
+C -0.928211 -3.5 -1.81853 -3.131218 -2.474874 -2.474874 
+C -3.131218 -1.81853 -3.5 -0.928211 -3.5 0 
+C -3.5 0.928211 -3.131218 1.81853 -2.474874 2.474874 
+C -1.81853 3.131218 -0.928211 3.5 0 3.5 
+z
+" style="stroke: #f47a20"/>
+    </defs>
+    <g clip-path="url(#pc2a29d7cb2)">
+     <use xlink:href="#m7b068d9ba8" x="57.572308" y="228.429771" style="fill: #f47a20; stroke: #f47a20"/>
+    </g>
+   </g>
+   <g id="line2d_28">
+    <g clip-path="url(#pc2a29d7cb2)">
+     <use xlink:href="#m7b068d9ba8" x="554.187692" y="107.102629" style="fill: #f47a20; stroke: #f47a20"/>
+    </g>
+   </g>
+   <g id="patch_6">
+    <path d="M 47.64 263.148 
+L 564.12 263.148 
+" style="fill: none; stroke: #e3e8ec; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 9px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="140.341538" y="70.891143" transform="rotate(-0 140.341538 70.891143)">Band A · 8.1% below NAV</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 9px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="305.88" y="70.891143" transform="rotate(-0 305.88 70.891143)">Band B · 6.1% below</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 9px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle; fill: #5e6b75" x="471.418462" y="70.891143" transform="rotate(-0 471.418462 70.891143)">Band C · 4.0% below</text>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 10px; font-family: Arial, Helvetica, sans-serif; text-anchor: end; fill: #0b3a52" x="554.187692" y="43.265886" transform="rotate(-0 554.187692 43.265886)">NAV $5.277</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 9px; font-family: Arial, Helvetica, sans-serif; text-anchor: start; fill: #8a96a0" x="64.193846" y="103.111899" transform="rotate(-0 64.193846 103.111899)">97% of NAV: no buyer pays above this</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 9px; font-family: Arial, Helvetica, sans-serif; fill: #5e6b75" transform="translate(228.076923 238.137397)">$500k minimum,</text>
+    <text style="font-size: 9px; font-family: Arial, Helvetica, sans-serif; fill: #5e6b75" transform="translate(228.076923 248.215429)">or every dollar refunded</text>
+   </g>
+   <g id="text_24">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: Arial, Helvetica, sans-serif; fill: #15212b" transform="translate(67.504615 241.784731)">First seat $4.793</text>
+    <text style="font-weight: 700; font-size: 9.5px; font-family: Arial, Helvetica, sans-serif; fill: #15212b" transform="translate(67.504615 252.422653)">9.2% below NAV</text>
+   </g>
+   <g id="text_25">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: Arial, Helvetica, sans-serif; fill: #15212b" transform="translate(455.274525 148.45616)">Last seat $5.118</text>
+    <text style="font-weight: 700; font-size: 9.5px; font-family: Arial, Helvetica, sans-serif; fill: #15212b" transform="translate(457.475853 159.094081)">3.0% below NAV</text>
+   </g>
+   <g id="text_26">
+    <text style="font-weight: 700; font-size: 13px; font-family: Arial, Helvetica, sans-serif; text-anchor: start; fill: #15212b" x="47.64" y="21.96" transform="rotate(-0 47.64 21.96)">Genesis curve: a rising price that stops below NAV</text>
+   </g>
+  </g>
+  <g id="text_27">
+   <text style="font-size: 8.5px; font-family: Arial, Helvetica, sans-serif; text-anchor: start; fill: #8a96a0" x="5.76" y="313.632" transform="rotate(-0 5.76 313.632)">Launch Pack v5.0 terms against the NAV of 9 Oct 2026 · $1.5M cap = 302.8 t · may be updated with the rescheduled dates</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pc2a29d7cb2">
+   <rect x="47.64" y="27.96" width="516.48" height="235.188"/>
+  </clipPath>
+ </defs>
+</svg>
