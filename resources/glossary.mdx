@@ -1,0 +1,72 @@
+---
+title: "Glossary"
+sidebarTitle: "Glossary"
+description: "Plain definitions of the commodity, legal and on-chain terms used across the Cargo Vault One docs, for DeFi readers and commodity desks alike."
+---
+
+Cargo Vault One sits between the physical commodity trade and DeFi. Each side has its own vocabulary. This page defines both.
+
+## Commodity and trade terms
+
+| Term | Meaning |
+| :-- | :-- |
+| **AGL Bonabéri** | The port terminal in Douala, Cameroon, where Cycle 1 lots are stored in a collateral-managed bay |
+| **Collateral manager** | An independent firm that controls the warehouse bay, weighs, grades and signs for goods, and releases them only against payment |
+| **Cut test, bean count, moisture** | Standard cocoa quality checks recorded on every receipt |
+| **EUDR** | The EU Deforestation Regulation; it requires plot-level origin data for cocoa sold into the EU |
+| **Export parity** | What cocoa is worth at the point of export, after export costs. Cargo's NAV is set at export parity |
+| **Farmgate price** | The price paid to farmers or cooperatives at origin |
+| **FOB (free on board)** | A price for goods loaded on the vessel at the port of export, with the buyer paying freight from there |
+| **ICE London cocoa** | The cocoa futures contract on ICE Futures Europe. One lot is 10 tonnes; it is the hedge reference for cvCOCOA |
+| **Lot** | A batch of at least 25 t received into the bay, with its own lot ID, weight, grade and receipt |
+| **Offtaker** | A buyer (exporter, grinder or trader) that buys the cocoa for export or processing |
+| **ONCC** | Office National du Cacao et du Café, Cameroon's cocoa and coffee board. It publishes the daily FOB reference price that NAV starts from |
+| **Receipt** | The collateral manager's signed record that a lot is in the bay, with its weight and grade. No receipt, no mint |
+
+## Legal and regulatory terms
+
+| Term | Meaning |
+| :-- | :-- |
+| **BEAC** | The central bank of the CEMAC region. Its exchange rules govern how export proceeds are repatriated |
+| **CEMAC** | The Central African Economic and Monetary Community: Cameroon, Central African Republic, Chad, Republic of the Congo, Equatorial Guinea and Gabon. Residents are excluded from Cargo Vault One |
+| **FCFA (XAF)** | The Central African CFA franc, pegged at 655.957 per euro |
+| **Limited recourse, non-petition** | Contract terms that stop creditors from claiming beyond the SPV's assets or forcing it into insolvency |
+| **OHADA** | The Organisation for the Harmonisation of Business Law in Africa. Its Uniform Act on secured transactions governs the pledge over the cocoa |
+| **Pledge with dispossession** | A pledge where the goods are handed to a third party (here, the collateral manager) rather than staying with the owner |
+| **RCCM** | The trade and personal property credit register where companies and pledges are recorded in OHADA countries |
+| **Regulation S** | The US rule for offers made outside the United States. Cargo Vault One is offered only to non-US persons |
+| **Seychelles FSA** | The Financial Services Authority of Seychelles, which Cargo has asked to confirm how it classifies cvCOCOA |
+| **SPV** | Special purpose vehicle. The bankruptcy-remote Seychelles company that owns every receipted lot |
+
+## Vault and market terms
+
+| Term | Meaning |
+| :-- | :-- |
+| **Authorised participant (AP)** | A panel firm that can create shares at NAV + 0.10% and redeem at NAV − 0.10%, keeping the market price close to NAV |
+| **Batch auction** | A sealed, uniform-price auction every 12 days in which the Vault SPV sells new shares |
+| **Bonding curve** | A price that rises with the amount raised. The Genesis Auction uses a linear curve that stops below NAV |
+| **cvCOCOA** | Cargo Vault Cocoa · Douala. One share is one kilogram of receipted cocoa |
+| **Discount to NAV** | How far below NAV new shares sell. It is the main source of return for holders |
+| **First loss (subordination)** | The 10% of each lot that originators keep as subordinated shares; it absorbs shortfalls before senior holders |
+| **Genesis Auction** | The first sale of cvCOCOA, on a bonding curve, with a minimum and a cap |
+| **Hold / Rotate** | Hold: keep shares bought below NAV. Rotate: buy in each batch, pre-sell the kilos, redeem and bid again |
+| **iNAV** | Indicative NAV between daily fixes, moved with ICE London cocoa |
+| **Liquidity Bridge** | A pool of LP capital that buys shares instantly from holders at NAV − 1.0% |
+| **NAV** | Net asset value per share: ONCC's FOB reference, less export levy and FOB costs, converted to USD |
+| **Reserve price** | The lowest price an originator will accept for a lot in a batch, published before the window opens |
+| **RFQ** | Request for quote: a holder asks panel market makers for firm prices on a block |
+| **Tape** | The public record of each batch: clearing price, discount to NAV, volume, bid-to-cover and lot IDs |
+| **UN/LOCODE** | The UN code for a port (DLA for Douala, KBI for Kribi), used to name each port's vault |
+
+## On-chain terms
+
+| Term | Meaning |
+| :-- | :-- |
+| **Arc** | Circle's USDC-native layer-1 chain and the target home for cvCOCOA. Base is the fallback |
+| **Atomic settlement** | Shares and USDC swap in a single transaction, so neither side can fail to deliver |
+| **ERC-3643** | A permissioned token standard: every transfer is checked against an on-chain identity registry |
+| **Identity registry** | The on-chain whitelist of verified wallets. Only a participant ID and wallet status are stored, never personal data |
+| **Pause guardian** | A role that can suspend minting, batches, creations or redemptions on a safety trigger |
+| **Safe** | A multisignature wallet used to administer the contracts, behind a timelock |
+| **Timelock** | A delay between approving an administrative change and executing it, so changes are visible first |
+| **USDC** | Circle's US dollar stablecoin, the settlement asset for every trade |

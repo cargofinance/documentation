@@ -92,6 +92,8 @@
       {
         "group": "Additional Resources",
         "pages": [
+          "resources/research",
+          "resources/glossary",
           "resources/contract-addresses",
           "resources/code-repositories"
         ]
