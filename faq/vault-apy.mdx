@@ -1,50 +1,46 @@
 ---
-title: "How Cargo Finance Vault APY Is Calculated"
-sidebarTitle: "Vault APY"
-description: "Learn how Cargo Finance calculates and displays vault APY for RWA-backed pools, including yield sources and compounding assumptions."
+title: "Returns, NAV and Pricing FAQ"
+sidebarTitle: "Returns & NAV"
+description: "Why Cargo Vault One shows NAV and discounts instead of an APY, how NAV is calculated and updated, what moves it, and how to read the figures."
 ---
 
-Cargo Finance Vaults generate potential yield through real-world investment strategies, including private credit, trade finance, and asset-backed financing. Each vault displays an estimated Annual Percentage Yield (APY) to help depositors evaluate potential returns.
+<AccordionGroup>
+  <Accordion title="Why don't you show an APY?">
+    cvCOCOA pays no coupon. Its return is the discount to NAV you buy at, plus or minus NAV moves, plus any Genesis lock bonus. Those depend on prices and on how often you rotate, so annualising them would mislead. Older materials quoting 18%, 28% or 35% APY described an earlier facility structure and no longer apply.
+  </Accordion>
 
-## APY vs. APR
+  <Accordion title="How is NAV calculated?">
+    NAV per share = (ONCC FOB reference − export levy − FOB costs) ÷ FX. At ONCC prices of 9 Oct 2026: (3,259 − 125 − 100) FCFA/kg = 3,034 FCFA/kg, divided by 575 XAF per USD = **$5.277**.
+  </Accordion>
 
-**Annual Percentage Yield (APY)** represents the estimated annual return on an investment, including the effects of compounding.
+  <Accordion title="How often is NAV updated?">
+    NAV is struck daily after ONCC publishes and posted on-chain. iNAV, which moves NAV with ICE London cocoa between fixes, updates every minute by API and WebSocket and every 15 minutes on-chain during ICE hours. Creations and redemptions strike at NAV.
+  </Accordion>
 
-**Annual Percentage Rate (APR)** represents the annualized return without compounding.
+  <Accordion title="Why does NAV change?">
+    - The ONCC FOB reference price of cocoa moves.
+    - EUR/USD moves (the CFA franc is pegged to the euro).
+    - FOB costs are re-based quarterly on invoices, or at once if realised sales run $150/t below NAV for 30 days.
+    - The export levy changes only if the law changes.
+  </Accordion>
 
-Cargo uses APY as its target yield metric. Where compounding is supported, projected APY reflects the applicable reinvestment frequency. Otherwise, returns are presented on a non-compounded basis.
+  <Accordion title="What is the discount, and why does it change?">
+    It is how far below NAV new shares sell. On the Genesis curve it runs from 9.2% to 3.0%; in each batch auction it is set by competing sealed bids. It will compress as more capital arrives. Nova's reserve currently caps it at about 7.3%.
+  </Accordion>
 
-## Yield Sources
+  <Accordion title="What does $100 buy?">
+    At today's NAV, the first Genesis $100 buys 20.86 shares worth **$110.08** of NAV; the last Genesis $100 buys 19.54 shares worth **$103.09**. See the full table in [Deposits & Withdrawals](/products/deposits-and-withdrawals#genesis-auction-cycle-1).
+  </Accordion>
 
-Vault returns are generated through underlying real-world economic activities, including:
+  <Accordion title="What happens if ONCC and ICE disagree?">
+    If the ONCC-implied differential to ICE moves more than $250/t from its 30-day median, or ONCC does not publish for two business days, NAV falls back to ICE plus the median differential and creations and redemptions pause for that batch.
+  </Accordion>
 
-- **Private Credit:** Interest earned from business lending and structured financing.
-- **Trade Finance:** Returns generated through short-term commercial financing and receivables.
-- **Profit Sharing:** Additional returns linked to the profitability of eligible underlying transactions.
-- **Protocol Incentives:** Additional rewards, where applicable, reported separately from underlying asset yield.
+  <Accordion title="Can I borrow against my shares?">
+    A cvCOCOA/USDC Morpho market is planned after Batch 4, at a 62.5% liquidation LTV with a lower-of NAV oracle. At a 50% borrow, a first-seat Genesis $100 would release about $55 of USDC. It is not live yet.
+  </Accordion>
+</AccordionGroup>
 
-Displayed net APY accounts for applicable management and performance fees, based on each vault's fee structure.
-
-## How Often Is APY Updated?
-
-APY estimates are updated as new asset performance data, repayment information, and valuations become available.
-
-- **Update Frequency:** [To be confirmed]
-- **Reporting Basis:** Underlying asset performance and vault NAV.
-- **Historical Performance:** Available through vault reporting, where supported.
-
-Because returns originate from off-chain assets, APY updates may not occur with every blockchain transaction.
-
-## Why Does APY Change?
-
-Vault APY may fluctuate due to:
-
-- **Market Conditions:** Changes in lending rates and credit demand.
-- **Asset Performance:** Borrower repayments, defaults, and financing profitability.
-- **Capital Allocation:** Changes in vault utilization and available investment opportunities.
-- **Reinvestment:** Compounding frequency and reinvestment availability.
-- **Protocol Fees:** Changes to applicable management or performance fees.
-
-Short-term APY fluctuations do not necessarily reflect long-term performance. Depositors should consider the vault's underlying assets, risk profile, and investment duration when evaluating projected returns.
-
-_APY figures are estimates, not guaranteed returns. Actual performance may differ due to credit risk, market conditions, liquidity constraints, and underlying asset performance._
+<Note>
+  All figures are at ONCC prices of 9 Oct 2026, before price moves. They are illustrations, not forecasts. Capital is at risk.
+</Note>

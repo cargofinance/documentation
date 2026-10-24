@@ -1,61 +1,67 @@
 ---
-title: "Cargo Finance: RWA Private Credit Vaults for DeFi Yield"
+title: "Cargo Finance: receipted soft commodities, on-chain"
 sidebarTitle: "Overview"
-description: "Cargo Finance is a DeFi protocol that connects on-chain capital to real-world, asset-backed opportunities in private credit through conveniently audited vaults. Learn how our Cargo RWA Vaults work and how to get started."
+description: "Cargo Finance brings exchange-grade soft commodities on-chain. Cargo Vault One issues cvCOCOA: one share is one kilogram of receipted cocoa in a collateral-managed bay in Douala, priced daily at export parity."
 ---
 
-Cargo Finance is a decentralized protocol that lets you earn yield by staking crypto-assets in on-chain vaults backed by a verified set of real world assets such as commoditiy trade finance receivalbed, exchange-listed commodities, and energy assets. These docs explain how the protocol works, how to use it, and how to stay safe while interacting with smart contracts.
+**Real world. Real assets. Real yield.**
 
-## What is Cargo Finance?
+Cargo Finance brings real-world assets and emerging-market trade finance on-chain. We originate, allocate and curate commodity vaults. Our first programme, **Cargo Vault One**, holds exchange-grade soft commodities as receipted, pledged inventory at the port and turns them into a token that eligible investors can hold, trade, redeem or take delivery of.
 
-Real World Assets and emerging market Private Credit yield on-chain. We originate, allocate, and curate commodities-backed RWA vaults.
+## Cargo Vault One in one paragraph
 
-## What is the RWA Vault mechanism?
+Holders own **cvCOCOA** (Cargo Vault Cocoa). **One share is one kilogram** of export-grade Cameroon cocoa in a collateral-managed bay at AGL Bonabéri, Douala. A bankruptcy-remote Seychelles SPV owns every receipted lot. Each share is priced daily at **NAV**: the official ONCC export (FOB) reference price, less the export levy and FOB costs. New shares are sold below NAV, first through the **Genesis Auction** and then in a sealed **batch auction every 12 days**. You can redeem at NAV, sell instantly through the Liquidity Bridge, or take the cocoa from 10 tonnes.
 
-A Real-World Asset (RWA) Vault is a blockchain-based investment structure that enables investors to access yield-generating opportunities backed by real-world assets, such as private credit, trade finance, and other asset-backed financing arrangements.
+<CardGroup cols={3}>
+  <Card title="1 share = 1 kg" icon="weight-hanging">
+    Receipted cocoa you can point to: lot ID, weight and grade are public.
+  </Card>
+  <Card title="$5.277 NAV" icon="chart-line">
+    Export parity per share at ONCC prices of 9 Oct 2026, struck daily.
+  </Card>
+  <Card title="10.1% delta" icon="arrow-up-right-dots">
+    Spread between receipted cost in Douala and export parity.
+  </Card>
+</CardGroup>
 
-RWA Vaults bridge traditional finance and decentralized finance (DeFi) by bringing real-world investment opportunities on-chain. Through smart contracts, vaults can facilitate capital allocation, track investor positions, and manage distributions according to predefined investment terms.
+## Why it exists
 
-### How Does It Work?
+Trade finance is short of money, not of trades. Africa's trade-finance gap was estimated at **$73.6bn in 2024** (AfDB). A bag of cocoa in a Douala warehouse is valuable, but a lender in Zurich, Dubai or Singapore struggles to verify it, take title to it, enforce a claim on it and sell it at a known price. Cargo makes the kilogram itself into collateral that travels: checked by an independent collateral manager, owned by a ring-fenced SPV, pledged under OHADA law, priced off a published reference and settled in USDC on a public chain.
 
-Investors deposit eligible digital assets, such as stablecoins, into a vault. The pooled capital is then allocated to selected real-world financing opportunities, where returns are generated through underlying economic activities, such as loan repayments, financing fees, or revenue-sharing arrangements.
+## How it works
 
-As the underlying investments generate income, returns are attributed to vault participants according to the vault's terms and performance.
+<Steps>
+  <Step title="Originate">
+    Nova Commodities Cameroon buys export-grade cocoa and delivers it into a bay under an independent collateral manager in Douala.
+  </Step>
+  <Step title="Receipt and mint">
+    The collateral manager weighs, grades and signs for each lot of 25 t or more. Shares are minted 1:1 per kilogram. No receipt, no mint.
+  </Step>
+  <Step title="Sell below NAV">
+    The SPV sells new shares in the Genesis Auction and then in batch auctions every 12 days, at a clearing price below NAV.
+  </Step>
+  <Step title="Hold, rotate or exit">
+    Holders keep the discount (Hold), recycle it every batch (Rotate), redeem at NAV, use the Liquidity Bridge, or take physical delivery.
+  </Step>
+</Steps>
 
-### How Does Cargo Finance Use RWA Vaults?
-
-Cargo Finance connects investors with curated private credit and real-world asset opportunities across Africa and emerging markets. Its vault-based model is designed to simplify access to traditionally fragmented financial markets through structured, on-chain investment products.
-
-By combining asset origination, due diligence, capital allocation, and blockchain-based infrastructure, Cargo aims to provide investors with greater transparency into how capital is deployed and how returns are generated.
-
-### Key Benefits
-
-- Accessibility: Exposure to private credit and real-world financing opportunities through digital assets.
-- Transparency: On-chain visibility into vault transactions and capital movements.
-- Diversification: Access to financing opportunities across different assets, sectors, and markets.
-- Yield Generation: Potential returns linked to underlying real-world economic activity.
-- Automated Infrastructure: Smart contracts support investment accounting, allocation, and distribution processes.
-
-Important: RWA Vaults are not risk-free. Returns depend on the performance of the underlying assets, and investments may be exposed to borrower defaults, liquidity constraints, smart contract vulnerabilities, and market risks. On-chain transparency does not automatically guarantee the performance or security of off-chain assets.
+<Warning>
+  Cargo Vault One is offered only to eligible non-US professional or institutional investors who are not resident in a CEMAC country or in Seychelles. Nothing in these docs is an offer where it would be unlawful. Figures are illustrations at stated prices, not forecasts. Capital is at risk.
+</Warning>
 
 ## Reading the docs
 
-Use the sections below to find what you need quickly.
-
 <CardGroup cols={2}>
-  <Card title="Get Started" icon="rocket" href="/quickstart">
-    Connect your wallet and make your first deposit in minutes.
+  <Card title="Get started" icon="rocket" href="/quickstart">
+    Eligibility, KYC, wallet whitelisting and how to take part.
   </Card>
-
-  <Card title="RWA Vault Mechanism" icon="vault" href="/ecosystem/rwa-vault-mechanism">
-    Learn how real-world assets back on-chain vaults.
+  <Card title="How the vault works" icon="vault" href="/ecosystem/rwa-vault-mechanism">
+    Title, pledge, proof of reserve, NAV and redemption.
   </Card>
-
-  <Card title="Vaults" icon="layers" href="/products/vaults">
-    Explore available vaults and their strategies.
+  <Card title="cvCOCOA" icon="layer-group" href="/products/vaults">
+    The token, the vault lines and supported networks.
   </Card>
-
-  <Card title="Security Standards" icon="shield" href="/safety/security-standards">
-    Review the security model, audits, and risk practices.
+  <Card title="Risk checklist" icon="shield" href="/safety/risk-checklist">
+    What can go wrong, and what absorbs each risk.
   </Card>
 </CardGroup>

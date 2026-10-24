@@ -1,97 +1,39 @@
 ---
 title: "Audits and Bug Bounty at Cargo Finance"
-description: "Review Cargo Finance audit reports and the bug bounty program tiers, scope, and how security researchers can report vulnerabilities responsibly."
 sidebarTitle: "Audits & Bug Bounty"
+description: "Audit status of the Cargo Vault One contracts, operational audits of the stock, and how to report a vulnerability responsibly."
 ---
 
-Cargo Finance engages external security firms to review contracts and operates a bug bounty program for continuous security improvement.
+Cargo audits two things: the code that issues and trades shares, and the stock that backs them.
 
-## Audit Reports
+## Smart-contract audits
 
-The table below lists completed audits of Cargo vault and strategy contracts.
+The contracts that mint, auction and hold value (the minting guard, the Genesis curve and the batch auction) are independently reviewed **before mainnet**. Reports will be listed here as they are published.
 
 | Auditor | Date | Scope | Report |
-| --- | --- | --- | --- |
-| [Auditor name] | [Month Year] | [Vault / Strategy / Other] | [Report link] |
-| [Auditor name] | [Month Year] | [Vault / Strategy / Other] | [Report link] |
+| :-- | :-- | :-- | :-- |
+| Named on publication | — | Minting, Genesis curve, batch auction | Published here |
 
-<Note>
-  Future audits will be added here as new contracts or upgrades are reviewed.
-</Note>
+## Stock and financial audits
 
-## Bug Bounty Program
+| Check | Who | Cadence |
+| :-- | :-- | :-- |
+| Lot verification | Vallis | Every lot |
+| Stock report hash | Collateral manager | Weekly |
+| Agreed-upon procedures on stock against shares | Independent accountant | Quarterly |
+| Auction log review | Independent reviewer | Quarterly |
+| Financial statements | Auditor, named on signing | Annual |
 
-Security researchers can report vulnerabilities through Cargo's bug bounty program.
+## Reporting a vulnerability
 
-| Tier | Severity | Maximum Reward |
-| --- | --- | --- |
-| Critical | Remote code execution / full fund drain | [Reward amount] |
-| High | Significant fund loss or protocol halt | [Reward amount] |
-| Medium | Limited impact or partial functionality loss | [Reward amount] |
-| Low | Informational or minor issue | [Reward amount] |
-
-## How to Report
-
-Follow responsible disclosure when submitting findings.
+A formal bug bounty with reward tiers has not launched yet. Until it does, we still want to hear from you and will credit responsible disclosures.
 
 <Steps>
-  <Step title="Prepare">
-    Document the vulnerability, reproduction steps, and impact clearly.
-  </Step>
-  <Step title="Submit">
-    Send the report to [bounty email / submission portal link].
-  </Step>
-  <Step title="Wait">
-    Allow [N days] for triage before any public disclosure.
-  </Step>
+  <Step title="Prepare">Document the issue, the steps to reproduce it and its impact.</Step>
+  <Step title="Submit">Email **cargovaults@gmail.com** with the subject line "Security". Do not post details publicly.</Step>
+  <Step title="Wait">Give us time to triage and fix before any disclosure. We will confirm receipt and agree a timeline with you.</Step>
 </Steps>
 
 <Info>
-  Do not test on mainnet. Use a local fork or testnet for proof-of-concept work.
-</Info>
-
-Cargo Finance engages external security firms to review contracts and operates a bug bounty program for continuous security improvement.
-
-## Audit Reports
-
-The table below lists completed audits of Cargo vault and strategy contracts.
-
-| Auditor | Date | Scope | Report |
-| --- | --- | --- | --- |
-| [Auditor name] | [Month Year] | [Vault / Strategy / Other] | [Report link] |
-| [Auditor name] | [Month Year] | [Vault / Strategy / Other] | [Report link] |
-
-<Note>
-  Future audits will be added here as new contracts or upgrades are reviewed.
-</Note>
-
-## Bug Bounty Program
-
-Security researchers can report vulnerabilities through Cargo's bug bounty program.
-
-| Tier | Severity | Maximum Reward |
-| --- | --- | --- |
-| Critical | Remote code execution / full fund drain | [Reward amount] |
-| High | Significant fund loss or protocol halt | [Reward amount] |
-| Medium | Limited impact or partial functionality loss | [Reward amount] |
-| Low | Informational or minor issue | [Reward amount] |
-
-## How to Report
-
-Follow responsible disclosure when submitting findings.
-
-<Steps>
-  <Step title="Prepare">
-    Document the vulnerability, reproduction steps, and impact clearly.
-  </Step>
-  <Step title="Submit">
-    Send the report to [bounty email / submission portal link].
-  </Step>
-  <Step title="Wait">
-    Allow [N days] for triage before any public disclosure.
-  </Step>
-</Steps>
-
-<Info>
-  Do not test on mainnet. Use a local fork or testnet for proof-of-concept work.
+  Never test against mainnet contracts or real funds. Use a local fork or a testnet.
 </Info>

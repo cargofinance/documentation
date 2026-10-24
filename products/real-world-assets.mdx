@@ -1,48 +1,69 @@
 ---
-title: "Real-World Assets Backing Cargo Vaults"
+title: "Real-World Assets Backing Cargo Vault One"
 sidebarTitle: "Real-World Assets"
-description: "Explore the real-world assets that back Cargo Vaults, including custody arrangements, legal structure, and the asset classes available per vault."
+description: "The cocoa behind cvCOCOA, where it is held, how it is verified, the legal structure, and the eight tests any commodity must pass to become a Cargo vault."
 ---
 
-Cargo Finance connects on-chain capital with curated real-world investment opportunities across Africa and emerging markets. Understanding the underlying assets, custody arrangements, and legal structures helps depositors evaluate investment risks and potential returns.
+Cargo Vault One holds **exchange-grade soft commodities** at the port: goods with a standard grade, a deep reference price and a short, self-liquidating path to export. Cycle 1 is Cameroon cocoa.
 
-## Asset Types
+## The asset: Cameroon cocoa in Douala
 
-Cargo Vaults are designed to provide exposure to the following asset classes, with availability depending on the vault's investment strategy and jurisdiction.
+| | |
+| :-- | :-- |
+| Product | Export-grade Cameroon cocoa beans, fermented, dried and bagged |
+| Quality records | Moisture, cut test and bean count on every receipt |
+| Lot size | 25 t minimum, each with a lot ID, weight, grade and receipt |
+| Location | Approved bay under the collateral manager at AGL Bonabéri, Douala; Kribi when added |
+| Price reference | ONCC daily FOB reference, checked against ICE London cocoa |
+| Time in the vault | Exported within 90 days of receipt, or replaced at NAV |
+| Traceability | Cooperative and plot data for every lot; EUDR due-diligence data for EU-bound lots from 30 Dec 2026 |
+| Market size | Cameroon marketed 247,914 t of cocoa in 2025/26 (ONCC) |
 
-| Asset Class | Description | Typical Duration | Vault Category |
-| :-- | :-- | :-- | :-- |
-| Private Credit | Loans to businesses backed by contractual repayment obligations and, where applicable, collateral. | 6–24 months | Growth |
-| Trade Finance | Short-term financing supporting import, export, and commercial trade transactions. | 30–180 days | Specialized |
-| Invoice Financing | Financing secured against verified business receivables and outstanding invoices. | 30–120 days | Core / Specialized |
-| Asset-Backed Lending | Credit secured by physical assets, inventory, equipment, or financial collateral. | 3–12 months | Core / Growth |
-| Structured Credit | Financing arrangements combining contractual cash flows, collateral, and defined repayment structures. | 6–24 months | Growth / Specialized |
+## Why soft commodities make good collateral
 
-_Durations are indicative and may differ by asset, borrower, and investment structure._
+- **Standard grade.** A graded bean means the same thing in Douala, Antwerp and Shanghai.
+- **Deep reference price.** ICE London gives a daily mark and a hedge.
+- **Warehouse culture.** Collateral managers, receipts and pledges are routine in the physical trade.
+- **Self-liquidating.** Goods are bought to be sold; collateral turns into cash within weeks.
+- **Wide demand.** Grinders, exporters and traders buy every week.
 
-## Custody
+What makes them hard is volatility, basis between the physical and futures prices, quality decay and legal reach. Cargo's structure is built around those four problems.
 
-Cargo's asset custody framework is designed to separate investor-backed assets from protocol operations through designated legal and custody arrangements.
+## Custody and verification
 
-Depending on the vault, underlying assets may be held or administered by independent custodians, trustees, or authorized servicing partners.
+- **Collateral manager:** independent, with sole release authority over the bay. Goods leave only against payment.
+- **Verification:** Vallis inspects, weighs and grades every lot. A discrepancy above 0.5% on any lot suspends it until it is topped up or met from the originator's subordinated shares, and triggers an independent recount.
+- **Reporting:** weekly stock reports hashed on-chain; lot IDs, weights and grades public.
+- **Insurance:** all-risks stock cover on every lot.
 
-- **Asset Custodian:** [To be confirmed]
-- **Asset Segregation:** Subject to vault-specific legal arrangements.
-- **Verification:** Supporting documentation, collateral records, and periodic asset reporting.
+## Legal structure
 
-On-chain vault records provide transparency into capital movements, while off-chain custody arrangements govern the underlying asset rights.
+| Layer | Instrument |
+| :-- | :-- |
+| Title | Vault SPV (Seychelles, bankruptcy-remote, limited recourse) owns each lot under a supply agreement effective on receipt |
+| Security | Pledge with dispossession to the collateral manager as agreed third-party holder, under the OHADA Uniform Act on secured transactions, registered at the RCCM |
+| Enforcement | One security agent for all holders |
+| Export and cash | Exports through an ONCC-registered exporter of record; proceeds domiciled with a CEMAC bank under BEAC rules |
+| Originator retention | 10% of each lot as subordinated shares (first loss) |
+| Offering | Private, to eligible non-US professional or institutional investors (Regulation S); residents of CEMAC and Seychelles excluded |
 
-## Legal Structure
+<Note>
+  The Seychelles Financial Services Authority has been asked to confirm how it classifies cvCOCOA. The venue will move to the matching licence, or to a licensed partner, if that classification requires it.
+</Note>
 
-Cargo Vaults are designed to connect decentralized investment infrastructure with legally enforceable real-world financing arrangements.
+## Eight tests for any commodity
 
-Depending on the asset class and jurisdiction, investments may be structured through **Special Purpose Vehicles (SPVs)** or other designated legal entities responsible for holding contractual rights, managing collateral, and facilitating repayments.
+A commodity becomes a Cargo vault only if it passes all eight:
 
-- **Legal Entity / SPV:** [To be confirmed]
-- **Jurisdiction:** [To be confirmed]
-- **Regulatory Status:** [To be confirmed]
-- **Investor Rights:** Defined by the applicable vault agreements and legal documentation.
+1. **Standard grade:** an exchange or trade-association specification.
+2. **Deep reference price:** a liquid future or a published index.
+3. **Storability:** shelf life well beyond the holding period, with known decay.
+4. **Independent custody:** a collateral manager with sole release authority.
+5. **Perfectable security:** a registrable pledge or title where the goods are stored.
+6. **Liquid physical exit:** at least three approved buyers able to take a lot within 10 days.
+7. **Insurable:** all-risk stock and transit cover at commercial rates.
+8. **Traceable:** lot-level origin documents, including EUDR data where required.
 
-These structures aim to support asset protection, enforceable investor claims, and regulatory compliance across participating markets.
-
-_Real-world asset backing does not eliminate credit, liquidity, legal, or counterparty risk. Investor protections depend on the specific legal structure and enforceability of the underlying agreements._Real-world assets carry risks that differ from on-chain crypto. Review the [safety/risk-checklist](/safety/risk-checklist) and the specific vault documentation before depositing.
+<Warning>
+  Physical backing does not remove credit, legal, liquidity or counterparty risk. Read the [Risk Checklist](/safety/risk-checklist) before you bid.
+</Warning>

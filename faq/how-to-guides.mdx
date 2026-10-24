@@ -1,31 +1,73 @@
 ---
+title: "Cargo Finance How-To Guides"
+sidebarTitle: "How-To Guides"
+description: "Step-by-step guides for Cargo Vault One: KYC and wallet whitelisting, verifying a deposit address, bidding in a batch, redeeming, using the bridge and taking delivery."
+---
 
-## title: "Cargo Finance How-To Guides" sidebarTitle: "How-To Guides" description: "Step-by-step guides for common Cargo Finance tasks, from connecting your wallet to depositing in and withdrawing from RWA vaults."
+## Complete KYC and whitelist a wallet
 
-These guides walk you through the most common actions on Cargo Finance. Each task links to deeper documentation where available.
+<Steps>
+  <Step title="Verify">
+    Complete Persona KYC (individuals: ID, liveness, proof of address) or KYB (entities: incorporation documents, directors, beneficial owners above 10%, signatory authority). Sign the Eligibility Declaration.
+  </Step>
+  <Step title="Register wallets">
+    Send up to three wallet addresses and their chain to compliance. You receive a participant ID and a nonce.
+  </Step>
+  <Step title="Sign the ownership message">
+    Sign this message from each wallet:
+
+    ```text
+    Cargo Vault One — wallet ownership
+    I, [legal name / entity], control this wallet and register it for Cargo Vault One.
+    Participant ID: [CV1-P-0000]
+    Chain: [Arc / Base]
+    Date (UTC): [YYYY-MM-DD]
+    Nonce: [issued by compliance]
+    ```
+  </Step>
+  <Step title="Confirmation">
+    After screening, the wallet is added to the identity registry and you receive a confirmation. Screening re-runs on new orders and every six months. Tell compliance about any new beneficial owner, country of residence or wallet before your next trade.
+  </Step>
+</Steps>
+
+## Verify a deposit address
+
+<Steps>
+  <Step title="Read it from your agreement">The address is printed in your signed agreement. Ignore any address sent by chat, DM or email.</Step>
+  <Step title="Check the signed announcement">The same address is posted, signed by the issuer key, on the official announcement channel.</Step>
+  <Step title="Call a named director">Use a phone number from the data room, not from a message. The director reads you the first 6 and last 4 characters.</Step>
+  <Step title="Send a test amount">Send a small amount first (for example 10 USDC) and wait for confirmation before sending the balance.</Step>
+</Steps>
+
+## Bid in a batch auction
+
+<Steps>
+  <Step title="Review the lots">Check the published lot IDs, tonnage, grade, receipts and reserves, and today's NAV.</Step>
+  <Step title="Place a sealed bid">Enter price per share and quantity (minimum $5,000). You can edit it until clearing.</Step>
+  <Step title="Settle">At 12:00 UTC on the batch day, everyone filled pays the same clearing price, plus 0.25%. USDC and shares swap atomically.</Step>
+</Steps>
+
+## Redeem at NAV
+
+<Steps>
+  <Step title="Request">From 1,000 shares, submit a redemption request at least 24 hours before a batch.</Step>
+  <Step title="Strike">Your request strikes at that batch's NAV, less 0.10%.</Step>
+  <Step title="Paid">USDC is paid on delivery, within 12 days of the strike. The first redemptions strike at Batch 4, Mon 30 Nov 2026.</Step>
+</Steps>
+
+## Exit instantly through the Liquidity Bridge
+
+Sell shares to the bridge at NAV − 1.0%, up to its published capacity. Check live capacity before you sell.
+
+## Take physical delivery
+
+From 10,000 shares (10 t), request delivery ex-warehouse Douala to your ONCC-registered exporter. You pay cost, and receive the collateral manager's weight and quality certificates.
 
 <CardGroup cols={2}>
-  <Card title="Connect Your Wallet" href="/faq/general">
-    Learn which wallets are supported and how to connect to the correct network.
+  <Card title="Risk checklist" icon="shield" href="/safety/risk-checklist">
+    Read before you bid.
   </Card>
-
-  <Card title="Deposit into a Vault" href="/products/deposits-and-withdrawals">
-    Follow the steps to approve tokens and deposit into an RWA-backed vault.
-  </Card>
-
-  <Card title="Withdraw from a Vault" href="/products/deposits-and-withdrawals">
-    Understand the withdrawal flow, timing, and any lockup or cooldown requirements.
-  </Card>
-
-  <Card title="Read Vault APY" href="/faq/vault-apy">
-    Interpret APY figures and compare yield sources across vaults.
-  </Card>
-
-  <Card title="Review Security Practices" href="/safety/security-standards">
-    Check the risk checklist and audit status before depositing.
-  </Card>
-
-  <Card title="Explore Vault Strategies" href="/products/strategies">
-    See how real-world assets generate yield inside Cargo vaults.
+  <Card title="Returns and NAV" icon="chart-line" href="/faq/vault-apy">
+    How NAV and the discount work.
   </Card>
 </CardGroup>

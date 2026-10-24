@@ -1,47 +1,36 @@
 ---
 title: "Contracts and Timelocks at Cargo Finance"
-description: "Understand Cargo Finance contract architecture, timelock delays, upgrade behavior, and how governance changes are enforced on-chain."
 sidebarTitle: "Contracts & Timelocks"
+description: "Who controls the Cargo Vault One contracts, how the Safe multisig and timelock work, how changes are rolled out and when the protocol can pause."
 ---
 
-Cargo Finance uses timelocked contracts to enforce a delay on sensitive operations. This gives depositors time to review changes before they take effect.
+Cargo Vault One is administered through a Safe multisig behind a timelock, so changes are visible before they take effect.
 
-## Vault Contract Ownership
+## Ownership
 
-Each vault is controlled by a governance address that can propose parameter changes.
+- **Administration:** a Safe multisig. The v4 design specifies a 3-of-5 Safe (issuer director, second director, operations, independent director, security agent), with a guard that requires the independent director or the security agent to sign every transfer out.
+- **Custody:** holders keep shares in their own wallets. The Safe administers contracts; it does not hold client assets.
+- **Addresses:** published on the [Contract Addresses](/resources/contract-addresses) page only.
 
-[Describe the owner type, e.g., multisig, DAO module, or governance timelock, and its address: [0x...].]
+## Notice and timelock
 
-## Timelock Parameters
+| Change | Notice |
+| :-- | :-- |
+| Rulebook, fees, auction parameters | 30 days |
+| Risk parameters (haircuts, caps, eligible lots) | Set by the risk committee and published |
+| Contract upgrades and administrative actions | Queued in the timelock before execution |
+| Safety pause | Immediate |
 
-Governance actions do not execute immediately. They are queued in a timelock and can be canceled before execution.
-
-| Parameter | Value | Notes |
-| --- | --- | --- |
-| Delay | [N hours/days] | [Describe why this delay was chosen.] |
-| Grace period | [N hours/days] | [Describe how long a queued action remains executable.] |
-| Governance address | [0x...] | [E.g., timelock contract or multisig.] |
-
-## Upgrade Patterns
-
-Strategies may be replaceable to adapt to new RWA opportunities.
+## How a change is rolled out
 
 <Steps>
-  <Step title="Propose">
-    A new strategy or parameter set is submitted on-chain.
-  </Step>
-  <Step title="Queue">
-    The timelock holds the proposal for the required delay.
-  </Step>
-  <Step title="Execute">
-    After the delay, the change is executed and becomes active.
-  </Step>
+  <Step title="Propose">The change is prepared and signed by the Safe owners.</Step>
+  <Step title="Queue">It waits in the timelock and can be cancelled before it executes.</Step>
+  <Step title="Execute">After the delay, it executes and the change is announced.</Step>
 </Steps>
 
-## Emergency Pause
-
-Certain roles can pause deposits or exits in critical situations.
+## Pauses
 
 <Warning>
-  [Describe which addresses can trigger a pause and whether there is an emergency withdrawal mode.]
+  A pause guardian can suspend a batch, creations and redemptions, or minting when the NAV oracle fails, a lot shows a collateral-manager discrepancy above 0.5%, a sanctions screen hits or the chain has an incident. Minting also stops if a collateral-manager report is stale. A pause stops new activity; it does not move holders' shares.
 </Warning>

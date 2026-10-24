@@ -1,41 +1,59 @@
 ---
 title: "Cargo Finance General FAQ"
 sidebarTitle: "General"
-description: "Find answers to common questions about Cargo Finance, the RWA-backed vault protocol, including access, safety, and how to get started."
+description: "Answers to common questions about Cargo Finance and Cargo Vault One: cvCOCOA, eligibility, chains, wallets, audits, fees, risk and support."
 ---
-
-Cargo Finance is a DeFi protocol that connects on-chain deposits to real-world assets through vaults. This FAQ covers general topics about the protocol, how to interact with it, and what you should know before depositing.
 
 <AccordionGroup>
   <Accordion title="What is Cargo Finance?">
-    [Describe what Cargo Finance does in one to two sentences, including the core value proposition of RWA-backed vaults and yield generation.]
+    Cargo Finance brings exchange-grade soft commodities on-chain. Its first programme, Cargo Vault One, issues **cvCOCOA**: one share is one kilogram of receipted cocoa in a collateral-managed bay in Douala, owned by a bankruptcy-remote Seychelles SPV and priced daily at export parity. Cargo Finance is a product by Nova.
   </Accordion>
 
-  <Accordion title="Which chains does Cargo Finance support?">
-    Cargo Finance is available on the following networks:
-
-    - [Chain name]
-    - [Chain name]
-    - [Chain name]
-
-    [Add any notes on planned future deployments or bridge considerations.]
+  <Accordion title="What is cvCOCOA, and what happened to KG?">
+    cvCOCOA (Cargo Vault Cocoa · Douala) is the vault share. Earlier documents (v4) called the unit **KG**. From Launch Pack v5.0 (11 Oct 2026) the unit is renamed cvCOCOA and priced off ONCC; the v4 coupon tiers and 8-day rotations are withdrawn.
   </Accordion>
 
-  <Accordion title="Is Cargo Finance audited?">
-    [State whether the protocol has completed security audits. If yes, name the audit firm(s) and link to reports. If audits are in progress, provide an expected timeline.]
+  <Accordion title="Who can take part?">
+    Non-US persons (Regulation S) who are professional or institutional investors and are not resident in a CEMAC country or in Seychelles. Every holder passes KYC or KYB, and only whitelisted wallets can hold cvCOCOA.
   </Accordion>
 
-  <Accordion title="Do I need KYC to use Cargo Finance?">
-    [Clarify the KYC requirements for depositing into vaults. Note whether any RWA-specific regulatory steps apply to certain vaults or user jurisdictions.]
+  <Accordion title="Do I need KYC?">
+    Yes. KYC and KYB run through Persona, with sanctions, PEP and adverse-media screening and an Eligibility Declaration. Entities verify beneficial owners above 10%. Source of funds is checked for larger tickets. See [How-To Guides](/faq/how-to-guides#complete-kyc-and-whitelist-a-wallet).
+  </Accordion>
+
+  <Accordion title="Which chains does Cargo support?">
+    cvCOCOA targets **Arc**, Circle's USDC-native chain, with **Base** as the fallback if Arc's launch gates are not met. The live chain and addresses are on [Contract Addresses](/resources/contract-addresses).
   </Accordion>
 
   <Accordion title="What wallets are supported?">
-    You can connect any EVM-compatible wallet, such as [Wallet name] or [Wallet name]. [Add guidance on enabling the correct network and approving token spend allowances.]
+    Any EVM wallet you control, including hardware wallets and Safe multisigs, as long as it is registered and whitelisted. You can register up to three wallets. Because cvCOCOA is an ERC-3643 token, a transfer to an unregistered wallet fails on-chain.
+  </Accordion>
+
+  <Accordion title="What backs each share?">
+    One kilogram of export-grade Cameroon cocoa in a bay at AGL Bonabéri, Douala, signed for by an independent collateral manager, owned by the Vault SPV, pledged under OHADA law, insured, with 10% subordinated first loss from the originator. See [RWA Vault Mechanism](/ecosystem/rwa-vault-mechanism).
+  </Accordion>
+
+  <Accordion title="Can I take delivery of the cocoa?">
+    Yes, from 10,000 shares (10 t), ex-warehouse Douala, to your ONCC-registered exporter, at cost.
+  </Accordion>
+
+  <Accordion title="What are the fees?">
+    No fee on the Genesis curve and no management or storage fee for holders. Batch auctions cost 0.25% per side, redemption 0.10% and the Liquidity Bridge 1.0%. See the [fee schedule](/ecosystem/protocol#fee-schedule).
+  </Accordion>
+
+  <Accordion title="Is Cargo audited?">
+    The minting, Genesis curve and batch auction contracts are independently reviewed before mainnet, and reports are published on [Audits & Bug Bounty](/safety/audits-and-bug-bounty). The stock is verified lot by lot, reported weekly, and checked quarterly by agreed-upon procedures.
+  </Accordion>
+
+  <Accordion title="Is there a Cargo token or airdrop?">
+    No. Cargo has no governance token and runs no airdrop. Anyone offering one is not Cargo.
+  </Accordion>
+
+  <Accordion title="Is Cargo regulated?">
+    The issuer group is in Seychelles and the goods are in Cameroon. Offers are private and only to eligible investors. The Seychelles Financial Services Authority has been asked to confirm how it classifies cvCOCOA, and Cargo will move to the matching licence or a licensed partner if required. This is not legal advice.
   </Accordion>
 
   <Accordion title="Where can I get help or report an issue?">
-    For support, reach out through [Support channel, e.g., Discord or email]. To report a security issue, please use [Bug bounty platform or contact method].
+    General questions: **cargovaults@gmail.com**. Allocations, the data room, calls and offtake: **yves.messy.oba@said.oxford.edu**. Security issues: **cargovaults@gmail.com** with the subject "Security". Complaints are answered within five business days.
   </Accordion>
 </AccordionGroup>
-
-Cargo Finance is a DeFi protocol that connects on-chain deposits to real-world assets through vaults. This FAQ covers general topics about the protocol, how to interact with it, and what you should know before depositing.

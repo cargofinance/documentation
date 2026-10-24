@@ -1,41 +1,35 @@
 ---
 title: "Cargo Treasury Overview"
 sidebarTitle: "Treasury"
-description: "Understand how Cargo Finance manages protocol revenue, expenses, and treasury allocations to support long-term sustainability."
+description: "How Cargo earns venue fees, how holder money is kept separate from operating money, and how treasury movements are controlled and reported."
 ---
 
-The Cargo treasury holds funds used to grow the protocol, pay contributors, and support operations. Transparency in treasury movements is a core priority.
+Cargo's revenue comes from running the venue, not from a share of holders' cocoa. Holder assets and Cargo's operating money never mix.
 
-## Revenue Sources
+## Revenue sources
 
-[List revenue sources: protocol fees from vaults, performance fees, or other yield-sharing mechanisms.]
+| Source | Rate |
+| :-- | :-- |
+| Listing and servicing, paid by originators | 0.50% of NAV, once per lot |
+| Batch auction | 0.25% each side |
+| Creation and redemption | 0.10% |
 
-## Allocation Strategy
+The 1.0% Liquidity Bridge fee goes to bridge LPs, not to Cargo. Storage, collateral management and insurance pass through at cost. Over a lot's life of about 45 days, venue fees come to about **1.35%** of the lot. Part of gross auction fees is shared with panel market makers and venue investors under their agreements.
 
-[Describe how treasury funds are allocated: operations, development, grants, security, or strategic reserves.]
+## Ring-fencing
 
-## Transparency & Reporting
+- The Vault SPV owns the goods and has no other business and no other creditors.
+- Vault goods are never pledged or financed anywhere else, and never rehypothecated.
+- Cargo's operating runway is raised separately, as equity in the issuer group, and never touches holder collateral.
+- Settlement is non-custodial: USDC and shares swap atomically between wallets. Cargo does not hold client assets.
 
-<Note>
-  Treasury balances and transactions are tracked on-chain at [multisig address] and published in regular [monthly / quarterly] reports.
-</Note>
+## Controls
 
-[Add details on reporting cadence, dashboards, or tools used for treasury transparency.]
+- Treasury and contract administration run through a **Safe multisig with a timelock**, with an independent co-signer required on transfers out.
+- Originators are paid in EUR or XAF into domiciled CEMAC bank accounts, never in USDC, under BEAC exchange rules.
 
-The Cargo treasury holds funds used to grow the protocol, pay contributors, and support operations. Transparency in treasury movements is a core priority.
-
-## Revenue Sources
-
-[List revenue sources: protocol fees from vaults, performance fees, or other yield-sharing mechanisms.]
-
-## Allocation Strategy
-
-[Describe how treasury funds are allocated: operations, development, grants, security, or strategic reserves.]
-
-## Transparency & Reporting
+## Transparency and reporting
 
 <Note>
-  Treasury balances and transactions are tracked on-chain at [multisig address] and published in regular [monthly / quarterly] reports.
+  The Safe and contract addresses are published on the [Contract Addresses](/resources/contract-addresses) page. Batch results go on the public tape at clearing. Investors receive a monthly letter, quarterly agreed-upon procedures on stock against shares, and annual audited financial statements.
 </Note>
-
-[Add details on reporting cadence, dashboards, or tools used for treasury transparency.]

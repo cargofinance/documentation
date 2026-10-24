@@ -1,27 +1,48 @@
 ---
 title: "Introduction to Cargo Finance"
 sidebarTitle: "Introduction"
-description: "An overview of the Cargo Finance ecosystem, its purpose, and how on-chain vaults connect to real-world assets for decentralized yield."
+description: "Who is behind Cargo Finance, who takes part in Cargo Vault One, and where a receipted commodity token fits between DeFi and the physical trade."
 ---
 
-Cargo Finance is a decentralized finance (DeFi) protocol connecting on-chain capital with real-world investment opportunities across Africa and emerging markets.
+Cargo Finance is a product by **Nova**. Nova Commodities originates, warehouses and exports physical soft commodities from Cameroon through Douala. Cargo Finance funds that trade against the goods themselves and puts the result on-chain as **Cargo Vault One**.
 
-Through **Real-World Asset (RWA) Vaults**, Cargo provides access to curated private credit and asset-backed yield strategies, bridging traditional finance and decentralized markets.
+Repayment is the sale of the financed goods, not a refinancing and not a new investor.
 
-## Ecosystem Overview
+## Who does what
 
-Cargo's ecosystem connects investors, capital allocators, and real-world asset originators through on-chain vaults. Each vault deploys capital into selected strategies backed by real-world economic activity, generating yield through financing returns and profit-sharing arrangements.
+| Role | Who |
+| :-- | :-- |
+| Vault SPV (issuer, owner of the goods) | A bankruptcy-remote Seychelles SPV with no other business and limited recourse |
+| Sponsor and issuer group | Nova Commodities Trading Ltd, Seychelles IBC 250153 |
+| Originator and operator | Nova Commodities Cameroon SARL, Yaoundé and Douala (RCCM CM-NSI-01-2026-B13-00030) |
+| Collateral manager | Independent inspector controlling the bay at AGL Bonabéri, Douala; sole release authority |
+| Stock verification | Vallis inspects, weighs and grades each lot |
+| Security agent | Holds one OHADA pledge for all holders |
+| Authorised participants and market makers | Panel firms that create, redeem and quote cvCOCOA/USDC as principals |
+| Liquidity Bridge LPs | Provide USDC so holders can exit instantly at NAV − 1.0% |
+| Originators | ONCC-registered exporters and cooperatives that list receipted lots and keep 10% first loss |
+| Holders | Eligible non-US professional and institutional investors, KYC'd and whitelisted |
 
-## Key Participants
+The trustee, bank and auditor are named on signing.
 
-- **Depositors:** Investors providing capital to RWA Vaults.
-- **Strategy Operators:** Participants managing capital allocation and investment strategies.
-- **Asset Originators:** Partners sourcing and structuring real-world financing opportunities.
-- **Custodians & Legal Partners:** Entities supporting asset security, compliance, and off-chain enforceability.
-- **Governance Participants:** Stakeholders overseeing protocol parameters and strategic decisions, where governance mechanisms apply.
+## Three ways in
 
-## Where Cargo Fits in DeFi
+<CardGroup cols={3}>
+  <Card title="Allocators: own the kilos" icon="weight-hanging">
+    Buy cvCOCOA below NAV and hold it, or rotate the auction discount every 12 days.
+  </Card>
+  <Card title="Market makers and LPs" icon="arrow-right-arrow-left">
+    Quote the pair, bridge exits, and later lend against it. NAV is arbitrageable and hedgeable on ICE London.
+  </Card>
+  <Card title="Speculators: trade the view" icon="chart-simple">
+    Derivatives on NAV and clearing prices on third-party venues that license our data. The vault never takes the other side.
+  </Card>
+</CardGroup>
 
-Unlike traditional DeFi protocols that rely primarily on crypto-native lending and incentives, **Cargo connects decentralized capital to real-world economic activity.**
+## Where Cargo fits in DeFi
 
-By combining curated asset-backed strategies, on-chain transparency, and structured risk management, Cargo aims to make emerging-market private credit more accessible, transparent, and capital-efficient.
+On-chain warehouse lending is already proven, but the collateral in most large on-chain credit facilities is still BTC and ETH: the yield is a claim on crypto price risk. Cargo's collateral is a kilogram of cocoa with a receipt, a pledge, an inspector and a daily exchange-linked price. Its return comes from the physical spread between the port and export, not from leverage or token incentives.
+
+## Track record
+
+Nova's first cycle closed before Vault One launched: **1,020 tonnes** of cocoa acquired in June 2026, then shipped and sold on 14 July 2026, priced against ICE London.

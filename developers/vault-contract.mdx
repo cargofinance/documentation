@@ -1,42 +1,61 @@
 ---
-title: "Vault Contract Developer Reference"
-description: "Explore the main Cargo vault contract interface, storage layout, and deposit/withdraw flows for developers building on or integrating with the protocol."
+title: "cvCOCOA Token Contract Reference"
 sidebarTitle: "Vault Contract"
+description: "How the cvCOCOA ERC-3643 token works for integrators: permissioned transfers, the identity registry, decimals, the backing rule and the events to index."
 ---
 
-The Cargo vault contract is the core entry point for users. It manages deposits, withdrawals, share accounting, and interaction with underlying strategy contracts.
+cvCOCOA is a permissioned **ERC-3643** token. It behaves like an ERC-20 for balances and approvals, but every transfer is checked against an on-chain identity registry.
 
-## Key Functions
+## Token facts
 
-| Function | Visibility | Description |
-| --- | --- | --- |
-| `deposit(uint256 assets, address receiver)` | `external` | Deposit `assets` into the vault and mint shares to `receiver`. |
-| `withdraw(uint256 assets, address receiver, address owner)` | `external` | Withdraw `assets` to `receiver`, burning shares from `owner`. |
-| `totalAssets()` | `view` | Return the total managed assets, including funds deployed into strategies. |
-| `convertToShares(uint256 assets)` | `view` | Convert an asset amount to vault shares at the current exchange rate. |
-| `convertToAssets(uint256 shares)` | `view` | Convert vault shares to the equivalent asset amount. |
+| Property | Value |
+| :-- | :-- |
+| Standard | ERC-3643 (T-REX), ERC-20 compatible interface |
+| Name / symbol | Cargo Vault Cocoa · Douala / cvCOCOA |
+| Unit | 1 share = 1 kg of receipted cocoa |
+| Settlement asset | USDC |
+| Chain | Arc (fallback Base) |
+| Holders | Whitelisted identities only |
 
 <Note>
-  Decide whether the contract will implement [ERC-4626?] for standard vault token behavior, or a custom share model. [Add implementation note here.]
+  cvCOCOA is **not** an ERC-4626 vault. There is no `deposit()` that mints shares against USDC. New shares are minted only against collateral-manager receipts and sold by the Vault SPV through the auction contracts.
 </Note>
 
-## Interface Skeleton
+## What integrators need to know
+
+- **Transfers can fail.** `transfer` and `transferFrom` revert if the receiver is not a verified identity, or if a compliance rule blocks the transfer. Check eligibility before routing a transfer.
+- **The backing rule.** Total supply never exceeds receipted kilograms in the bay. Minting is guarded on-chain and requires a current collateral-manager receipt.
+- **Pricing.** Value positions at NAV from the NAV feed, not from a pool price. For lending, use the lower of ONCC NAV and ICE-implied NAV.
+- **Pauses.** The token and auctions can be paused by the pause guardian. Treat a paused state as "no transfers, no mints".
+
+## Standard ERC-3643 interface (excerpt)
 
 ```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
+interface ICvCocoa {
+    // ERC-20
+    function balanceOf(address account) external view returns (uint256);
+    function totalSupply() external view returns (uint256);
+    function transfer(address to, uint256 amount) external returns (bool);
 
-interface ICargoVault {
-    function deposit(uint256 assets, address receiver) external returns (uint256 shares);
-    function withdraw(uint256 assets, address receiver, address owner) external returns (uint256 shares);
-    function totalAssets() external view returns (uint256);
-    function convertToShares(uint256 assets) external view returns (uint256);
-    function convertToAssets(uint256 shares) external view returns (uint256);
+    // ERC-3643
+    function identityRegistry() external view returns (address);
+    function compliance() external view returns (address);
+    function paused() external view returns (bool);
+    function isFrozen(address account) external view returns (bool);
+}
+
+interface IIdentityRegistry {
+    function isVerified(address wallet) external view returns (bool);
 }
 ```
 
-## Developer Notes
+## Events to index
 
-- Rebase or share-based accounting: [Choose and document the approach.]
-- Access control for strategy updates: [Describe owner/guardian roles.]
-- Events to emit: [List Deposit, Withdraw, and custom events.]
+| Event | Meaning |
+| :-- | :-- |
+| `Transfer` | Mint, burn or transfer of shares |
+| `Paused` / `Unpaused` | Token paused or resumed |
+| `AddressFrozen` | A wallet frozen pending review |
+| `IdentityRegistered` (registry) | A wallet whitelisted |
+
+The exact ABI, decimals and addresses are published with the deployment on [Contract Addresses](/resources/contract-addresses) and in [Code Repositories](/resources/code-repositories).

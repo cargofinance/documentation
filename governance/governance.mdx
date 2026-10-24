@@ -1,32 +1,55 @@
 ---
 title: "Cargo Governance Process"
 sidebarTitle: "Governance"
-description: "Learn how Cargo Finance governance works, from proposal creation to execution, and how the community shapes protocol decisions."
+description: "How decisions are made at Cargo Vault One: the risk committee, rule changes and notice periods, conflicts of interest, reporting and complaints. Cargo has no governance token."
 ---
 
-Cargo Finance will transition to community governance to let participants shape protocol decisions. Because Cargo has no token today, the exact voting mechanism is still to be determined.
+Cargo has **no governance token**, and cvCOCOA carries no voting rights. Holders are protected by contract, by the structure and by published rules rather than by votes.
 
-## Proposal Lifecycle
+## Who decides what
+
+| Decision | Who | Check |
+| :-- | :-- | :-- |
+| Haircuts, caps, eligible buyers and lots | Risk committee: Nova, the independent director, the security agent as observer | Published to eligible investors |
+| Releases of goods | Collateral manager | Only against payment |
+| Treasury and contract administration | Safe multisig with a timelock | Independent co-signer; see [Contracts & Timelocks](/safety/contracts-and-timelocks) |
+| Rulebook and fee changes | Issuer | 30 days' notice, except safety fixes |
+| Safety pauses | Pause guardian | Immediate; reason published |
+
+## How a rule changes
 
 <Steps>
-  <Step title="Draft">
-    A community member drafts a proposal on the forum. Include motivation, specification, and any code or parameter changes.
-  </Step>
-  <Step title="Discussion">
-    The community discusses the draft for [N] days. Authors should incorporate feedback and finalize the proposal text.
-  </Step>
-  <Step title="Voting">
-    The proposal moves to an on-chain or snapshot vote. [Describe voting mechanism, quorum requirement, and token or delegation model once finalized.]
-  </Step>
-  <Step title="Execution">
-    If passed and timelocked, the proposal is executed by the [multisig / governance contract / executor address].
-  </Step>
+  <Step title="Draft">The change and its reason are written up against the Rulebook.</Step>
+  <Step title="Notice">Eligible investors receive 30 days' notice before it takes effect.</Step>
+  <Step title="Effect">The new Rulebook is published and its hash recorded.</Step>
 </Steps>
 
-## Participation Rights
+Safety fixes, such as pausing a batch after an oracle failure, a collateral-manager discrepancy above 0.5%, a sanctions hit or a chain incident, take effect immediately.
+
+## Conflicts of interest
+
+Nova is originator, sponsor and servicer. To manage that:
+
+- Nova never bids in its own lots.
+- Bids are sealed and cleared by contract.
+- Reserves are published before each batch window opens.
+- An independent reviewer checks auction logs quarterly.
+
+## Reporting
+
+| Item | Cadence |
+| :-- | :-- |
+| NAV | Daily, on-chain |
+| Collateral manager stock report hash | Weekly |
+| Batch tape | Each batch |
+| Investor letter | Monthly |
+| Agreed-upon procedures on stock against shares | Quarterly |
+| Financial statement audit | Annual |
+
+## Complaints
+
+Send complaints to **yves.messy.oba@said.oxford.edu**. They are answered within five business days.
 
 <Info>
-  Governance rights are not yet active. The team will publish a transition plan before the mechanism goes live.
+  If Cargo ever introduces community governance, the team will publish a transition plan before it goes live.
 </Info>
-
-[Describe who can vote or propose: token holders, stakers, or delegated voters. Note that Cargo currently has no token.]

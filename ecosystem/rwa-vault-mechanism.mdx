@@ -1,60 +1,79 @@
 ---
-title: "RWA Vault Mechanism: On-Chain to Off-Chain"
+title: "RWA Vault Mechanism: from the bay to your wallet"
 sidebarTitle: "RWA Vault Mechanism"
-description: "Learn how Cargo Finance RWA Vaults bridge on-chain deposits with off-chain real-world assets, covering backing, NAV, pricing, and redemption."
+description: "How Cargo Vault One links each cvCOCOA share to a receipted kilogram of cocoa: title, pledge, proof of reserve, NAV, iNAV, price guards and redemption."
 ---
 
-RWA Vaults are the core product of Cargo Finance. They accept crypto deposits, allocate capital to curated real-world asset strategies, and generate potential yield for depositors while maintaining on-chain transparency.
+Every cvCOCOA share is backed by one kilogram of cocoa that already exists, sits in a named bay and has been signed for by an independent collateral manager. This page explains how that link is built and how the price is set.
 
-## How RWA Vaults Work
+## What stands behind a share
 
-Depositors provide capital through smart contract vaults, typically using stablecoins. Funds are pooled and allocated to selected strategies financing real-world economic activities, including private credit and trade finance.
+<AccordionGroup>
+  <Accordion title="Title" icon="file-contract">
+    A bankruptcy-remote Seychelles **Vault SPV** owns every receipted lot under a supply agreement that takes effect on receipt. It has no other business and no other creditors, and every contract carries non-petition and limited-recourse terms.
+  </Accordion>
+  <Accordion title="Pledge" icon="lock">
+    As a backstop, the delivering company pledges the goods **with dispossession** to the collateral manager as agreed third-party holder, under the OHADA Uniform Act on secured transactions, registered at the RCCM. One pledge, one security agent, for all holders.
+  </Accordion>
+  <Accordion title="Custody" icon="warehouse">
+    An independent collateral manager controls the bay at **AGL Bonabéri, Douala**, and releases goods only against payment.
+  </Accordion>
+  <Accordion title="Proof" icon="magnifying-glass">
+    Vallis inspects, weighs and grades every lot. Lot IDs, weights and grades are public, and the collateral manager's weekly stock report is hashed on-chain.
+  </Accordion>
+  <Accordion title="First loss" icon="shield-halved">
+    Originators keep **10% of every lot** as subordinated shares, released only when the lot exports and reconciles. Senior cover at origination is 111% of senior shares, in kilograms.
+  </Accordion>
+  <Accordion title="Insurance" icon="umbrella">
+    All-risks stock insurance on every lot, paid by the originator until export.
+  </Accordion>
+</AccordionGroup>
 
-As underlying assets generate returns, yield is attributed to depositors based on their vault participation, after applicable fees.
+## The mint
 
-## Asset Backing
+<Steps>
+  <Step title="Deliver">A lot of 25 t or more enters the bay.</Step>
+  <Step title="Receipt">The collateral manager weighs, grades and samples it and issues a receipt in the SPV's name. Moisture, cut test and bean count are recorded.</Step>
+  <Step title="Mint 1:1">Shares are minted per kilogram: 90% senior, held for sale; 10% subordinated, held for the originator.</Step>
+  <Step title="List">The lot ID, tonnage, grade, receipt, originator and reserve price are published before the next batch window opens.</Step>
+</Steps>
 
-Cargo Vaults are designed to provide exposure to real-world financing opportunities backed by identifiable assets, contractual receivables, or collateral.
+## NAV: export parity, struck daily
 
-Underlying investments may include:
+**NAV per share = (ONCC FOB reference − export levy − FOB costs) ÷ FX**
 
-- **Private Credit:** Loans to businesses and institutional borrowers.
-- **Trade Finance:** Financing backed by trade receivables and commercial transactions.
-- **Asset-Backed Financing:** Credit secured against physical or financial assets.
+| Input | At 9 Oct 2026 | Source and rule |
+| :-- | --: | :-- |
+| ONCC FOB reference, cocoa | 3,259 FCFA/kg | ONCC daily published price |
+| Export levy | −125 FCFA/kg | Statutory; changes only with the law |
+| FOB costs (port, phyto, handling, insurance) | −100 FCFA/kg | Fixed per quarter, re-based on invoices |
+| FX | 575 XAF per USD | Fixed XAF/EUR peg (655.957) ÷ EUR/USD reference rate |
+| **NAV** | **3,034 FCFA/kg = $5.277** | Struck after ONCC publishes; posted on-chain |
 
-Assets are originated primarily across Africa and emerging markets, with legal ownership, custody, and investor claims determined by each vault's structure and jurisdiction.
+The trade it captures, per kilogram: farmgate **2,600 FCFA** → receipted cost in Douala **2,756 FCFA ($4.793)** → NAV **3,034 FCFA ($5.277)**. The **10.1% delta** is the margin that normally goes to whoever exports.
 
-## On-Chain vs. Off-Chain Components
+**iNAV.** Between daily fixes, an indicative NAV moves NAV with ICE London cocoa (second position), converted through GBP, EUR and the peg. It is published every minute by API and WebSocket and every 15 minutes on-chain during ICE hours. Creations and redemptions always strike at NAV, not iNAV.
 
-| Component | On-Chain | Off-Chain |
-| :-- | :-- | :-- |
-| Deposits & Withdrawals | Smart contract vaults | Fiat settlement, where required |
-| Ownership Records | Tokenized vault positions | Legal agreements and investor records |
-| Asset Management | Strategy allocation and accounting | Origination, servicing, and custody |
-| Transparency & NAV | Vault reporting and valuation updates | Asset verification and financial reporting |
-| Yield Distribution | Smart contract accounting and distributions | Interest payments and asset cash flows |
+## Price guards
 
-## NAV and Pricing
+| Guard | Rule |
+| :-- | :-- |
+| Differential check | If the ONCC-implied differential to ICE moves more than $250/t from its 30-day median, NAV falls back to ICE plus the median differential, and creations and redemptions pause for that batch |
+| ONCC outage | If ONCC does not publish for two business days, the same fallback applies |
+| Realised-price reset | If the vault's own export sales average more than $150/t below NAV over 30 days, the FOB-cost line is re-based at once |
+| Lending oracle | Any lending market reads the lower of ONCC NAV and ICE-implied NAV |
 
-**Net Asset Value (NAV)** represents the total value of a vault's underlying assets, including accrued income, less liabilities and applicable fees.
+## Redemption and exit
 
-NAV is calculated using verified asset valuations and financial reporting, with updates reflected on-chain through designated data providers or reporting mechanisms.
+| Route | Who | Price | Timing |
+| :-- | :-- | :-- | :-- |
+| Redemption | Any holder from 1,000 shares | NAV − 0.10% | Request until 24 h before a batch; struck at that batch; paid within 12 days of the strike |
+| Liquidity Bridge | Any holder | NAV − 1.0% | Instant, up to published capacity ($250k at launch) |
+| Physical delivery | From 10,000 shares (10 t) | At cost | Ex-warehouse Douala, to your ONCC-registered exporter |
+| Creation | Authorised participants | NAV + 0.10% | Any business day, blocks of 1,000 shares, T+1 |
 
-- **Valuation Frequency:** [To be confirmed]
-- **NAV Data Provider / Oracle:** [To be confirmed]
+Because anyone can create near NAV and redeem near NAV, a premium or discount on the secondary market can be arbitraged away. What remains is cocoa price, which market makers hedge on ICE London (10,000 shares move like one 10 t lot), and credit, which the structure above bounds.
 
-## Redemption
-
-Depositors request withdrawals through the Cargo Vault interface. Redemption is processed according to the vault's available liquidity and investment terms.
-
-Depending on the underlying strategy, vaults may include:
-
-- **Lock-Up Periods:** Defined investment durations, potentially 90, 180, or 360 days.
-- **Redemption Windows:** Scheduled opportunities to withdraw capital.
-- **Liquidity Buffers:** Available reserves to support eligible withdrawals.
-
-Withdrawal timing and liquidity depend on the underlying assets, repayment schedules, and vault-specific conditions. Returns and principal are not guaranteed.
-
-<Warning>
-  Real-world asset strategies may involve settlement delays or liquidity constraints that differ from standard DeFi vaults. Review the vault-specific terms before depositing.
-</Warning>
+<Info>
+  **Credit floor.** If export ever failed and the goods had to be sold in Douala at ONCC's exporter bid (2,700–2,800 FCFA/kg), a senior share would still be covered at **98.9%–102.5%** of NAV, thanks to the 10% subordination.
+</Info>
