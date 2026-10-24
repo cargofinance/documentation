@@ -1,68 +1,64 @@
 ---
 title: "Glossary"
 sidebarTitle: "Glossary"
-description: "Plain definitions of the commodity, legal and on-chain terms used across the Cargo Vault One docs, for DeFi readers and commodity desks alike."
+description: "Plain definitions of the commodity, legal and on-chain terms used across the Cargo Finance docs, for DeFi readers and commodity desks alike, plus the terms specific to the Genesis Vault."
 ---
 
-Cargo Vault One sits between the physical commodity trade and DeFi. Each side has its own vocabulary. This page defines both.
+Cargo Finance sits between the physical trade in real-world assets and DeFi. Each side has its own vocabulary. This page defines both, then the local terms used for the Genesis Vault (Cameroon cocoa).
 
 ## Commodity and trade terms
 
 | Term | Meaning |
 | :-- | :-- |
-| **AGL Bonabéri** | The port terminal in Douala, Cameroon, where Cycle 1 lots are stored in a collateral-managed bay |
-| **Collateral manager** | An independent firm that controls the warehouse bay, weighs, grades and signs for goods, and releases them only against payment |
-| **Cut test, bean count, moisture** | Standard cocoa quality checks recorded on every receipt |
-| **EUDR** | The EU Deforestation Regulation; it requires plot-level origin data for cocoa sold into the EU |
-| **Export parity** | What cocoa is worth at the point of export, after export costs. Cargo's NAV is set at export parity |
+| **Collateral manager** | An independent firm that controls the warehouse or vault, weighs, grades and signs for goods, and releases them only against payment |
+| **Delivery costs** | The fixed costs of moving goods from storage to the point where the reference price applies (for example port, handling and insurance). They are deducted in NAV |
+| **EUDR** | The EU Deforestation Regulation; it requires plot-level origin data for commodities such as cocoa, coffee and cattle products sold into the EU |
+| **Export parity** | What goods are worth at the point of export, after export costs |
 | **Farmgate price** | The price paid to farmers or cooperatives at origin |
 | **FOB (free on board)** | A price for goods loaded on the vessel at the port of export, with the buyer paying freight from there |
-| **ICE London cocoa** | The cocoa futures contract on ICE Futures Europe. One lot is 10 tonnes; it is the hedge reference for cvCOCOA |
-| **Lot** | A batch of at least 25 t received into the bay, with its own lot ID, weight, grade and receipt |
-| **Offtaker** | A buyer (exporter, grinder or trader) that buys the cocoa for export or processing |
-| **ONCC** | Office National du Cacao et du Café, Cameroon's cocoa and coffee board. It publishes the daily FOB reference price that NAV starts from |
-| **Receipt** | The collateral manager's signed record that a lot is in the bay, with its weight and grade. No receipt, no mint |
+| **Hedge market** | The liquid futures or benchmark market a vault's asset is checked and hedged against (for example ICE for softs, LME for base metals, LBMA for gold) |
+| **Lot** | A batch of goods received into custody, with its own lot ID, weight, grade and receipt |
+| **Offtaker** | A buyer (exporter, processor, refiner or trader) that buys the goods for export or processing |
+| **Receipt** | The collateral manager's signed record that a lot is in custody, with its weight and grade. No receipt, no mint |
+| **Reference price** | The published price a vault's NAV starts from: a national board's price, an exchange price or a benchmark |
 
 ## Legal and regulatory terms
 
 | Term | Meaning |
 | :-- | :-- |
-| **BEAC** | The central bank of the CEMAC region. Its exchange rules govern how export proceeds are repatriated |
-| **CEMAC** | The Central African Economic and Monetary Community: Cameroon, Central African Republic, Chad, Republic of the Congo, Equatorial Guinea and Gabon. Residents are excluded from Cargo Vault One |
-| **FCFA (XAF)** | The Central African CFA franc, pegged at 655.957 per euro |
 | **Limited recourse, non-petition** | Contract terms that stop creditors from claiming beyond the SPV's assets or forcing it into insolvency |
-| **OHADA** | The Organisation for the Harmonisation of Business Law in Africa. Its Uniform Act on secured transactions governs the pledge over the cocoa |
 | **Pledge with dispossession** | A pledge where the goods are handed to a third party (here, the collateral manager) rather than staying with the owner |
-| **RCCM** | The trade and personal property credit register where companies and pledges are recorded in OHADA countries |
-| **Regulation S** | The US rule for offers made outside the United States. Cargo Vault One is offered only to non-US persons |
+| **Regulation S** | The US rule for offers made outside the United States. Cargo vaults are offered only to non-US persons |
 | **Seychelles FSA** | The Financial Services Authority of Seychelles, which Cargo has asked to confirm how it classifies cvCOCOA |
-| **SPV** | Special purpose vehicle. The bankruptcy-remote Seychelles company that owns every receipted lot |
+| **SPV** | Special purpose vehicle. The bankruptcy-remote Seychelles company that owns every receipted lot in a vault |
 
 ## Vault and market terms
 
 | Term | Meaning |
 | :-- | :-- |
 | **Authorised participant (AP)** | A panel firm that can create shares at NAV + 0.10% and redeem at NAV − 0.10%, keeping the market price close to NAV |
-| **Batch auction** | A sealed, uniform-price auction every 12 days in which the Vault SPV sells new shares |
-| **Bonding curve** | A price that rises with the amount raised. The Genesis Auction uses a linear curve that stops below NAV |
-| **cvCOCOA** | Cargo Vault Cocoa · Douala. One share is one kilogram of receipted cocoa |
+| **Batch auction** | A sealed, uniform-price auction at a fixed interval in which the Vault SPV sells new shares (every 12 days in the Genesis Vault) |
+| **Bonding curve** | A price that rises with the amount raised. Each Genesis Auction uses a linear curve that stops below NAV |
+| **cv token** | A Cargo vault token: "cv" plus the asset, for example cvCOCOA. One share is one unit of the receipted asset |
 | **Discount to NAV** | How far below NAV new shares sell. It is the main source of return for holders |
 | **First loss (subordination)** | The 10% of each lot that originators keep as subordinated shares; it absorbs shortfalls before senior holders |
-| **Genesis Auction** | The first sale of cvCOCOA, on a bonding curve, with a minimum and a cap |
-| **Hold / Rotate** | Hold: keep shares bought below NAV. Rotate: buy in each batch, pre-sell the kilos, redeem and bid again |
-| **iNAV** | Indicative NAV between daily fixes, moved with ICE London cocoa |
+| **Genesis Auction** | The first sale of a vault's shares, on a bonding curve, with a minimum and a cap |
+| **Genesis Vault** | The first Cargo vault: export-grade Cameroon cocoa in Douala, issued as cvCOCOA |
+| **Hold / Rotate** | Hold: keep shares bought below NAV. Rotate: buy in each batch, pre-sell the units, redeem and bid again |
+| **iNAV** | Indicative NAV between daily fixes, moved with the asset's hedge market |
 | **Liquidity Bridge** | A pool of LP capital that buys shares instantly from holders at NAV − 1.0% |
-| **NAV** | Net asset value per share: ONCC's FOB reference, less export levy and FOB costs, converted to USD |
+| **NAV** | Net asset value per share: the asset's reference price, less levies and delivery costs, converted to USD |
 | **Reserve price** | The lowest price an originator will accept for a lot in a batch, published before the window opens |
 | **RFQ** | Request for quote: a holder asks panel market makers for firm prices on a block |
 | **Tape** | The public record of each batch: clearing price, discount to NAV, volume, bid-to-cover and lot IDs |
-| **UN/LOCODE** | The UN code for a port (DLA for Douala, KBI for Kribi), used to name each port's vault |
+| **UN/LOCODE** | The UN code for a port (DLA for Douala, KBI for Kribi), used to name port vaults |
+| **Vault** | One asset in one location, held as receipted, pledged inventory by a Vault SPV, with its own lots, NAV and token |
 
 ## On-chain terms
 
 | Term | Meaning |
 | :-- | :-- |
-| **Arc** | Circle's USDC-native layer-1 chain and the target home for cvCOCOA. Base is the fallback |
+| **Arc** | Circle's USDC-native layer-1 chain and the target home for Cargo vault tokens. Base is the fallback |
 | **Atomic settlement** | Shares and USDC swap in a single transaction, so neither side can fail to deliver |
 | **ERC-3643** | A permissioned token standard: every transfer is checked against an on-chain identity registry |
 | **Identity registry** | The on-chain whitelist of verified wallets. Only a participant ID and wallet status are stored, never personal data |
@@ -70,3 +66,20 @@ Cargo Vault One sits between the physical commodity trade and DeFi. Each side ha
 | **Safe** | A multisignature wallet used to administer the contracts, behind a timelock |
 | **Timelock** | A delay between approving an administrative change and executing it, so changes are visible first |
 | **USDC** | Circle's US dollar stablecoin, the settlement asset for every trade |
+
+## Genesis Vault terms
+
+Terms that apply to the Genesis Vault's Cameroon cocoa and its local legal setting.
+
+| Term | Meaning |
+| :-- | :-- |
+| **AGL Bonabéri** | The port terminal in Douala, Cameroon, where Genesis Vault lots are stored in a collateral-managed bay |
+| **BEAC** | The central bank of the CEMAC region. Its exchange rules govern how export proceeds are repatriated |
+| **CEMAC** | The Central African Economic and Monetary Community: Cameroon, Central African Republic, Chad, Republic of the Congo, Equatorial Guinea and Gabon. Residents are excluded from the Genesis Vault |
+| **Cut test, bean count, moisture** | Standard cocoa quality checks recorded on every Genesis Vault receipt |
+| **cvCOCOA** | Cargo Vault Cocoa · Douala, the Genesis Vault token. One share is one kilogram of receipted cocoa |
+| **FCFA (XAF)** | The Central African CFA franc, pegged at 655.957 per euro |
+| **ICE London cocoa** | The cocoa futures contract on ICE Futures Europe. One lot is 10 tonnes; it is the hedge reference for cvCOCOA |
+| **OHADA** | The Organisation for the Harmonisation of Business Law in Africa. Its Uniform Act on secured transactions governs the pledge over the Genesis Vault's cocoa |
+| **ONCC** | Office National du Cacao et du Café, Cameroon's cocoa and coffee board. It publishes the daily FOB reference price that the Genesis Vault's NAV starts from |
+| **RCCM** | The trade and personal property credit register where companies and pledges are recorded in OHADA countries |

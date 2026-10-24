@@ -1,22 +1,22 @@
 ---
 title: "Cargo Partnerships"
 sidebarTitle: "Partnerships"
-description: "The operating counterparties, infrastructure and partner programmes behind Cargo Vault One, and how to work with Cargo as a market maker, LP, originator or venue."
+description: "The operating counterparties, infrastructure and partner programmes behind Cargo vaults, and how to work with Cargo as a market maker, LP, originator, offtaker or venue."
 ---
 
-Cargo works with independent firms for custody, verification, identity and settlement, and runs open programmes for market makers, liquidity providers, originators and venues.
+Cargo works with independent firms for custody, verification, identity and settlement, and runs open programmes for market makers, liquidity providers, originators and venues. Each vault adds its own local counterparties: a warehouse or vault operator, an inspector, a bank and a price reference.
 
 ## Operating counterparties
 
-| Area | Counterparty | Role |
+| Area | Every vault | In the Genesis Vault |
 | :-- | :-- | :-- |
-| Port terminal | AGL Bonabéri, Douala | Bay where receipted lots are stored |
-| Stock verification | Vallis | Inspects, weighs and grades every lot |
-| Banking | Access Bank Cameroon | Export domiciliation and proceeds |
-| Price reference | ONCC (published daily price) and ICE London cocoa | NAV input and hedge reference; not partners |
-| Identity | Persona | KYC and KYB |
+| Storage | A warehouse, port terminal or vault under an independent collateral manager | AGL Bonabéri, Douala |
+| Stock verification | An independent inspector for every lot | Vallis |
+| Banking | A local bank for sale proceeds and payments to originators | Access Bank Cameroon (export domiciliation and proceeds) |
+| Price reference | A published reference price and a hedge market; not partners | ONCC daily published price and ICE London cocoa |
+| Identity | Persona, for KYC and KYB | Persona |
 
-The trustee, security agent, auditor and insurer are named to investors on signing.
+The trustee, security agent, auditor and insurer for each vault are named to investors on signing.
 
 ## Technical integrations
 
@@ -24,30 +24,30 @@ The trustee, security agent, auditor and insurer are named to investors on signi
 | :-- | :-- | :-- |
 | Arc (Circle) | Target chain; USDC-native | Target |
 | Base | Fallback chain | Fallback |
-| ERC-3643 | Permissioned token standard and identity registry | Live with the token |
-| Safe | Multisig administration with timelock | Live with the token |
-| Morpho | Isolated cvCOCOA/USDC lending market | Planned |
+| ERC-3643 | Permissioned token standard and identity registry | Live with the first token |
+| Safe | Multisig administration with timelock | Live with the first token |
+| Morpho | Isolated lending markets per vault token, starting with cvCOCOA/USDC | Planned |
 
 ## Partner programmes
 
 <CardGroup cols={2}>
   <Card title="Market makers and APs" icon="arrow-right-arrow-left">
-    Quote cvCOCOA/USDC around iNAV, answer RFQs and bid in every batch. In return: authorised-participant status, an inventory loan, fee rebates and a share of auction fees.
+    Quote vault tokens against USDC around iNAV, answer RFQs and bid in every batch. In return: authorised-participant status, an inventory loan, fee rebates and a share of auction fees.
   </Card>
   <Card title="Liquidity Bridge LPs" icon="bridge">
     Buy exits at NAV − 1.0% and redeem at NAV − 0.10%, in a segregated mandate run by a licensed panel market maker. Cargo does not manage LP money. Minimum $50,000.
   </Card>
   <Card title="Originators" icon="warehouse">
-    ONCC-registered exporters and cooperatives list receipted lots of 25 t or more and sell at export parity less the clearing discount, instead of at the Douala bid.
+    Licensed producers, exporters and dealers list receipted lots and sell at the reference price less the clearing discount, instead of at the local bid. In the Genesis Vault: ONCC-registered exporters and cooperatives, with lots of 25 t or more.
   </Card>
   <Card title="Private venues" icon="building-columns">
-    Licensed venues can list cvCOCOA with our NAV feed, whitelist and APs. No listing fees either way.
+    Licensed venues can list Cargo vault tokens with our NAV feed, whitelist and APs. No listing fees either way.
   </Card>
 </CardGroup>
 
 ## Approved buyers (offtake)
 
-Exporters, grinders and traders who want to buy Vault One cocoa join the offtake panel. On top of entity KYB, an approved buyer provides:
+Processors, exporters, refiners and traders who want to buy the goods in a Cargo vault join that vault's offtake panel. On top of entity KYB, an approved buyer provides:
 
 - two trade references;
 - a signed Approved Buyer Agreement and evidence of authority to sign contracts;
@@ -56,7 +56,7 @@ Exporters, grinders and traders who want to buy Vault One cocoa join the offtake
 
 ## Listing on other private venues
 
-We want cvCOCOA wherever eligible buyers already trade, as long as the venue keeps the whitelist and the NAV anchor intact.
+We want Cargo vault tokens wherever eligible buyers already trade, as long as the venue keeps the whitelist and the NAV anchor intact.
 
 | A venue qualifies if it | We provide |
 | :-- | :-- |
@@ -71,5 +71,5 @@ Permissioned RFQ networks and licensed OTC desks can quote now, as principals or
 ## Partnership inquiries
 
 <Info>
-  Market makers, LPs, originators and venues: **yves.messy.oba@said.oxford.edu**. General questions: **cargovaults@gmail.com**. We reply within one business day with the relevant offer and an onboarding slot.
+  Market makers, LPs, originators, offtakers and venues: **yves.messy.oba@said.oxford.edu**. General questions: **cargovaults@gmail.com**. We reply within one business day with the relevant offer and an onboarding slot.
 </Info>

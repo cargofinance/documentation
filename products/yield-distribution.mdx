@@ -1,28 +1,28 @@
 ---
-title: "Where cvCOCOA Returns Come From"
+title: "Where Vault Returns Come From"
 sidebarTitle: "Yield Distribution"
-description: "How holders of cvCOCOA earn: the discount to NAV at purchase, NAV moves, Genesis lock bonus shares and the Rotate cycle. Plus how to track your position."
+description: "How holders of Cargo vault shares earn: the discount to NAV at purchase, NAV moves, Genesis lock bonus shares and the Rotate cycle. Plus how to track your position."
 ---
 
-cvCOCOA does not pay a coupon. A share is a kilogram of cocoa. Its value is NAV, and what you earn is the gap between what you paid and what you get back, plus any bonus shares.
+Cargo vault shares do not pay a coupon. A share is one unit of a physical asset. Its value is NAV, and what you earn is the gap between what you paid and what you get back, plus any bonus shares. The figures below are the Genesis Vault's (cvCOCOA, Cameroon cocoa).
 
 ## Sources of return
 
 <AccordionGroup>
   <Accordion title="The discount to NAV" icon="tag">
-    New shares are only ever sold below NAV: 9.2% to 3.0% below on the Genesis curve, then at each batch's clearing discount. Redemption returns NAV − 0.10%.
+    New shares are only ever sold below NAV: on the Genesis curve (9.2% to 3.0% below in the Genesis Vault), then at each batch's clearing discount. Redemption returns NAV − 0.10%.
   </Accordion>
 
   <Accordion title="NAV moves" icon="chart-line">
-    NAV follows the ONCC export price of cocoa, in USD. It can rise or fall. The discount you bought at is your cushion: NAV can fall by about that much, less the redemption fee, before the position is below cost. Market makers and sophisticated holders can hedge on ICE London (10,000 shares ≈ one 10 t lot).
+    NAV follows the asset's reference price, in USD (for cvCOCOA, the ONCC export price of cocoa). It can rise or fall. The discount you bought at is your cushion: NAV can fall by about that much, less the redemption fee, before the position is below cost. Market makers and sophisticated holders can hedge on the reference market (for cvCOCOA, 10,000 shares ≈ one 10 t ICE London lot).
   </Accordion>
 
   <Accordion title="Genesis lock bonus" icon="lock">
-    Genesis shares locked for **90 days** receive **+1.0%** bonus shares; locked for **180 days**, **+2.5%**.
+    In the Genesis Vault, Genesis shares locked for **90 days** receive **+1.0%** bonus shares; locked for **180 days**, **+2.5%**.
   </Accordion>
 
   <Accordion title="Rotate" icon="arrows-rotate">
-    Buy in a batch below NAV, pre-sell the same kilos to an offtaker at NAV, redeem, and bid again. Each 12-day turn earns roughly the clearing discount less 0.35% of fees. The discount is set by the auction and will compress as more capital arrives.
+    Buy in a batch below NAV, pre-sell the same units to an offtaker at NAV, redeem, and bid again. Each turn (12 days in the Genesis Vault) earns roughly the clearing discount less 0.35% of fees. The discount is set by the auction and will compress as more capital arrives.
   </Accordion>
 </AccordionGroup>
 
@@ -36,13 +36,13 @@ cvCOCOA does not pay a coupon. A share is a kilogram of cocoa. Its value is NAV,
 
 | Data | Where | Frequency |
 | :-- | :-- | :-- |
-| NAV | On-chain, after ONCC publishes | Daily |
-| iNAV | API and WebSocket; on-chain during ICE hours | Every minute; every 15 minutes on-chain |
+| NAV | On-chain, after the reference price publishes | Daily |
+| iNAV | API and WebSocket; on-chain during reference-market hours | Every minute; every 15 minutes on-chain |
 | Batch tape | Clearing price, discount, volume, bid-to-cover, lot IDs | Each batch |
-| Lot registry | Lot ID, tonnage, grade, receipt | Per lot |
+| Lot registry | Lot ID, quantity, grade, receipt | Per lot |
 | Stock report | Collateral manager's report, hashed on-chain | Weekly |
 | Redemption queue and bridge capacity | Live | Continuous |
 
 <Note>
-  Figures are at ONCC prices of 9 Oct 2026, before price moves. They are illustrations, not forecasts, and they are never annualised. Capital is at risk. See [Returns and NAV](/faq/vault-apy).
+  Genesis Vault figures are at ONCC prices of 9 Oct 2026, before price moves. They are illustrations, not forecasts, and they are never annualised. Capital is at risk. See [Returns and NAV](/faq/vault-apy).
 </Note>

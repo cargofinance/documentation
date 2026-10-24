@@ -1,10 +1,10 @@
 ---
 title: "Other Contract References"
 sidebarTitle: "Other Contracts"
-description: "Supporting contracts and components of Cargo Vault One: identity registry, minting guard, NAV oracle, Safe administration and the planned pool and lending integrations."
+description: "Supporting contracts and components of every Cargo vault: identity registry, minting guard, NAV oracle, Safe administration and the planned pool and lending integrations."
 ---
 
-Beyond the token and the auctions, Cargo Vault One relies on a small set of supporting components.
+Beyond the token and the auctions, every Cargo vault relies on a small set of supporting components.
 
 ## Components
 
@@ -12,8 +12,8 @@ Beyond the token and the auctions, Cargo Vault One relies on a small set of supp
 | :-- | :-- |
 | Identity registry | Whitelist of KYC-cleared, eligible wallets; checked on every transfer |
 | Minting guard | Mints shares only against a current collateral-manager receipt and enforces the backing rule |
-| Lot registry | Lot ID, tonnage, grade, receipt hash and status for every lot |
-| NAV oracle | Posts daily NAV and, during ICE hours, iNAV every 15 minutes; applies the ICE fallback |
+| Lot registry | Lot ID, quantity, grade, receipt hash and status for every lot |
+| NAV oracle | Posts daily NAV and, during market hours, iNAV every 15 minutes; applies the hedge-market fallback |
 | Safe and timelock | Administration with an independent co-signer on transfers out |
 | Pause guardian | Suspends minting, batches, creations or redemptions on a safety trigger |
 
@@ -33,11 +33,11 @@ Beyond the token and the auctions, Cargo Vault One relies on a small set of supp
 
 | Integration | Design |
 | :-- | :-- |
-| Permissioned pool | cvCOCOA/USDC pool whose hook checks the ERC-3643 whitelist on every swap; operated by a panel market maker or licensed partner; 0.30% fee tier |
-| Morpho market | Isolated cvCOCOA/USDC market; 62.5% liquidation LTV; lower-of NAV oracle; whitelisted liquidators; liquidated shares redeem at NAV |
+| Permissioned pool | A vault-token/USDC pool whose hook checks the ERC-3643 whitelist on every swap; operated by a panel market maker or licensed partner; 0.30% fee tier. First: cvCOCOA/USDC |
+| Morpho market | Isolated market per vault token against USDC; 62.5% liquidation LTV for cvCOCOA; lower-of NAV oracle; whitelisted liquidators; liquidated shares redeem at NAV |
 
 ## Developer notes
 
 - Keep oracle freshness checks conservative and reject stale NAV.
-- Never price cvCOCOA from a pool alone; use NAV.
+- Never price a vault token from a pool alone; use NAV.
 - Any address you rely on must match the [Contract Addresses](/resources/contract-addresses) page.

@@ -1,8 +1,10 @@
 ---
 title: "Cargo Finance How-To Guides"
 sidebarTitle: "How-To Guides"
-description: "Step-by-step guides for Cargo Vault One: KYC and wallets, the Genesis Auction, verifying a deposit address, bidding, redeeming, the bridge, data, security reports and delivery."
+description: "Step-by-step guides for Cargo vaults: KYC and wallets, the Genesis Auction, verifying a deposit address, bidding, redeeming, the bridge, data, security reports and delivery."
 ---
+
+Where a guide quotes a size, price or interval, it is the Genesis Vault's (cvCOCOA, Cameroon cocoa); each vault's term sheet sets its own.
 
 ## Complete KYC and whitelist a wallet
 
@@ -41,10 +43,10 @@ description: "Step-by-step guides for Cargo Vault One: KYC and wallets, the Gene
 ## Take part in the Genesis Auction
 
 <Steps>
-  <Step title="Be ready before the window">Finish KYC or KYB and whitelist your wallets. The rescheduled dates are announced on [Updates](/ecosystem/updates) and the official channels.</Step>
+  <Step title="Be ready before the window">Finish KYC or KYB and whitelist your wallets. Each vault opens with its own Genesis Auction; the Genesis Vault's rescheduled dates are announced on [Updates](/ecosystem/updates) and the official channels.</Step>
   <Step title="Commit USDC on the curve">Each ticket pays the average price across its slice of the curve, so earlier money buys at a deeper discount. There is no fee on the curve.</Step>
-  <Step title="Choose to lock, or not">Locking Genesis shares for 90 or 180 days adds +1.0% or +2.5% bonus shares.</Step>
-  <Step title="Settlement">If the $500,000 minimum is reached, shares are delivered to your wallet at settlement. If it is not, every dollar is refunded.</Step>
+  <Step title="Choose to lock, or not">In the Genesis Vault, locking Genesis shares for 90 or 180 days adds +1.0% or +2.5% bonus shares.</Step>
+  <Step title="Settlement">If the minimum is reached ($500,000 in the Genesis Vault), shares are delivered to your wallet at settlement. If it is not, every dollar is refunded.</Step>
 </Steps>
 
 ## Verify a deposit address
@@ -59,7 +61,7 @@ description: "Step-by-step guides for Cargo Vault One: KYC and wallets, the Gene
 ## Bid in a batch auction
 
 <Steps>
-  <Step title="Review the lots">Check the published lot IDs, tonnage, grade, receipts and reserves, and today's NAV.</Step>
+  <Step title="Review the lots">Check the published lot IDs, quantity, grade, receipts and reserves, and today's NAV.</Step>
   <Step title="Place a sealed bid">Enter price per share and quantity (minimum $5,000). You can edit it until clearing.</Step>
   <Step title="Settle">At 12:00 UTC on the batch day, everyone filled pays the same clearing price, plus 0.25%. USDC and shares swap atomically.</Step>
 </Steps>
@@ -67,9 +69,9 @@ description: "Step-by-step guides for Cargo Vault One: KYC and wallets, the Gene
 ## Redeem at NAV
 
 <Steps>
-  <Step title="Request">From 1,000 shares, submit a redemption request at least 24 hours before a batch.</Step>
+  <Step title="Request">Above the vault minimum (1,000 shares in the Genesis Vault), submit a redemption request at least 24 hours before a batch.</Step>
   <Step title="Strike">Your request strikes at that batch's NAV, less 0.10%.</Step>
-  <Step title="Paid">USDC is paid on delivery, within 12 days of the strike. The first redemptions strike at Batch 4.</Step>
+  <Step title="Paid">USDC is paid on delivery, within 12 days of the strike. In the Genesis Vault, the first redemptions strike at Batch 4.</Step>
 </Steps>
 
 ## Exit instantly through the Liquidity Bridge
@@ -78,9 +80,9 @@ Sell shares to the bridge at NAV − 1.0%, up to its published capacity. Check l
 
 ## Check NAV and lot data
 
-- **NAV:** posted on-chain every day after ONCC publishes.
-- **iNAV:** every minute by API and WebSocket, and every 15 minutes on-chain during ICE hours. API keys come with onboarding.
-- **Lots:** the public lot registry shows each lot's ID, tonnage, grade, receipt hash and status.
+- **NAV:** posted on-chain every day after the vault's reference price publishes (ONCC, for the Genesis Vault).
+- **iNAV:** every minute by API and WebSocket, and every 15 minutes on-chain during reference-market hours. API keys come with onboarding.
+- **Lots:** the public lot registry shows each lot's ID, quantity, grade, receipt hash and status.
 - **Batches:** the batch tape shows clearing price, discount to NAV, volume, bid-to-cover and lot IDs.
 
 See the [Data API](/developers/api).
@@ -92,7 +94,7 @@ Email **cargovaults@gmail.com** with the subject line "Security". Do not post de
 ## Become an approved buyer
 
 <Steps>
-  <Step title="Get in touch">Email **yves.messy.oba@said.oxford.edu** with your company, destination markets and typical tonnage.</Step>
+  <Step title="Get in touch">Email **yves.messy.oba@said.oxford.edu** with your company, the assets you buy, destination markets and typical volumes.</Step>
   <Step title="Complete KYB">Entity verification as for any participant, plus two trade references and evidence of contract-signing authority.</Step>
   <Step title="Sign the Approved Buyer Agreement">Provide import and shipping details for the destination and bank details for deposit refunds.</Step>
   <Step title="Bid for lots">Receive the lot sheet and place offtake bids. See [Partnerships](/governance/partnerships#approved-buyers-offtake).</Step>
@@ -100,7 +102,7 @@ Email **cargovaults@gmail.com** with the subject line "Security". Do not post de
 
 ## Take physical delivery
 
-From 10,000 shares (10 t), request delivery ex-warehouse Douala to your ONCC-registered exporter. You pay cost, and receive the collateral manager's weight and quality certificates.
+Above the vault's minimum, request delivery ex-warehouse to your nominated buyer. In the Genesis Vault, that is from 10,000 shares (10 t), ex-warehouse Douala, to your ONCC-registered exporter. You pay cost, and receive the collateral manager's weight and quality certificates.
 
 <CardGroup cols={2}>
   <Card title="Risk checklist" icon="shield" href="/safety/risk-checklist">

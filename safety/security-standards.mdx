@@ -1,24 +1,24 @@
 ---
 title: "Security Standards at Cargo Finance"
 sidebarTitle: "Security Standards"
-description: "The layers that protect a cvCOCOA share: physical custody, legal title, on-chain permissions, key management, AML controls and incident response."
+description: "The layers that protect every Cargo vault share: physical custody, legal title, on-chain permissions, key management, AML controls and incident response."
 ---
 
-A cvCOCOA share is only as safe as the weakest link between the bean and the wallet. Cargo secures each link separately.
+A vault share is only as safe as the weakest link between the warehouse and the wallet. Cargo secures each link separately, in every vault.
 
 ## The security stack
 
 | Layer | Control |
 | :-- | :-- |
 | Goods | Independent collateral manager with sole release authority; goods leave only against payment |
-| Verification | Vallis weighs and grades every lot; discrepancies above 0.5% suspend the lot |
+| Verification | An independent inspector weighs and grades every lot; discrepancies above 0.5% suspend the lot |
 | Title | Bankruptcy-remote Vault SPV owns every lot |
-| Security | One OHADA pledge with dispossession, registered at the RCCM, held by a security agent |
+| Security | One registered pledge over the goods, held by a security agent (in the Genesis Vault, an OHADA pledge with dispossession, registered at the RCCM) |
 | Loss absorption | 10% subordinated first loss per lot; all-risks insurance |
 | Token | ERC-3643: transfers only between whitelisted identities; a liquidation can never leave the permissioned perimeter |
-| Minting | Shares minted only against a collateral-manager receipt; supply cannot exceed receipted kilograms |
+| Minting | Shares minted only against a collateral-manager receipt; supply cannot exceed receipted units |
 | Administration | Safe multisig with a timelock and an independent co-signer; pause guardian |
-| Price | Daily NAV with ICE cross-check, fallback and lower-of oracle for lending |
+| Price | Daily NAV with a hedge-market cross-check, fallback and lower-of oracle for lending |
 
 ## Code review and testing
 

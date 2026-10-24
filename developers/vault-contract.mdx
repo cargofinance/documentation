@@ -1,37 +1,38 @@
 ---
-title: "cvCOCOA Token Contract Reference"
+title: "Vault Token Contract Reference"
 sidebarTitle: "Vault Contract"
-description: "How the cvCOCOA ERC-3643 token works for integrators: permissioned transfers, the identity registry, decimals, the backing rule and the events to index."
+description: "How Cargo vault tokens (starting with the Genesis Vault's cvCOCOA) work for integrators: ERC-3643 permissioned transfers, the identity registry, decimals, the backing rule and the events to index."
 ---
 
-cvCOCOA is a permissioned **ERC-3643** token. It behaves like an ERC-20 for balances and approvals, but every transfer is checked against an on-chain identity registry.
+Every Cargo vault issues its own permissioned **ERC-3643** token, one per asset and location. Each behaves like an ERC-20 for balances and approvals, but every transfer is checked against an on-chain identity registry. The first is **cvCOCOA**, the Genesis Vault token.
 
 ## Token facts
 
-| Property | Value |
-| :-- | :-- |
-| Standard | ERC-3643 (T-REX), ERC-20 compatible interface |
-| Name / symbol | Cargo Vault Cocoa · Douala / cvCOCOA |
-| Unit | 1 share = 1 kg of receipted cocoa |
-| Settlement asset | USDC |
-| Chain | Arc (fallback Base) |
-| Holders | Whitelisted identities only |
+| Property | Every vault token | Genesis Vault (cvCOCOA) |
+| :-- | :-- | :-- |
+| Standard | ERC-3643 (T-REX), ERC-20 compatible interface | Same |
+| Name / symbol | "Cargo Vault" + asset · location / "cv" + asset | Cargo Vault Cocoa · Douala / cvCOCOA |
+| Unit | 1 share = 1 unit of the receipted asset | 1 share = 1 kg of receipted cocoa |
+| Settlement asset | USDC | USDC |
+| Chain | Arc (fallback Base) | Arc (fallback Base) |
+| Holders | Whitelisted identities only | Same |
 
 <Note>
-  cvCOCOA is **not** an ERC-4626 vault. There is no `deposit()` that mints shares against USDC. New shares are minted only against collateral-manager receipts and sold by the Vault SPV through the auction contracts.
+  Cargo vault tokens are **not** ERC-4626 vaults. There is no `deposit()` that mints shares against USDC. New shares are minted only against collateral-manager receipts and sold by the Vault SPV through the auction contracts.
 </Note>
 
 ## What integrators need to know
 
 - **Transfers can fail.** `transfer` and `transferFrom` revert if the receiver is not a verified identity, or if a compliance rule blocks the transfer. Check eligibility before routing a transfer.
-- **The backing rule.** Total supply never exceeds receipted kilograms in the bay. Minting is guarded on-chain and requires a current collateral-manager receipt.
-- **Pricing.** Value positions at NAV from the NAV feed, not from a pool price. For lending, use the lower of ONCC NAV and ICE-implied NAV.
+- **The backing rule.** Total supply never exceeds receipted units in custody. Minting is guarded on-chain and requires a current collateral-manager receipt.
+- **Pricing.** Value positions at NAV from the NAV feed, not from a pool price. For lending, use the lower of reference NAV and hedge-market-implied NAV (for cvCOCOA, ONCC NAV and ICE-implied NAV).
 - **Pauses.** The token and auctions can be paused by the pause guardian. Treat a paused state as "no transfers, no mints".
+- **One token per vault.** Treat each vault token as a separate asset with its own NAV feed and lot registry.
 
 ## Standard ERC-3643 interface (excerpt)
 
 ```solidity
-interface ICvCocoa {
+interface ICargoVaultToken {
     // ERC-20
     function balanceOf(address account) external view returns (uint256);
     function totalSupply() external view returns (uint256);
@@ -58,4 +59,4 @@ interface IIdentityRegistry {
 | `AddressFrozen` | A wallet frozen pending review |
 | `IdentityRegistered` (registry) | A wallet whitelisted |
 
-The exact ABI, decimals and addresses are published with the deployment on [Contract Addresses](/resources/contract-addresses) and in [Code Repositories](/resources/code-repositories).
+The exact ABI, decimals and addresses are published with each deployment on [Contract Addresses](/resources/contract-addresses) and in [Code Repositories](/resources/code-repositories).

@@ -1,12 +1,25 @@
 ---
-title: "Cargo Vault One and cvCOCOA"
+title: "Cargo Vaults and Vault Tokens"
 sidebarTitle: "Vaults"
-description: "cvCOCOA, the Cargo Vault One share: one kilogram of receipted cocoa in Douala. Token standard, vault lines, supported networks and what to check before you bid."
+description: "How Cargo vaults and their tokens work: one asset, one location, one token, 1 share = 1 unit of the asset. The Genesis Vault (cvCOCOA), the vault lines, supported networks and what to check before you bid."
 ---
 
-Cargo Vault One is the first Cargo vault. It holds export-grade soft commodities as receipted, pledged inventory at the port. Each commodity and each port is its own vault, with its own lots and its own NAV.
+A Cargo vault holds one real-world asset in one location as receipted, pledged inventory, and issues one token against it. Each vault has its own lots and its own NAV. Cocoa, coffee, sugar, gold or any other asset that passes the [eight collateral tests](/products/real-world-assets#eight-tests-for-any-commodity) gets its own vault. The first programme, **Cargo Vault One**, opens with the **Genesis Vault**: Cameroon cocoa in Douala, issued as cvCOCOA.
 
-## cvCOCOA at a glance
+## Every vault token
+
+| | |
+| :-- | :-- |
+| Name | "cv" plus the asset, and the location code where needed (for example cvCOCOA, Cargo Vault Cocoa · Douala) |
+| Unit | 1 share = 1 unit of the receipted asset (a kilogram, a tonne or an ounce) |
+| Owner of the goods | A bankruptcy-remote Seychelles Vault SPV |
+| Standard | ERC-3643 (permissioned): transfers only between whitelisted identities |
+| Settlement asset | USDC |
+| Custody | Holders' own wallets; administration through a Safe multisig with a timelock |
+| NAV | The asset's published reference price, less levies and delivery costs, struck daily |
+| Holder fees | No management or storage fee |
+
+## The Genesis Vault: cvCOCOA at a glance
 
 | | |
 | :-- | :-- |
@@ -14,26 +27,23 @@ Cargo Vault One is the first Cargo vault. It holds export-grade soft commodities
 | Unit | 1 share = 1 kg of receipted cocoa |
 | Asset | Export-grade Cameroon cocoa beans, fermented, dried and bagged |
 | Location | Collateral-managed bay at AGL Bonabéri, Douala |
-| Owner of the goods | Bankruptcy-remote Seychelles Vault SPV |
-| Standard | ERC-3643 (permissioned): transfers only between whitelisted identities |
-| Settlement asset | USDC |
-| Custody | Holders' own wallets; administration through a Safe multisig with a timelock |
 | NAV | ONCC FOB reference − export levy − FOB costs, struck daily; $5.277 at 9 Oct 2026 |
 | Hedge equivalence | 10,000 shares move like one ICE London cocoa lot (10 t) |
-| Holder fees | No management or storage fee |
+| Batch auctions | Every 12 days, after Genesis settlement |
 
 ## Vault lines
 
 | Ticker | Vault | Status |
 | :-- | :-- | :-- |
-| **cvCOCOA** | Cocoa, Douala | Cycle 1 |
-| cvCOCOA-KBI | Cocoa, Kribi | Planned: next port |
+| **cvCOCOA** | Genesis Vault: cocoa, Douala | Cycle 1 |
 | cvROBUSTA | Robusta coffee, Douala | Planned |
-| — | A second OHADA port (for example cvCOCOA-ABJ, Abidjan) | Planned |
 | — | White sugar | Under study |
-| scvCOCOA | Pooled, compounding Rotate class | Planned for Phase 2, subject to the fund route |
+| — | Precious metals, for example gold | Candidate asset class; strong fit in the whitepaper, subject to the eight tests |
+| cvCOCOA-KBI | Genesis Vault extension: cocoa, Kribi | Planned: next port |
+| — | A second port (for example cvCOCOA-ABJ, Abidjan) | Planned |
+| scvCOCOA | Pooled, compounding Rotate class for the Genesis Vault | Planned for Phase 2, subject to the fund route |
 
-A new port is a new vault with its own lots and NAV, named by its UN/LOCODE. Every new line must pass the same [eight collateral tests](/products/real-world-assets#eight-tests-for-any-commodity).
+A new asset or a new location is a new vault with its own lots and NAV. Port vaults are named by their UN/LOCODE. Every new line must pass the same [eight collateral tests](/products/real-world-assets#eight-tests-for-any-commodity).
 
 ## Supported networks
 
@@ -56,5 +66,5 @@ The live chain and contract addresses are published only on the [Contract Addres
 <Check>Check today's NAV, the lots listed for the batch and their reserves.</Check>
 
 <Note>
-  cvCOCOA is for eligible non-US professional or institutional investors outside CEMAC and Seychelles. Parameters can change with 30 days' notice; your signed agreement and the Rulebook are binding.
+  Vault shares are for eligible non-US professional or institutional investors outside Seychelles and any jurisdiction the vault's term sheet excludes (CEMAC for the Genesis Vault). Parameters can change with 30 days' notice; your signed agreement and the Rulebook are binding.
 </Note>

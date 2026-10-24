@@ -1,61 +1,65 @@
 ---
-title: "Cargo Finance: receipted soft commodities, on-chain"
+title: "Cargo Finance: real-world assets, receipted and on-chain"
 sidebarTitle: "Overview"
-description: "Cargo Finance brings exchange-grade soft commodities on-chain. Cargo Vault One issues cvCOCOA: one share is one kilogram of receipted cocoa in a collateral-managed bay in Douala, priced daily at export parity."
+description: "Cargo Finance brings real-world assets on-chain: soft commodities such as cocoa, coffee and sugar, precious metals such as gold, and other receipted, exchange-priced goods. Each vault share is one unit of a physical asset, priced daily at NAV."
 ---
 
 **Real world. Real assets. Real yield.**
 
-Cargo Finance brings real-world assets and emerging-market trade finance on-chain. We originate, allocate and curate commodity vaults. Our first programme, **Cargo Vault One**, holds exchange-grade soft commodities as receipted, pledged inventory at the port and turns them into a token that eligible investors can hold, trade, redeem or take delivery of.
+Cargo Finance brings real-world assets and emerging-market trade finance on-chain. We originate, allocate and curate asset vaults: soft commodities such as cocoa, coffee and sugar, precious metals such as gold, and other goods that can be receipted, stored under independent control and priced off a published reference. Each vault holds the physical goods as receipted, pledged inventory and turns them into a token that eligible investors can hold, trade, redeem or take delivery of.
 
-## Cargo Vault One in one paragraph
+## How a Cargo vault works, in one paragraph
 
-Holders own **cvCOCOA** (Cargo Vault Cocoa). **One share is one kilogram** of export-grade Cameroon cocoa in a collateral-managed bay at AGL Bonabéri, Douala. A bankruptcy-remote Seychelles SPV owns every receipted lot. Each share is priced daily at **NAV**: the official ONCC export (FOB) reference price, less the export levy and FOB costs. New shares are sold below NAV, first through the **Genesis Auction** and then in a sealed **batch auction every 12 days**. You can redeem at NAV, sell instantly through the Liquidity Bridge, or take the cocoa from 10 tonnes.
+Each vault holds one asset in one location and issues one token. **One share is one unit** of the physical asset (a kilogram, a tonne or an ounce, depending on the vault) sitting under an independent collateral manager. A bankruptcy-remote Seychelles SPV owns every receipted lot. Each share is priced daily at **NAV**, set from a published reference price for the asset less the costs of getting it to market. New shares are sold below NAV, first through a **Genesis Auction** and then in sealed **batch auctions** at fixed intervals. You can redeem at NAV, sell instantly through the Liquidity Bridge, or take delivery of the goods.
 
 <CardGroup cols={3}>
-  <Card title="1 share = 1 kg" icon="weight-hanging">
-    Receipted cocoa you can point to: lot ID, weight and grade are public.
+  <Card title="1 share = 1 unit" icon="weight-hanging">
+    Receipted goods you can point to: lot ID, weight and grade are public for every lot.
   </Card>
-  <Card title="$5.277 NAV" icon="chart-line">
-    Export parity per share at ONCC prices of 9 Oct 2026, struck daily.
+  <Card title="Priced daily at NAV" icon="chart-line">
+    NAV comes from a published reference price for the asset, struck every day and posted on-chain.
   </Card>
-  <Card title="10.1% delta" icon="arrow-up-right-dots">
-    Spread between receipted cost in Douala and export parity.
+  <Card title="Sold below NAV" icon="arrow-up-right-dots">
+    New shares are only ever sold below NAV, so buyers share in the spread between origin and market.
   </Card>
 </CardGroup>
 
+## The Genesis Vault: Cameroon cocoa
+
+Our first programme, **Cargo Vault One**, opens with the **Genesis Vault**. It issues **cvCOCOA** (Cargo Vault Cocoa): one share is one kilogram of export-grade Cameroon cocoa in a collateral-managed bay at AGL Bonabéri, Douala, priced daily at export parity off the ONCC reference price. At ONCC prices of 9 Oct 2026, NAV was **$5.277** per share, with a **10.1%** spread between the receipted cost in Douala and export parity. See [Real-World Assets](/products/real-world-assets#the-genesis-vault-cameroon-cocoa) for the full details.
+
 ## Why it exists
 
-Trade finance is short of money, not of trades. Africa's trade-finance gap was estimated at **at least $74bn in 2024** (AfDB). A bag of cocoa in a Douala warehouse is valuable, but a lender in Zurich, Dubai or Singapore struggles to verify it, take title to it, enforce a claim on it and sell it at a known price. Cargo makes the kilogram itself into collateral that travels: checked by an independent collateral manager, owned by a ring-fenced SPV, pledged under OHADA law, priced off a published reference and settled in USDC on a public chain.
+Trade finance is short of money, not of trades. Africa's trade-finance gap alone was estimated at **at least $74bn in 2024** (AfDB). Goods in a warehouse at origin are valuable, but a lender in Zurich, Dubai or Singapore struggles to verify them, take title to them, enforce a claim on them and sell them at a known price. Cargo makes the physical unit itself into collateral that travels: checked by an independent collateral manager, owned by a ring-fenced SPV, pledged under local law, priced off a published reference and settled in USDC on a public chain.
 
 ## How it works
 
 <Steps>
   <Step title="Originate">
-    Nova Commodities Cameroon buys export-grade cocoa and delivers it into a bay under an independent collateral manager in Douala.
+    An approved originator buys the goods and delivers them into a warehouse or vault under an independent collateral manager.
   </Step>
   <Step title="Receipt and mint">
-    The collateral manager weighs, grades and signs for each lot of 25 t or more. Shares are minted 1:1 per kilogram. No receipt, no mint.
+    The collateral manager weighs, grades and signs for each lot. Shares are minted 1:1 per unit. No receipt, no mint.
   </Step>
   <Step title="Sell below NAV">
-    The SPV sells new shares in the Genesis Auction and then in batch auctions every 12 days, at a clearing price below NAV.
+    The SPV sells new shares in the Genesis Auction and then in regular batch auctions, at a clearing price below NAV.
   </Step>
   <Step title="Hold, rotate or exit">
     Holders keep the discount (Hold), recycle it every batch (Rotate), redeem at NAV, use the Liquidity Bridge, or take physical delivery.
   </Step>
 </Steps>
 
-The whole journey, from the farm gate to your wallet and back out:
+The whole journey, from origin to your wallet and back out:
 
 ```mermaid
 flowchart TB
     subgraph IN["Into the vault"]
         direction LR
-        A["Farm gate<br/>Nova buys cocoa"] --> B["Bay at AGL Bonabéri<br/>under a collateral manager"] --> C{{"Receipt<br/>weighed · graded · 25 t+"}} --> D["Mint 1 share per kg<br/>90% senior · 10% first loss"]
+        A["Origin<br/>originator buys the goods"] --> B["Warehouse or vault<br/>under a collateral manager"] --> C{{"Receipt<br/>weighed · graded · lot ID"}} --> D["Mint 1 share per unit<br/>90% senior · 10% first loss"]
     end
     subgraph OUT["To you, and back out"]
         direction LR
-        E["Genesis curve, then<br/>batch auction every 12 days"] --> F(["Your wallet<br/>cvCOCOA below NAV"]) --> X["Hold · Redeem at NAV − 0.10%<br/>Bridge at NAV − 1.0% · Delivery from 10 t"]
+        E["Genesis curve, then<br/>regular batch auctions"] --> F(["Your wallet<br/>vault shares below NAV"]) --> X["Hold · Redeem at NAV − 0.10%<br/>Bridge at NAV − 1.0% · Physical delivery"]
     end
     IN --> OUT
     classDef key fill:#0E4A66,stroke:#5BB4DB,stroke-width:2px,color:#ffffff
@@ -67,7 +71,7 @@ flowchart TB
 ```
 
 <Warning>
-  Cargo Vault One is offered only to eligible non-US professional or institutional investors who are not resident in a CEMAC country or in Seychelles. Nothing in these docs is an offer where it would be unlawful. Figures are illustrations at stated prices, not forecasts. Capital is at risk.
+  Cargo vaults are offered only to eligible non-US professional or institutional investors who are not resident in Seychelles or in any jurisdiction a vault's term sheet excludes (for the Genesis Vault, the CEMAC countries). Nothing in these docs is an offer where it would be unlawful. Figures are illustrations at stated prices, not forecasts. Capital is at risk.
 </Warning>
 
 ## Reading the docs
@@ -76,11 +80,11 @@ flowchart TB
   <Card title="Get started" icon="rocket" href="/quickstart">
     Eligibility, KYC, wallet whitelisting and how to take part.
   </Card>
-  <Card title="How the vault works" icon="vault" href="/ecosystem/rwa-vault-mechanism">
+  <Card title="How a vault works" icon="vault" href="/ecosystem/rwa-vault-mechanism">
     Title, pledge, proof of reserve, NAV and redemption.
   </Card>
-  <Card title="cvCOCOA" icon="layer-group" href="/products/vaults">
-    The token, the vault lines and supported networks.
+  <Card title="Vaults and tokens" icon="layer-group" href="/products/vaults">
+    The vault tokens, the vault lines and supported networks.
   </Card>
   <Card title="Risk checklist" icon="shield" href="/safety/risk-checklist">
     What can go wrong, and what absorbs each risk.
