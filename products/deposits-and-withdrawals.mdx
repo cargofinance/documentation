@@ -61,18 +61,14 @@ Price along the curve, against the NAV of 9 Oct 2026 ($5.277):
 
 ```mermaid
 flowchart LR
-    H(["You hold cvCOCOA"]) --> R["Redemption<br/>NAV − 0.10%<br/>from 1,000 shares · struck at a batch"]
-    H --> B["Liquidity Bridge<br/>NAV − 1.0%<br/>instant, up to capacity"]
-    H --> Q["RFQ<br/>firm quotes from panel market makers<br/>blocks from $25,000"]
-    H --> P["Physical delivery<br/>at cost · from 10,000 shares<br/>ex-warehouse Douala"]
-    R --> U(["USDC"])
-    B --> U
-    Q --> U
-    P --> K(["Cocoa to your<br/>ONCC-registered exporter"])
-    classDef navy fill:#0B2A37,stroke:#0B2A37,color:#ffffff
-    classDef orange fill:#F47A20,stroke:#F47A20,color:#ffffff
-    class H orange
-    class U,K navy
+    H(["You hold cvCOCOA"]) --> R["Redemption · NAV − 0.10%<br/>from 1,000 shares, at a batch"] --> U(["USDC"])
+    H --> B["Liquidity Bridge · NAV − 1.0%<br/>instant, up to capacity"] --> U
+    H --> Q["RFQ · firm quotes<br/>blocks from $25,000"] --> U
+    H --> P["Physical delivery · at cost<br/>from 10,000 shares"] --> K(["Cocoa to your exporter"])
+    classDef key fill:#0E4A66,stroke:#5BB4DB,stroke-width:2px,color:#ffffff
+    classDef accent fill:#F47A20,stroke:#F47A20,color:#ffffff
+    class H accent
+    class U,K key
 ```
 
 | Route | Who | Price | Timing |

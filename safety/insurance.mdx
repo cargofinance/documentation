@@ -24,18 +24,22 @@ The insurer and policy terms are shared with investors on signing and in the dat
 ## Loss absorption, in order
 
 ```mermaid
-flowchart TD
-    S["A shortfall or loss on a lot"] --> T{"Weight or grade<br/>shortfall?"}
-    T -- "Yes" --> U["1 · Originator tops up<br/>within five business days"]
-    U -- "if not" --> V["2 · Met from the originator's<br/>10% subordinated shares"]
-    T -- "Physical loss or damage" --> I["3 · Claim under the<br/>all-risks stock policy"]
-    V -- "if still short" --> E["4 · Security agent enforces the pledge;<br/>the SPV sells the goods"]
-    I -- "if still short" --> E
-    E --> H(["Senior holders"])
-    classDef navy fill:#0B2A37,stroke:#0B2A37,color:#ffffff
-    classDef orange fill:#F47A20,stroke:#F47A20,color:#ffffff
-    class H navy
-    class U,V,I,E orange
+flowchart TB
+    subgraph R1["Weight or grade shortfall"]
+        direction LR
+        S["Shortfall<br/>on a lot"] --> U["1 · Originator tops up<br/>within 5 business days"] -- "if not" --> V["2 · Originator's 10%<br/>subordinated shares absorb it"]
+    end
+    subgraph R2["Physical loss, or anything still short"]
+        direction LR
+        I["3 · All-risks<br/>insurance claim"] -- "if still short" --> E["4 · Pledge enforced,<br/>the SPV sells the goods"] --> H(["Senior holders"])
+    end
+    R1 --> R2
+    classDef key fill:#0E4A66,stroke:#5BB4DB,stroke-width:2px,color:#ffffff
+    classDef accent fill:#F47A20,stroke:#F47A20,color:#ffffff
+    class U,V,I,E accent
+    class H key
+    style R1 fill:transparent,stroke:#8A96A0,stroke-dasharray:4 4
+    style R2 fill:transparent,stroke:#8A96A0,stroke-dasharray:4 4
 ```
 
 <Steps>

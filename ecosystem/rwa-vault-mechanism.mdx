@@ -11,32 +11,32 @@ Every cvCOCOA share is backed by one kilogram of cocoa that already exists, sits
 Three layers stand behind every share: the token on-chain, the legal title and pledge, and the physical cocoa under independent control.
 
 ```mermaid
-flowchart TB
+flowchart LR
     subgraph CHAIN["On-chain"]
-        W(["Holder wallet<br/>cvCOCOA · ERC-3643"])
-        IR["Identity registry<br/>whitelisted wallets only"]
+        direction TB
+        W(["Holder wallet<br/>cvCOCOA · ERC-3643"]) -. "checked against" .-> IR["Identity registry<br/>whitelisted wallets"]
     end
     subgraph LEGAL["Legal"]
-        SPV["Vault SPV, Seychelles<br/>owns every lot · limited recourse"]
-        SA["Security agent<br/>one OHADA pledge for all holders"]
+        direction TB
+        SPV["Vault SPV, Seychelles<br/>owns every lot"]
+        SA["Security agent<br/>one OHADA pledge"]
     end
     subgraph PHYSICAL["Physical"]
-        CM["Collateral manager<br/>sole release authority"]
-        LOTS[("Receipted lots<br/>graded · insured")]
-        V["Vallis<br/>inspects, weighs, grades"]
-        O["Originator<br/>keeps 10% first loss"]
+        direction TB
+        CM["Collateral manager<br/>sole release authority"] --> LOTS[("Receipted lots<br/>graded · insured")]
+        V["Vallis verifies"] --> LOTS
+        O["Originator<br/>10% first loss"] --> LOTS
     end
-    W -. "transfers checked against" .-> IR
-    W -- "1 share = 1 kg owned by" --> SPV
-    SPV -- "title to" --> LOTS
-    SA -- "pledge with dispossession" --> CM
-    CM -- "holds and controls" --> LOTS
-    V -- "verifies" --> LOTS
-    O -- "delivers and warrants" --> LOTS
-    classDef navy fill:#0B2A37,stroke:#0B2A37,color:#ffffff
-    classDef orange fill:#F47A20,stroke:#F47A20,color:#ffffff
-    class SPV,SA navy
-    class LOTS orange
+    W -- "1 share = 1 kg" --> SPV
+    SPV -- "title" --> LOTS
+    SA -- "pledge" --> CM
+    classDef key fill:#0E4A66,stroke:#5BB4DB,stroke-width:2px,color:#ffffff
+    classDef accent fill:#F47A20,stroke:#F47A20,color:#ffffff
+    class SPV,SA key
+    class LOTS accent
+    style CHAIN fill:transparent,stroke:#8A96A0,stroke-dasharray:4 4
+    style LEGAL fill:transparent,stroke:#8A96A0,stroke-dasharray:4 4
+    style PHYSICAL fill:transparent,stroke:#8A96A0,stroke-dasharray:4 4
 ```
 
 <AccordionGroup>
@@ -99,19 +99,18 @@ The trade it captures, per kilogram: farmgate **2,600 FCFA** → receipted cost 
 How each day's NAV is set, and what happens when the ONCC price and ICE disagree:
 
 ```mermaid
-flowchart TD
-    A["ONCC publishes its daily FOB price"] --> B{"Published within<br/>two business days?"}
-    B -- "No" --> F["Fallback NAV:<br/>ICE London + 30-day median differential"]
-    B -- "Yes" --> C{"ONCC-implied differential to ICE<br/>moved more than $250/t<br/>from its 30-day median?"}
+flowchart LR
+    A["ONCC publishes<br/>its daily FOB price"] --> B{"Published within<br/>2 business days?"}
+    B -- "Yes" --> C{"Differential to ICE moved<br/>> $250/t from 30-day median?"}
+    C -- "No" --> D["NAV = ONCC FOB − levy − FOB costs<br/>at 575 XAF/USD"]
+    B -- "No" --> F["Fallback NAV: ICE + median differential<br/>creations and redemptions pause"]
     C -- "Yes" --> F
-    C -- "No" --> D["NAV = ONCC FOB − export levy − FOB costs<br/>converted at 575 XAF/USD"]
-    F --> P["Creations and redemptions<br/>pause for that batch"]
-    D --> E(["NAV posted on-chain<br/>iNAV moves with ICE between fixes"])
+    D --> E(["NAV posted on-chain"])
     F --> E
-    classDef navy fill:#0B2A37,stroke:#0B2A37,color:#ffffff
-    classDef orange fill:#F47A20,stroke:#F47A20,color:#ffffff
-    class D navy
-    class F,P orange
+    classDef key fill:#0E4A66,stroke:#5BB4DB,stroke-width:2px,color:#ffffff
+    classDef accent fill:#F47A20,stroke:#F47A20,color:#ffffff
+    class D key
+    class F accent
 ```
 
 | Guard | Rule |

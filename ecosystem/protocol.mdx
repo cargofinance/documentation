@@ -20,24 +20,27 @@ Cargo Vault One is a **venue for receipted commodities**. The Vault SPV is the o
 
 ## How money and goods flow
 
-How cocoa and money move between the parties. Buyers settle atomically in the auction, and the Vault SPV is paid when the cocoa is exported.
+How cocoa and money move between the parties, step by step. Solid arrows are goods and actions; dashed arrows are payments. Buyers settle atomically in the auction, and the Vault SPV is paid when the cocoa is exported.
 
 ```mermaid
-flowchart TD
-    O["Originator"] -- "delivers cocoa" --> CM["Collateral manager<br/>receipts it in the SPV's name"]
-    CM -- "receipted kilos" --> M["Mint: 90% senior · 10% subordinated"]
-    M -- "new shares" --> A["Batch auction"]
-    W(["Buyer's wallet"]) -- "USDC" --> A
-    A -- "shares" --> W
-    A -- "proceeds" --> SPV["Vault SPV"]
-    SPV -- "EUR or XAF, via a CEMAC bank" --> O
-    CM -- "cocoa released at export" --> X["Offtaker or exporter"]
-    X -- "payment at export parity" --> SPV
-    SPV -- "USDC on redemption" --> W
-    classDef navy fill:#0B2A37,stroke:#0B2A37,color:#ffffff
-    classDef orange fill:#F47A20,stroke:#F47A20,color:#ffffff
-    class SPV navy
-    class W orange
+%%{init: {"sequence": {"mirrorActors": false}}}%%
+sequenceDiagram
+    participant O as Originator
+    participant CM as Collateral manager
+    participant SPV as Vault SPV
+    participant A as Batch auction
+    participant B as Buyer
+    participant X as Offtaker
+    O->>CM: Delivers cocoa (25 t+ lots)
+    CM->>SPV: Receipt in the SPV's name
+    SPV->>A: Mints shares, lists the lot
+    B->>A: Sealed bid in USDC
+    A-->>B: Shares at the clearing price
+    A-->>SPV: Auction proceeds
+    SPV-->>O: EUR or XAF via a CEMAC bank
+    CM->>X: Releases cocoa at export
+    X-->>SPV: Payment at export parity
+    SPV-->>B: USDC on redemption
 ```
 
 ## Fee schedule
