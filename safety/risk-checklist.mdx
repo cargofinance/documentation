@@ -1,22 +1,23 @@
 ---
 title: "Risk Checklist for Cargo Vaults"
 sidebarTitle: "Risk Checklist"
+icon: "list-check"
 description: "The risks of holding Cargo vault shares, from asset price and basis to custody, legal, liquidity, oracle and smart-contract risk, and what absorbs each one. With Genesis Vault (cvCOCOA) specifics."
 ---
 
-Read this before you bid. The risks below apply to every Cargo vault; the examples are from the Genesis Vault (cvCOCOA, Cameroon cocoa). The binding version is the Risk Statement for each vault in the data room, which every investor signs.
+Read this before you bid. The risks below apply to every Cargo vault; the examples are from the Genesis Vault (cvCOCOA, West African Grade 1 cocoa). The binding version is the Risk Statement for each vault in the data room, which every investor signs.
 
 <AccordionGroup>
   <Accordion title="Asset price">
-    NAV follows the reference price of the underlying asset (for cvCOCOA, the ONCC export price of cocoa) and can fall.
+    NAV follows the reference price of the underlying asset (for cvCOCOA, ICE London Cocoa) and can fall.
 
-    <Info>The discount you buy at is your cushion. Holders and market makers can hedge on the asset's reference market. In the Genesis Vault, 10,000 shares move like one 10 t ICE London cocoa lot.</Info>
+    <Info>The discount you buy at is your cushion. Holders and market makers can hedge on the asset's reference market. In the Genesis Vault, 10,000 shares move like one 10 t ICE London Cocoa lot.</Info>
   </Accordion>
 
   <Accordion title="Basis and oracle">
     The reference price can diverge from the hedge market, the reference can fail to publish, and the vault's realised sale prices can come in below NAV.
 
-    <Info>Every vault has a differential check with a hedge-market fallback and a pause, an outage fallback, a cost reset when realised sales run below NAV, and a lower-of oracle for lending. Genesis Vault values: $250/t from the 30-day median against ICE; outage fallback after two business days of no ONCC price; FOB-cost reset if realised sales average $150/t below NAV over 30 days.</Info>
+    <Info>Every vault has a differential check with a hedge-market fallback and a pause, an outage fallback, a cost reset when realised sales run below NAV, and a lower-of oracle for lending. Genesis Vault values: $250/t basis move from the 30-day median; outage fallback after two business days with no reference price; cost reset if realised sales average $150/t below NAV over 30 days.</Info>
   </Accordion>
 
   <Accordion title="Custody, quality and fraud">
@@ -38,9 +39,9 @@ Read this before you bid. The risks below apply to every Cargo vault; the exampl
   </Accordion>
 
   <Accordion title="Legal and regulatory">
-    Security could be harder to enforce than expected, and rules in Seychelles or in the country where the goods are stored could change or be applied differently.
+    Security could be harder to enforce than expected, and rules where the SPV is incorporated or the goods are stored could change or be applied differently.
 
-    <Info>Title to the SPV plus a registered pledge where the goods are stored; legal opinions from counsel in Seychelles and that country before a vault's first mint (Seychelles and Cameroon, under OHADA, for the Genesis Vault); private offers to eligible investors only; the Seychelles FSA has been asked to classify cvCOCOA, and the venue will move to a licensed route if required.</Info>
+    <Info>Title to the SPV plus a registered pledge where the goods are stored; legal opinions on title, pledge and enforcement before a vault's first mint; private offers to eligible investors only; the Seychelles FSA has been asked to classify cvCOCOA, and the venue will move to a licensed route if required.</Info>
   </Accordion>
 
   <Accordion title="Smart contract and keys">
@@ -50,9 +51,9 @@ Read this before you bid. The risks below apply to every Cargo vault; the exampl
   </Accordion>
 
   <Accordion title="Concentration">
-    Each vault is one asset in one location. The Genesis Vault, the only vault at launch, is one commodity, one origin, one port.
+    Each vault is one asset. The Genesis Vault, the only vault at launch, is one commodity under one collateral manager.
 
-    <Info>Ring-fenced lots; insurance; later vaults spread exposure across assets and locations, such as more ports, coffee and sugar, each only after the eight tests.</Info>
+    <Info>Ring-fenced lots; insurance; later vaults spread exposure across assets, such as coffee and sugar, each only after the eight tests.</Info>
   </Accordion>
 </AccordionGroup>
 

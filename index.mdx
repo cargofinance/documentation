@@ -1,84 +1,84 @@
 ---
-title: "Cargo Finance: real-world assets, receipted and on-chain"
+title: "Real-world assets, receipted and on-chain"
 sidebarTitle: "Overview"
-description: "Cargo Finance brings real-world assets on-chain: soft commodities such as cocoa, coffee and sugar, precious metals such as gold, and other receipted, exchange-priced goods. Each vault share is one unit of a physical asset, priced daily at NAV."
+icon: "house"
+description: "Cargo Finance turns physical goods into vault tokens: one share is one unit of a real asset, held by an independent collateral manager and priced daily at NAV."
 ---
 
 **Real world. Real assets. Real yield.**
 
-Cargo Finance brings real-world assets and emerging-market trade finance on-chain. We originate, allocate and curate asset vaults: soft commodities such as cocoa, coffee and sugar, precious metals such as gold, and other goods that can be receipted, stored under independent control and priced off a published reference. Each vault holds the physical goods as receipted, pledged inventory and turns them into a token that eligible investors can hold, trade, redeem or take delivery of.
-
-## How a Cargo vault works, in one paragraph
-
-Each vault holds one asset in one location and issues one token. **One share is one unit** of the physical asset (a kilogram, a tonne or an ounce, depending on the vault) sitting under an independent collateral manager. A bankruptcy-remote Seychelles SPV owns every receipted lot. Each share is priced daily at **NAV**, set from a published reference price for the asset less the costs of getting it to market. New shares are sold below NAV, first through a **Genesis Auction** and then in sealed **batch auctions** at fixed intervals. You can redeem at NAV, sell instantly through the Liquidity Bridge, or take delivery of the goods.
+Cargo Finance turns physical goods into on-chain vaults. Each vault holds one asset (cocoa, coffee, sugar, gold or anything else that passes our [eight tests](/products/real-world-assets#eight-tests-for-any-commodity)) and issues one token. **One share is one unit of the asset**, under independent custody, priced daily at NAV, and sold to you below it.
 
 <CardGroup cols={3}>
   <Card title="1 share = 1 unit" icon="weight-hanging">
-    Receipted goods you can point to: lot ID, weight and grade are public for every lot.
+    A kilogram, a tonne or an ounce you can point to. Lot ID, weight and grade are public.
   </Card>
   <Card title="Priced daily at NAV" icon="chart-line">
-    NAV comes from a published reference price for the asset, struck every day and posted on-chain.
+    Set from a published exchange price and posted on-chain every day.
   </Card>
-  <Card title="Sold below NAV" icon="arrow-up-right-dots">
-    New shares are only ever sold below NAV, so buyers share in the spread between origin and market.
+  <Card title="Bought below NAV" icon="arrow-up-right-dots">
+    New shares only ever sell below NAV. The discount is your return and your cushion.
   </Card>
 </CardGroup>
 
-## The Genesis Vault: Cameroon cocoa
+## The Genesis Vault
 
-Our first programme, **Cargo Vault One**, opens with the **Genesis Vault**. It issues **cvCOCOA** (Cargo Vault Cocoa): one share is one kilogram of export-grade Cameroon cocoa in a collateral-managed bay at AGL Bonabéri, Douala, priced daily at export parity off the ONCC reference price. At ONCC prices of 9 Oct 2026, NAV was **$5.277** per share, with a **10.1%** spread between the receipted cost in Douala and export parity. See [Real-World Assets](/products/real-world-assets#the-genesis-vault-cameroon-cocoa) for the full details.
+The first vault holds **West African Grade 1 cocoa**, priced off **ICE London Cocoa**, and issues **cvCOCOA**: one share, one kilogram.
+
+<CardGroup cols={4}>
+  <Card title="$5.277" icon="tag">
+    NAV per share, 9 Oct 2026
+  </Card>
+  <Card title="10.1%" icon="percent">
+    Spread from receipted cost to NAV
+  </Card>
+  <Card title="9.2% → 3.0%" icon="arrow-trend-down">
+    Discount to NAV on the Genesis curve
+  </Card>
+  <Card title="1,020 t" icon="ship">
+    Bought, shipped and sold in the first cycle
+  </Card>
+</CardGroup>
+
+<Card title="Explore the Genesis Vault" icon="arrow-right" href="/products/real-world-assets#the-genesis-vault" horizontal>
+  The asset, the price reference, the numbers and the legal structure.
+</Card>
 
 ## Why it exists
 
-Trade finance is short of money, not of trades. Africa's trade-finance gap alone was estimated at **at least $74bn in 2024** (AfDB). Goods in a warehouse at origin are valuable, but a lender in Zurich, Dubai or Singapore struggles to verify them, take title to them, enforce a claim on them and sell them at a known price. Cargo makes the physical unit itself into collateral that travels: checked by an independent collateral manager, owned by a ring-fenced SPV, pledged under local law, priced off a published reference and settled in USDC on a public chain.
+Trade finance is short of money, not of trades: the global gap is about **$2.5tn** (ADB, 2023). Goods in a warehouse are valuable, but a distant lender struggles to verify them, own them, enforce a claim and sell them at a known price. Cargo makes the physical unit itself into collateral that travels: checked, owned, pledged, priced and settled in USDC.
 
 ## How it works
 
 <Steps>
-  <Step title="Originate">
-    An approved originator buys the goods and delivers them into a warehouse or vault under an independent collateral manager.
+  <Step title="Originate" icon="seedling">
+    An approved originator buys the goods and delivers them to a warehouse under an independent collateral manager.
   </Step>
-  <Step title="Receipt and mint">
-    The collateral manager weighs, grades and signs for each lot. Shares are minted 1:1 per unit. No receipt, no mint.
+  <Step title="Receipt and mint" icon="stamp">
+    Each lot is weighed, graded and signed for. Shares are minted 1:1. No receipt, no mint.
   </Step>
-  <Step title="Sell below NAV">
-    The SPV sells new shares in the Genesis Auction and then in regular batch auctions, at a clearing price below NAV.
+  <Step title="Sell below NAV" icon="gavel">
+    The vault sells new shares in a Genesis Auction, then in regular sealed batch auctions.
   </Step>
-  <Step title="Hold, rotate or exit">
-    Holders keep the discount (Hold), recycle it every batch (Rotate), redeem at NAV, use the Liquidity Bridge, or take physical delivery.
+  <Step title="Hold, rotate or exit" icon="arrows-rotate">
+    Keep the discount, recycle it every batch, redeem at NAV, exit instantly through the bridge, or take delivery.
   </Step>
 </Steps>
 
-The whole journey, from origin to your wallet and back out:
-
 ```mermaid
-flowchart TB
-    subgraph IN["Into the vault"]
-        direction LR
-        A["Origin<br/>originator buys the goods"] --> B["Warehouse or vault<br/>under a collateral manager"] --> C{{"Receipt<br/>weighed · graded · lot ID"}} --> D["Mint 1 share per unit<br/>90% senior · 10% first loss"]
-    end
-    subgraph OUT["To you, and back out"]
-        direction LR
-        E["Genesis curve, then<br/>regular batch auctions"] --> F(["Your wallet<br/>vault shares below NAV"]) --> X["Hold · Redeem at NAV − 0.10%<br/>Bridge at NAV − 1.0% · Physical delivery"]
-    end
-    IN --> OUT
+flowchart LR
+    A["Originator<br/>buys the goods"] --> B{{"Receipt<br/>weighed · graded"}} --> C["Mint<br/>1 share per unit"] --> D["Auction<br/>below NAV"] --> F(["Your wallet"]) --> X["Hold · Redeem · Bridge · Delivery"]
     classDef key fill:#0E4A66,stroke:#5BB4DB,stroke-width:2px,color:#ffffff
     classDef accent fill:#F47A20,stroke:#F47A20,color:#ffffff
-    class C,D key
+    class B,C key
     class F accent
-    style IN fill:transparent,stroke:#8A96A0,stroke-dasharray:4 4
-    style OUT fill:transparent,stroke:#8A96A0,stroke-dasharray:4 4
 ```
 
-<Warning>
-  Cargo vaults are offered only to eligible non-US professional or institutional investors who are not resident in Seychelles or in any jurisdiction a vault's term sheet excludes (for the Genesis Vault, the CEMAC countries). Nothing in these docs is an offer where it would be unlawful. Figures are illustrations at stated prices, not forecasts. Capital is at risk.
-</Warning>
-
-## Reading the docs
+## Start here
 
 <CardGroup cols={2}>
   <Card title="Get started" icon="rocket" href="/quickstart">
-    Eligibility, KYC, wallet whitelisting and how to take part.
+    Eligibility, KYC, wallet whitelisting and your first bid.
   </Card>
   <Card title="How a vault works" icon="vault" href="/ecosystem/rwa-vault-mechanism">
     Title, pledge, proof of reserve, NAV and redemption.
@@ -90,3 +90,7 @@ flowchart TB
     What can go wrong, and what absorbs each risk.
   </Card>
 </CardGroup>
+
+<Warning>
+  Cargo vaults are offered only to eligible non-US professional or institutional investors who are not resident in Seychelles or in any jurisdiction a vault's term sheet excludes (for the Genesis Vault, the CEMAC region). Nothing here is an offer where it would be unlawful. Figures are illustrations at stated prices, not forecasts. Capital is at risk.
+</Warning>

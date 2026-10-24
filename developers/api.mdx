@@ -1,6 +1,7 @@
 ---
 title: "Cargo Data API"
 sidebarTitle: "Cargo API"
+icon: "code"
 description: "The Cargo data feeds for every vault: NAV, iNAV, lot registry, batch tape, redemption queue and RFQ access for market makers and integrators."
 ---
 
@@ -10,8 +11,8 @@ Cargo publishes the data needed to value, quote and monitor every vault token, s
 
 | Feed | Contents | Frequency | Access |
 | :-- | :-- | :-- | :-- |
-| NAV | NAV per share and its inputs (reference price, levies, delivery costs, FX; for cvCOCOA: ONCC FOB, export levy, FOB costs, FX) | Daily, after the reference price publishes; also on-chain | Public on-chain; API key |
-| iNAV | Indicative NAV moved with the asset's hedge market (ICE London cocoa for cvCOCOA) | Every minute (API and WebSocket); every 15 min on-chain in market hours | API key |
+| NAV | NAV per share and its inputs (reference price, levies, delivery costs, FX; for cvCOCOA: ICE London Cocoa, delivery costs, GBP/USD) | Daily, after the reference price publishes; also on-chain | Public on-chain; API key |
+| iNAV | Indicative NAV moved with the asset's hedge market (ICE London Cocoa for cvCOCOA) | Every minute (API and WebSocket); every 15 min on-chain in market hours | API key |
 | Lot registry | Lot ID, quantity, grade, warehouse, receipt hash, status | Per lot | Public |
 | Stock reports | Collateral manager's weekly report hash | Weekly | Public on-chain |
 | Batch tape | Clearing price, discount to NAV, volume, bid-to-cover, lot IDs | Each batch | Public |

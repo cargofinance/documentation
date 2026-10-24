@@ -1,27 +1,34 @@
 ---
 title: "Real-World Assets Behind Cargo Vaults"
 sidebarTitle: "Real-World Assets"
-description: "The real-world assets Cargo vaults can hold, from soft commodities such as cocoa, coffee and sugar to precious metals such as gold; how they are held and verified; the legal structure; the eight tests every asset must pass; and the Genesis Vault's Cameroon cocoa."
+icon: "boxes-stacked"
+description: "Which real-world assets Cargo vaults can hold, how they are held and verified, the legal structure, the eight tests every asset must pass, and the Genesis Vault's West African Grade 1 cocoa."
 ---
 
-Cargo vaults hold **real-world assets** as receipted, pledged inventory: goods with a standard grade, a deep reference price and a short, self-liquidating path to a buyer. That covers soft commodities such as cocoa, coffee and sugar, precious and base metals such as gold, and other goods that pass the [eight tests](#eight-tests-for-any-commodity) below. Each asset in each location is its own vault, with its own lots, its own NAV and its own token.
+Cargo vaults hold **real-world assets** as receipted, pledged inventory: goods with a standard grade, a deep reference price and a short path to a buyer. Soft commodities such as cocoa, coffee and sugar, metals such as gold, and anything else that passes the [eight tests](#eight-tests-for-any-commodity). Each asset is its own vault, with its own lots, NAV and token.
 
 ## What makes a good collateral asset
 
-- **Standard grade.** A graded bean, a sugar specification or a good-delivery gold bar means the same thing wherever it is traded.
-- **Deep reference price.** An exchange or benchmark (ICE, LME, LBMA) gives a daily mark and a hedge.
-- **Warehouse culture.** Collateral managers, receipts and pledges are routine in the physical trade.
-- **Self-liquidating.** Goods are bought to be sold; collateral turns into cash within weeks.
-- **Wide demand.** Processors, exporters, refiners and traders buy every week.
+<CardGroup cols={3}>
+  <Card title="Standard grade" icon="certificate">
+    A graded bean, a sugar spec or a good-delivery gold bar means the same thing everywhere.
+  </Card>
+  <Card title="Deep reference price" icon="chart-line">
+    An exchange or benchmark (ICE, LME, LBMA) gives a daily mark and a hedge.
+  </Card>
+  <Card title="Self-liquidating" icon="arrows-spin">
+    Goods are bought to be sold. Collateral turns into cash within weeks.
+  </Card>
+</CardGroup>
 
-What makes physical assets hard is volatility, basis between the physical and futures prices, quality decay and legal reach. Cargo's structure is built around those four problems, and the eight tests decide whether an asset can be held at all.
+Physical assets are hard for four reasons: volatility, basis between physical and futures prices, quality decay and legal reach. Cargo's structure answers each one, and the eight tests decide whether an asset qualifies at all.
 
 ## Custody and verification
 
 The same controls apply in every vault:
 
-- **Collateral manager:** independent, with sole release authority over the warehouse or vault. Goods leave only against payment.
-- **Verification:** an independent inspector checks, weighs and grades every lot. A discrepancy above 0.5% on any lot suspends it until it is topped up or met from the originator's subordinated shares, and triggers an independent recount.
+- **Collateral manager:** independent, with sole release authority. Goods leave only against payment.
+- **Verification:** an independent inspector weighs and grades every lot. A discrepancy above 0.5% suspends the lot until it is made good, and triggers a recount.
 - **Reporting:** weekly stock reports hashed on-chain; lot IDs, weights and grades public.
 - **Insurance:** all-risks stock cover on every lot.
 
@@ -29,62 +36,71 @@ The same controls apply in every vault:
 
 | Layer | Instrument |
 | :-- | :-- |
-| Title | A Vault SPV (Seychelles, bankruptcy-remote, limited recourse) owns each lot under a supply agreement effective on receipt |
-| Security | A registered pledge over the goods to the collateral manager as agreed third-party holder, under the secured-transactions law where the goods are stored |
+| Title | A bankruptcy-remote, limited-recourse Vault SPV owns each lot from the moment it is receipted |
+| Security | A registered pledge over the goods, with the collateral manager as third-party holder |
 | Enforcement | One security agent for all holders |
-| Sale and cash | Goods are sold through licensed exporters or dealers; proceeds are received under local exchange rules |
+| Sale and cash | Goods are sold through licensed exporters or dealers |
 | Originator retention | 10% of each lot as subordinated shares (first loss) |
-| Offering | Private, to eligible non-US professional or institutional investors (Regulation S); Seychelles residents and any jurisdictions in the vault's term sheet excluded |
+| Offering | Private, to eligible non-US professional or institutional investors (Regulation S). The Vault SPV is a Seychelles company; Seychelles residents and any jurisdictions in the vault's term sheet are excluded |
 
 ## Eight tests for any commodity
 
 An asset becomes a Cargo vault only if it passes all eight:
 
-1. **Standard grade:** an exchange or trade-association specification.
-2. **Deep reference price:** a liquid future or a published index.
-3. **Storability:** shelf life well beyond the holding period, with known decay.
-4. **Independent custody:** a collateral manager with sole release authority.
-5. **Perfectable security:** a registrable pledge or title where the goods are stored.
-6. **Liquid physical exit:** at least three approved buyers able to take a lot within 10 days.
-7. **Insurable:** all-risk stock and transit cover at commercial rates.
-8. **Traceable:** lot-level origin documents, including EUDR data where required.
+| # | Test | Means |
+| :-- | :-- | :-- |
+| 1 | Standard grade | An exchange or trade-association specification |
+| 2 | Deep reference price | A liquid future or a published index |
+| 3 | Storability | Shelf life well beyond the holding period |
+| 4 | Independent custody | A collateral manager with sole release authority |
+| 5 | Perfectable security | A registrable pledge or title where the goods are stored |
+| 6 | Liquid physical exit | At least three approved buyers able to take a lot within 10 days |
+| 7 | Insurable | All-risk stock and transit cover at commercial rates |
+| 8 | Traceable | Lot-level origin documents, including EUDR data where required |
 
 ## Which assets fit
 
-How broad asset classes score against the eight tests, from the Cargo Vault One whitepaper:
+| Class | Examples | Reference | Fit |
+| :-- | :-- | :-- | :-- |
+| ICE London softs | Cocoa, robusta coffee, white sugar | ICE Futures Europe | Strong: the Genesis Vault is cocoa |
+| ICE US softs | Arabica coffee, raw sugar, cotton | ICE Futures US | Strong |
+| Precious metals | Gold, silver | LBMA | Strong: low volatility, vaulted |
+| Base metals | Copper, aluminium | LME | Strong: warrant system, low decay |
+| Grains and oilseeds | Wheat, corn, soybeans | CBOT, Euronext | Good: thin margins, large lots |
+| Energy | Crude, refined products | Brent, WTI | Harder: storage and licensing |
+| Crops without futures | Cashew, shea, timber | None or thin | Weak |
 
-| Class | Examples | Reference | Fit | Comment |
-| :-- | :-- | :-- | :-- | :-- |
-| ICE London softs | Cocoa, robusta coffee, white sugar | ICE Futures Europe | Strong | Cargo Vault One; the Genesis Vault is cocoa |
-| ICE US softs | Arabica coffee, raw sugar, cotton | ICE Futures US | Strong | Same rails, USD-quoted |
-| Grains and oilseeds | Wheat, corn, soybeans | CBOT, Euronext | Good | Thin margins; large lots |
-| Base metals | Copper, aluminium | LME | Strong | Warrant system, low decay |
-| Precious metals | Gold, silver | LBMA | Strong | Low volatility, vaulted |
-| Energy | Crude, refined products | Brent, WTI, products | Harder | Storage, licensing and safety rules |
-| Crops without futures | Cashew, shea, timber | None or thin | Weak | Lower advance rates; buyer-contract collateral only |
+Vaults are added one at a time. Coffee and sugar share the Genesis Vault's rails, so they are the nearest candidates. See [Vaults](/products/vaults#vault-lines).
 
-Cargo adds vaults one at a time, each only after it passes all eight tests. Softs share the same rails as the Genesis Vault, so coffee and sugar are the nearest candidates; metals and receivables would sit in separate vaults. See [Vaults](/products/vaults#vault-lines) for the current lines.
+## The Genesis Vault
 
-## The Genesis Vault: Cameroon cocoa
+The first Cargo vault holds **West African Grade 1 cocoa** and issues **cvCOCOA**: one share is one kilogram, priced off **ICE London Cocoa**.
 
-The first Cargo vault holds export-grade Cameroon cocoa in Douala and issues **cvCOCOA**: one share is one kilogram.
+<CardGroup cols={3}>
+  <Card title="West African Grade 1" icon="seedling">
+    Fermented, dried and bagged beans of the top export grade.
+  </Card>
+  <Card title="ICE London Cocoa" icon="chart-line">
+    The price reference and the hedge: 10,000 shares move like one 10 t lot.
+  </Card>
+  <Card title="$5.277 NAV" icon="tag">
+    Per share at 9 Oct 2026, a 10.1% spread over receipted cost.
+  </Card>
+</CardGroup>
 
 | | |
 | :-- | :-- |
-| Product | Export-grade Cameroon cocoa beans, fermented, dried and bagged |
+| Asset | West African Grade 1 cocoa beans |
 | Quality records | Moisture, cut test and bean count on every receipt |
 | Lot size | 25 t minimum, each with a lot ID, weight, grade and receipt |
-| Location | Approved bay under the collateral manager at AGL Bonabéri, Douala; Kribi when added |
+| Custody | Approved bonded warehouse under an independent collateral manager |
 | Verification | Vallis inspects, weighs and grades every lot |
-| Price reference | ONCC daily FOB reference, checked against ICE London cocoa |
-| Time in the vault | Exported within 90 days of receipt, or replaced at NAV |
-| Traceability | Cooperative and plot data for every lot; EUDR due-diligence data for EU-bound lots from 30 Dec 2026 |
-| Market size | Cameroon marketed 247,914 t of cocoa in 2025/26 (ONCC) |
-
-**Legal structure in the Genesis Vault.** The pledge is with dispossession under the OHADA Uniform Act on secured transactions, registered at the RCCM. Exports go through an ONCC-registered exporter of record, and proceeds are domiciled with a CEMAC bank under BEAC rules. Residents of CEMAC countries are excluded from the offer.
+| Price reference | ICE London Cocoa |
+| Time in the vault | Sold within 90 days of receipt, or replaced at NAV |
+| Traceability | Cooperative and plot data for every lot; EUDR data for EU-bound lots from 30 Dec 2026 |
 
 <Note>
-  The Seychelles Financial Services Authority has been asked to confirm how it classifies cvCOCOA. The venue will move to the matching licence, or to a licensed partner, if that classification requires it.
+  The Seychelles Financial Services Authority has been asked to confirm how it classifies cvCOCOA. The venue will move to the matching licence, or to a licensed partner, if required. Residents of the CEMAC region are excluded from the Genesis Vault.
 </Note>
 
 <Warning>
