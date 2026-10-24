@@ -1,0 +1,54 @@
+---
+title: "Research: how real-world assets find buyers, exits and prices"
+sidebarTitle: "Research"
+description: "Cargo's three public research notes on RFQ, auctions and distribution for real-world assets, and how each one shaped the design of Cargo Vault One."
+---
+
+Tokenising an asset is the easy part. Selling it, exiting it and pricing it are harder. Cargo published three research notes on these questions on 10 October 2026. Each draws on evidence from bonds, swaps, Treasury auctions, cocoa and crypto markets. Read them in full at [cargotrading.xyz/research](https://cargotrading.xyz/research).
+
+<Note>
+  The articles were written when Cargo Vault One still used the v4 design (the KG unit and an exit auction at every rotation close). The market-design reasoning still holds; the current parameters are on [Buying and exiting cvCOCOA](/products/deposits-and-withdrawals).
+</Note>
+
+## 1. Tokenised is not liquid: is RFQ the right market for real-world assets?
+
+Tokenised real-world assets grew fast in 2026, to roughly $23.6 billion by DefiLlama's count in March, but most of them barely trade. The article compares four market structures (AMM pools, order books, RFQ and periodic auctions) and argues that pools and order books suit assets priced on-chain with steady flow, not assets whose price is set elsewhere and moves in jumps.
+
+Its evidence comes from fixed income. US investment-grade corporate bonds moved from about a fifth to nearly half electronic in a decade, mostly through dealer RFQ. In index credit default swaps, clients ask about four dealers per request, enough for competition without leaking information. Crypto's large traders and RWA desks have converged on the same answer.
+
+**Conclusion:** for assets priced off-chain, traded in irregular sizes and held by permissioned investors, RFQ with a periodic auction beside it is the right default, provided there are three to five committed dealers, firm quotes, a verifiable price anchor and a public tape.
+
+## 2. How to build a secondary market for a commodity token
+
+A token backed by receipted soft commodities has a public reference price (ICE London), moves in discrete lots, receives information in events (receipts, sales, payments), has a short life per lot and is held only by whitelisted wallets. The article turns those properties into eight design rules:
+
+| Rule | Why |
+| :-- | :-- |
+| Batch liquidity in time | Concentrates thin flow into one moment, and removes the race to be first |
+| One clearing price for everyone | Bidders bid value, not strategy; used by the US Treasury since 1998 |
+| Anchor every price to a verifiable mark | Anyone can check a quote against a published reference |
+| RFQ for size, between auctions | Holders who need to trade now are not forced to wait |
+| Firm quotes, no last look | Every quote is tradeable |
+| Give dealers a reason to quote | Inventory, information or fees keep them on the panel |
+| Atomic settlement | Shares and USDC swap in one transaction |
+| Publish the tape, keep a physical anchor | A price history lets allocators underwrite exit risk; delivery ties the token to the goods |
+
+## 3. Distribution is the product
+
+Issuing a token creates supply, not holders. The real-world asset products that broke out in 2025 and 2026 had three things: somewhere useful to put the asset (for example as trading collateral), dealers who always make a price, and a fair primary market that built a wide holder base.
+
+The article argues for pairing an open, price-setting auction with a committed set of participants, as the US Treasury does with primary dealers and Côte d'Ivoire does with licensed cocoa exporters. For commodity tokens, distribution has to carry lot-level information (grade, warehouse, crop year, documents), because a tonne of cocoa is not a gold bar.
+
+## How the research shaped Vault One
+
+| Finding | Where it shows up |
+| :-- | :-- |
+| Batch auctions concentrate thin liquidity | [A sealed batch auction every 12 days](/products/deposits-and-withdrawals#batch-auctions-every-12-days) |
+| A verifiable anchor keeps prices honest | [NAV from ONCC's published price, cross-checked against ICE](/ecosystem/rwa-vault-mechanism#nav-export-parity-struck-daily) |
+| Committed dealers make RFQ work | [Panel market makers and authorised participants](/governance/partnerships#partner-programmes) |
+| A physical anchor stops drift | Creation and redemption near NAV, and delivery from 10 t |
+| A public tape builds a price history | [The batch tape and lot registry](/developers/api#feeds) |
+
+<Info>
+  Market makers who want a panel seat, and allocators who want to see how the auction prices, can write to **cargovaults@gmail.com**.
+</Info>

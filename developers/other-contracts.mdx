@@ -1,46 +1,43 @@
 ---
-title: "Other Smart Contract References"
-description: "Review helper, oracle, and utility contracts that support Cargo vaults and strategies, including access control and price feed integrations."
+title: "Other Contract References"
 sidebarTitle: "Other Contracts"
+description: "Supporting contracts and components of Cargo Vault One: identity registry, minting guard, NAV oracle, Safe administration and the planned pool and lending integrations."
 ---
 
-In addition to vaults and strategies, the Cargo protocol relies on supporting contracts for pricing, access control, and automation.
+Beyond the token and the auctions, Cargo Vault One relies on a small set of supporting components.
 
-## Oracle Contracts
+## Components
 
-Oracle contracts supply off-chain asset valuations to on-chain strategies.
+| Component | Purpose |
+| :-- | :-- |
+| Identity registry | Whitelist of KYC-cleared, eligible wallets; checked on every transfer |
+| Minting guard | Mints shares only against a current collateral-manager receipt and enforces the backing rule |
+| Lot registry | Lot ID, tonnage, grade, receipt hash and status for every lot |
+| NAV oracle | Posts daily NAV and, during ICE hours, iNAV every 15 minutes; applies the ICE fallback |
+| Safe and timelock | Administration with an independent co-signer on transfers out |
+| Pause guardian | Suspends minting, batches, creations or redemptions on a safety trigger |
 
-| Contract | Purpose |
-| --- | --- |
-| [OracleManager.sol] | Aggregates price updates and validates staleness thresholds. |
-| [RWAPriceFeed.sol] | Returns the current NAV or market price for a specific real-world asset. |
-
-## Access Control
-
-Role-based access control restricts sensitive operations.
+## Access control
 
 <AccordionGroup>
-  <Accordion title="Roles and permissions">
-    - `DEFAULT_ADMIN_ROLE`: protocol configuration
-    - `GUARDIAN_ROLE`: emergency pause and unpause
-    - `STRATEGY_MANAGER_ROLE`: add or retire strategies
-  </Accordion>
-
-  <Accordion title="Deployment checklist">
-    1. Deploy AccessControl contract.
-    2. Grant admin, guardian, and manager roles.
-    3. Wire roles into vault and strategy constructors.
+  <Accordion title="Roles">
+    - **Administrator:** the Safe, behind the timelock: configuration and upgrades.
+    - **Registry agent:** adds and removes verified identities; key held under the Safe policy.
+    - **Minter:** the minting guard only, against collateral-manager attestations.
+    - **Pause guardian:** emergency pause and resume.
+    - **Oracle signer:** posts NAV and iNAV.
   </Accordion>
 </AccordionGroup>
 
-## Utility Contracts
+## Planned integrations
 
-| Contract | Purpose |
-| --- | --- |
-| [SwapRouter.sol] | Facilitates token swaps during harvest or rebalancing. |
-| [RewardsDistributor.sol] | Distributes protocol incentive allocations to vault depositors. |
+| Integration | Design |
+| :-- | :-- |
+| Permissioned pool | cvCOCOA/USDC pool whose hook checks the ERC-3643 whitelist on every swap; operated by a panel market maker or licensed partner; 0.30% fee tier |
+| Morpho market | Isolated cvCOCOA/USDC market; 62.5% liquidation LTV; lower-of NAV oracle; whitelisted liquidators; liquidated shares redeem at NAV |
 
-## Developer Notes
+## Developer notes
 
-- Keep oracle freshness parameters conservative to avoid stale pricing.
-- Document every trusted signer or data provider address used by oracle contracts.
+- Keep oracle freshness checks conservative and reject stale NAV.
+- Never price cvCOCOA from a pool alone; use NAV.
+- Any address you rely on must match the [Contract Addresses](/resources/contract-addresses) page.

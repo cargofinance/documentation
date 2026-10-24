@@ -1,21 +1,75 @@
 ---
 title: "Cargo Partnerships"
 sidebarTitle: "Partnerships"
-description: "Explore Cargo Finance integrations, strategic partners, and collaborators that support the RWA vault ecosystem."
+description: "The operating counterparties, infrastructure and partner programmes behind Cargo Vault One, and how to work with Cargo as a market maker, LP, originator or venue."
 ---
 
-Cargo Finance works with partners to source, custody, and tokenize real-world assets, as well as to integrate with key infrastructure across DeFi.
+Cargo works with independent firms for custody, verification, identity and settlement, and runs open programmes for market makers, liquidity providers, originators and venues.
 
-## Strategic Partners
+## Operating counterparties
 
-[List strategic partners: RWA originators, asset custodians, or institutional collaborators. Include the nature of each partnership.]
+| Area | Counterparty | Role |
+| :-- | :-- | :-- |
+| Port terminal | AGL Bonabéri, Douala | Bay where receipted lots are stored |
+| Stock verification | Vallis | Inspects, weighs and grades every lot |
+| Banking | Access Bank Cameroon | Export domiciliation and proceeds |
+| Price reference | ONCC (published daily price) and ICE London cocoa | NAV input and hedge reference; not partners |
+| Identity | Persona | KYC and KYB |
 
-## Technical Integrations
+The trustee, security agent, auditor and insurer are named to investors on signing.
 
-[Describe integrations with wallets, block explorers, data providers, or DeFi aggregators.]
+## Technical integrations
 
-## Partnership Inquiries
+| Integration | Use | Status |
+| :-- | :-- | :-- |
+| Arc (Circle) | Target chain; USDC-native | Target |
+| Base | Fallback chain | Fallback |
+| ERC-3643 | Permissioned token standard and identity registry | Live with the token |
+| Safe | Multisig administration with timelock | Live with the token |
+| Morpho | Isolated cvCOCOA/USDC lending market | Planned |
+
+## Partner programmes
+
+<CardGroup cols={2}>
+  <Card title="Market makers and APs" icon="arrow-right-arrow-left">
+    Quote cvCOCOA/USDC around iNAV, answer RFQs and bid in every batch. In return: authorised-participant status, an inventory loan, fee rebates and a share of auction fees.
+  </Card>
+  <Card title="Liquidity Bridge LPs" icon="bridge">
+    Buy exits at NAV − 1.0% and redeem at NAV − 0.10%, in a segregated mandate run by a licensed panel market maker. Cargo does not manage LP money. Minimum $50,000.
+  </Card>
+  <Card title="Originators" icon="warehouse">
+    ONCC-registered exporters and cooperatives list receipted lots of 25 t or more and sell at export parity less the clearing discount, instead of at the Douala bid.
+  </Card>
+  <Card title="Private venues" icon="building-columns">
+    Licensed venues can list cvCOCOA with our NAV feed, whitelist and APs. No listing fees either way.
+  </Card>
+</CardGroup>
+
+## Approved buyers (offtake)
+
+Exporters, grinders and traders who want to buy Vault One cocoa join the offtake panel. On top of entity KYB, an approved buyer provides:
+
+- two trade references;
+- a signed Approved Buyer Agreement and evidence of authority to sign contracts;
+- import and shipping details for the destination;
+- bank details for refunds of deposits.
+
+## Listing on other private venues
+
+We want cvCOCOA wherever eligible buyers already trade, as long as the venue keeps the whitelist and the NAV anchor intact.
+
+| A venue qualifies if it | We provide |
+| :-- | :-- |
+| Is licensed for the activity where it operates | The NAV and iNAV feed, free |
+| Enforces the ERC-3643 whitelist, or routes transfers through it | Authorised-participant access for the venue's market makers |
+| Onboards only eligible investors | The lot registry and collateral-manager reports |
+| Shows NAV and the premium or discount next to the price | Listing support and joint announcements |
+| Settles atomically and reports trades to the tape | No listing fees either way |
+
+Permissioned RFQ networks and licensed OTC desks can quote now, as principals or agents under their own licences. A regulated EU DLT venue becomes worthwhile once monthly volume and EU demand justify it.
+
+## Partnership inquiries
 
 <Info>
-  If you are interested in partnering with Cargo Finance, reach out via [contact method or form URL].
+  Market makers, LPs, originators and venues: **yves.messy.oba@said.oxford.edu**. General questions: **cargovaults@gmail.com**. We reply within one business day with the relevant offer and an onboarding slot.
 </Info>

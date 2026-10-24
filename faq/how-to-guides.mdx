@@ -1,31 +1,112 @@
 ---
+title: "Cargo Finance How-To Guides"
+sidebarTitle: "How-To Guides"
+description: "Step-by-step guides for Cargo Vault One: KYC and wallets, the Genesis Auction, verifying a deposit address, bidding, redeeming, the bridge, data, security reports and delivery."
+---
 
-## title: "Cargo Finance How-To Guides" sidebarTitle: "How-To Guides" description: "Step-by-step guides for common Cargo Finance tasks, from connecting your wallet to depositing in and withdrawing from RWA vaults."
+## Complete KYC and whitelist a wallet
 
-These guides walk you through the most common actions on Cargo Finance. Each task links to deeper documentation where available.
+<Steps>
+  <Step title="Verify">
+    Complete Persona KYC (individuals: ID, liveness, proof of address) or KYB (entities: incorporation documents, directors, beneficial owners above 10%, signatory authority). Sign the Eligibility Declaration.
+  </Step>
+  <Step title="Register wallets">
+    Send up to three wallet addresses and their chain to compliance. You receive a participant ID and a nonce.
+  </Step>
+  <Step title="Sign the ownership message">
+    Sign this message from each wallet:
+
+    ```text
+    Cargo Vault One — wallet ownership
+    I, [legal name / entity], control this wallet and register it for Cargo Vault One.
+    Participant ID: [CV1-P-0000]
+    Chain: [Arc / Base]
+    Date (UTC): [YYYY-MM-DD]
+    Nonce: [issued by compliance]
+    ```
+  </Step>
+  <Step title="Confirmation">
+    After screening, the wallet is added to the identity registry and you receive a confirmation. Screening re-runs on new orders and every six months. Tell compliance about any new beneficial owner, country of residence or wallet before your next trade.
+  </Step>
+</Steps>
+
+## Add or change a wallet
+
+<Steps>
+  <Step title="Tell compliance">Send the new address and its chain. You can have up to three registered wallets at a time.</Step>
+  <Step title="Sign the ownership message">Sign the message above from the new wallet, with a fresh nonce from compliance.</Step>
+  <Step title="Wait for confirmation">Only trade from the new wallet once it shows as verified. A transfer to an unregistered wallet fails on-chain.</Step>
+</Steps>
+
+## Take part in the Genesis Auction
+
+<Steps>
+  <Step title="Be ready before the window">Finish KYC or KYB and whitelist your wallets. The rescheduled dates are announced on [Updates](/ecosystem/updates) and the official channels.</Step>
+  <Step title="Commit USDC on the curve">Each ticket pays the average price across its slice of the curve, so earlier money buys at a deeper discount. There is no fee on the curve.</Step>
+  <Step title="Choose to lock, or not">Locking Genesis shares for 90 or 180 days adds +1.0% or +2.5% bonus shares.</Step>
+  <Step title="Settlement">If the $500,000 minimum is reached, shares are delivered to your wallet at settlement. If it is not, every dollar is refunded.</Step>
+</Steps>
+
+## Verify a deposit address
+
+<Steps>
+  <Step title="Read it from your agreement">The address is printed in your signed agreement. Ignore any address sent by chat, DM or email.</Step>
+  <Step title="Check the signed announcement">The same address is posted, signed by the issuer key, on the official announcement channel.</Step>
+  <Step title="Call a named director">Use a phone number from the data room, not from a message. The director reads you the first 6 and last 4 characters.</Step>
+  <Step title="Send a test amount">Send a small amount first (for example 10 USDC) and wait for confirmation before sending the balance.</Step>
+</Steps>
+
+## Bid in a batch auction
+
+<Steps>
+  <Step title="Review the lots">Check the published lot IDs, tonnage, grade, receipts and reserves, and today's NAV.</Step>
+  <Step title="Place a sealed bid">Enter price per share and quantity (minimum $5,000). You can edit it until clearing.</Step>
+  <Step title="Settle">At 12:00 UTC on the batch day, everyone filled pays the same clearing price, plus 0.25%. USDC and shares swap atomically.</Step>
+</Steps>
+
+## Redeem at NAV
+
+<Steps>
+  <Step title="Request">From 1,000 shares, submit a redemption request at least 24 hours before a batch.</Step>
+  <Step title="Strike">Your request strikes at that batch's NAV, less 0.10%.</Step>
+  <Step title="Paid">USDC is paid on delivery, within 12 days of the strike. The first redemptions strike at Batch 4.</Step>
+</Steps>
+
+## Exit instantly through the Liquidity Bridge
+
+Sell shares to the bridge at NAV − 1.0%, up to its published capacity. Check live capacity before you sell.
+
+## Check NAV and lot data
+
+- **NAV:** posted on-chain every day after ONCC publishes.
+- **iNAV:** every minute by API and WebSocket, and every 15 minutes on-chain during ICE hours. API keys come with onboarding.
+- **Lots:** the public lot registry shows each lot's ID, tonnage, grade, receipt hash and status.
+- **Batches:** the batch tape shows clearing price, discount to NAV, volume, bid-to-cover and lot IDs.
+
+See the [Data API](/developers/api).
+
+## Report a security issue
+
+Email **cargovaults@gmail.com** with the subject line "Security". Do not post details publicly, and never test against mainnet contracts or real funds. See [Audits & Bug Bounty](/safety/audits-and-bug-bounty#reporting-a-vulnerability).
+
+## Become an approved buyer
+
+<Steps>
+  <Step title="Get in touch">Email **yves.messy.oba@said.oxford.edu** with your company, destination markets and typical tonnage.</Step>
+  <Step title="Complete KYB">Entity verification as for any participant, plus two trade references and evidence of contract-signing authority.</Step>
+  <Step title="Sign the Approved Buyer Agreement">Provide import and shipping details for the destination and bank details for deposit refunds.</Step>
+  <Step title="Bid for lots">Receive the lot sheet and place offtake bids. See [Partnerships](/governance/partnerships#approved-buyers-offtake).</Step>
+</Steps>
+
+## Take physical delivery
+
+From 10,000 shares (10 t), request delivery ex-warehouse Douala to your ONCC-registered exporter. You pay cost, and receive the collateral manager's weight and quality certificates.
 
 <CardGroup cols={2}>
-  <Card title="Connect Your Wallet" href="/faq/general">
-    Learn which wallets are supported and how to connect to the correct network.
+  <Card title="Risk checklist" icon="shield" href="/safety/risk-checklist">
+    Read before you bid.
   </Card>
-
-  <Card title="Deposit into a Vault" href="/products/deposits-and-withdrawals">
-    Follow the steps to approve tokens and deposit into an RWA-backed vault.
-  </Card>
-
-  <Card title="Withdraw from a Vault" href="/products/deposits-and-withdrawals">
-    Understand the withdrawal flow, timing, and any lockup or cooldown requirements.
-  </Card>
-
-  <Card title="Read Vault APY" href="/faq/vault-apy">
-    Interpret APY figures and compare yield sources across vaults.
-  </Card>
-
-  <Card title="Review Security Practices" href="/safety/security-standards">
-    Check the risk checklist and audit status before depositing.
-  </Card>
-
-  <Card title="Explore Vault Strategies" href="/products/strategies">
-    See how real-world assets generate yield inside Cargo vaults.
+  <Card title="Returns and NAV" icon="chart-line" href="/faq/vault-apy">
+    How NAV and the discount work.
   </Card>
 </CardGroup>

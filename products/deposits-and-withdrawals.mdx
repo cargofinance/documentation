@@ -1,43 +1,66 @@
 ---
-title: "How to Deposit and Withdraw from Cargo Vaults"
+title: "Buying and Exiting cvCOCOA"
 sidebarTitle: "Deposits & Withdrawals"
-description: "Step-by-step instructions for depositing into and withdrawing from Cargo Vaults, including wallet connections, redemption timing, and useful tips."
+description: "How to buy cvCOCOA in the Genesis curve and the 12-day batch auctions, and every way out: redemption at NAV, the Liquidity Bridge, RFQ and physical delivery."
 ---
 
-This page explains how to deposit crypto into Cargo Vaults and how to withdraw when you are ready. The process uses standard wallet interactions on supported networks.
+New shares are sold only by the Vault SPV, below NAV. You hold them in your own whitelisted wallet. There are four ways out.
 
-## How to Deposit
+## Buying
+
+### Genesis Auction (Cycle 1)
+
+A bonding curve that stops below NAV. The price rises with the USDC raised, so earlier money buys at a deeper discount.
+
+**Price per share P(R) = 4.793 + (5.118 − 4.793) × R ÷ 1,500,000**, where R is USDC raised so far.
+
+| | |
+| :-- | :-- |
+| First seat | $4.793, 9.2% below NAV |
+| Last seat | $5.118, 3.0% below NAV |
+| Bands | A: 8.1% below NAV · B: 6.1% · C: 4.0% |
+| Minimum | $500,000 raised, or every dollar is refunded |
+| Cap | $1,500,000: 302.8 t of cocoa at an average $4.954 (6.1% below NAV) |
+| Ceiling | No buyer pays above 97% of NAV |
+| Fees | None on the curve |
+| Fill order | By time; the priority window fills first |
+| Window | A priority window, then a public window, then settlement. Rescheduled from 14–23 Oct 2026; new dates to be announced |
+
+Price along the curve, against the NAV of 9 Oct 2026 ($5.277):
+
+| Raised before you | Price per share | Below NAV |
+| :-- | --: | --: |
+| $0 (first seat) | $4.793 | 9.2% |
+| $500k | $4.901 | 7.1% |
+| $1M | $5.010 | 5.1% |
+| $1.5M (last seat) | $5.118 | 3.0% |
+
+### Batch auctions, every 12 days
 
 <Steps>
-  <Step title="Connect your wallet">
-    Open the Cargo app and connect a wallet that supports [Chain name]. Ensure you have gas tokens available for transaction fees.
+  <Step title="Lots are published">
+    Lot ID, tonnage, grade, warehouse, receipt, originator and reserve are published before the window opens.
   </Step>
-  <Step title="Select a vault">
-    Browse the available vaults and choose one that matches your risk preference. Review the [products/vaults](/products/vaults) page for details.
+  <Step title="Place a sealed bid">
+    Price per share and quantity, minimum $5,000. Bids can be edited until clearing.
   </Step>
-  <Step title="Enter an amount and confirm">
-    Enter the amount you want to deposit and confirm the transaction in your wallet. [Include minimum deposit amount if applicable.]
+  <Step title="Clearing">
+    Every 12 days at 12:00 UTC, starting after Genesis settlement (weekends and ICE holidays roll to the next ICE trading day). One uniform price, the lowest winning bid, pro rata at the margin.
+  </Step>
+  <Step title="Settlement">
+    Atomic and on-chain: USDC against shares. 0.25% fee per side; panel market makers bid fee-free. The clearing price, discount to NAV, volume, bid-to-cover and lot IDs go on the public tape.
   </Step>
 </Steps>
 
-<Info>
-  After depositing, you receive a vault receipt token that represents your share of the vault. Keep it in your wallet to track your position.
-</Info>
+## Exiting
 
-## How to Withdraw
-
-<Steps>
-  <Step title="Select your vault position">
-    Navigate to your portfolio or the vault page and select the position you want to exit.
-  </Step>
-  <Step title="Initiate a withdrawal request">
-    Enter the amount to withdraw and submit the request. [Describe whether the process is instant or requires a withdrawal request queue.]
-  </Step>
-  <Step title="Wait for processing">
-    Withdrawals are processed on a [redemption timing, e.g., rolling basis / daily batch / after lock-up period]. You will receive funds once settlement completes.
-  </Step>
-</Steps>
+| Route | Who | Price | Timing |
+| :-- | :-- | :-- | :-- |
+| **Redemption** | Any holder from 1,000 shares | NAV − 0.10% | Request until 24 h before a batch; struck at that batch; paid within 12 days |
+| **Liquidity Bridge** | Any holder | NAV − 1.0% | Instant, up to published capacity |
+| **RFQ** | Any holder | Firm quotes from panel market makers | From Genesis settlement; blocks from $25,000; settled atomically |
+| **Physical delivery** | From 10,000 shares | At cost | Ex-warehouse Douala, to your ONCC-registered exporter |
 
 <Warning>
-  Some vaults may have lock-up periods or redemption windows. Always review the vault-specific terms before depositing.
+  The first redemptions strike at **Batch 4**. If redemption requests exceed bridge capacity for two batches, capacity is raised and redemptions may be filled pro rata. There is no guarantee of a bid on RFQ.
 </Warning>

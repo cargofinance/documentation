@@ -1,64 +1,33 @@
 ---
-title: "Cargo API Developer Reference"
-description: "Integrate with the Cargo API to fetch vault metadata, TVL, and yield metrics using standard HTTP requests and JSON responses."
+title: "Cargo Data API"
 sidebarTitle: "Cargo API"
+description: "The Cargo Vault One data feeds: NAV, iNAV, lot registry, batch tape, redemption queue and RFQ access for market makers and integrators."
 ---
 
-The Cargo API provides programmatic access to protocol data, including vault statistics, asset prices, and historical yield. It is intended for dashboards, aggregators, and programmatic deposit workflows.
+Cargo publishes the data needed to value, quote and monitor cvCOCOA. Feeds are free for panel market makers, authorised participants, LPs and licensed venues.
 
-## Base URL
+## Feeds
 
-```text
-https://api.example.com
-```
+| Feed | Contents | Frequency | Access |
+| :-- | :-- | :-- | :-- |
+| NAV | NAV per share and its inputs (ONCC FOB, levy, FOB costs, FX) | Daily, after ONCC publishes; also on-chain | Public on-chain; API key |
+| iNAV | Indicative NAV moved with ICE London cocoa | Every minute (API and WebSocket); every 15 min on-chain in ICE hours | API key |
+| Lot registry | Lot ID, tonnage, grade, warehouse, receipt hash, status | Per lot | Public |
+| Stock reports | Collateral manager's weekly report hash | Weekly | Public on-chain |
+| Batch tape | Clearing price, discount to NAV, volume, bid-to-cover, lot IDs | Each batch | Public |
+| Redemption queue and bridge capacity | Live queue and available bridge USDC | Continuous | API key |
+| Offtake tape | Anonymised export sale prices against NAV | Per sale | Panel members |
 
-Replace the base URL with the production endpoint once it is live.
+## RFQ
 
-## Endpoints
+Requests for quote are routed free to panel market makers by API and Telegram from Genesis settlement. Market makers trade as principals; trades settle atomically on-chain. Block size from $25,000.
 
-| Method | Path | Description |
-| --- | --- | --- |
-| GET | `/v1/vaults` | List all vaults with basic metadata. |
-| GET | `/v1/vaults/{vaultId}` | Fetch detailed data for a specific vault. |
-| GET | `/v1/vaults/{vaultId}/yield` | Retrieve current and historical yield for a vault. |
-| GET | `/v1/assets` | List supported real-world assets. |
-
-## Authentication
+## Getting access
 
 <Info>
-  If the API requires authentication, include a Bearer token in the `Authorization` header. [Describe token issuance and scopes here.]
+  API keys and endpoint details are issued on onboarding. Email **yves.messy.oba@said.oxford.edu** with your firm name and use case; we reply within one business day.
 </Info>
 
-## Example Request
+## Data licensing
 
-```bash
-curl -X GET "https://api.example.com/v1/vaults" \
-  -H "Accept: application/json"
-```
-
-## Example Response
-
-```json
-{
-  "vaults": [
-    {
-      "id": "[vault-id]",
-      "name": "[Vault Name]",
-      "asset": "[Underlying Asset Symbol]",
-      "tvl": "[total value locked]",
-      "apy": "[current APY]"
-    }
-  ]
-}
-```
-
-## Rate Limits
-
-- Standard tier: [N requests per minute]
-- Premium tier: [M requests per minute]
-
-## Developer Notes
-
-- Error codes: [List expected HTTP status codes and error shapes.]
-- Pagination: [Describe cursor or offset pagination strategy.]
-- Webhooks: [Document available webhook events if supported.]
+Derivatives and prediction venues can license NAV and clearing-price data for products on their own platforms. Licensees never hold vault shares.

@@ -1,51 +1,57 @@
 ---
 title: "Security Standards at Cargo Finance"
-description: "Learn about the security practices, code review procedures, and access controls that protect Cargo Finance RWA vaults and user deposits."
 sidebarTitle: "Security Standards"
+description: "The layers that protect a cvCOCOA share: physical custody, legal title, on-chain permissions, key management, AML controls and incident response."
 ---
 
-Cargo Finance applies a multi-layered security model across on-chain vaults, off-chain RWA integrations, and internal operations. This page outlines the standards and checks you should expect from the protocol.
+A cvCOCOA share is only as safe as the weakest link between the bean and the wallet. Cargo secures each link separately.
 
-## Code Review and Testing
+## The security stack
 
-All vault and strategy contracts undergo internal review before deployment.
+| Layer | Control |
+| :-- | :-- |
+| Goods | Independent collateral manager with sole release authority; goods leave only against payment |
+| Verification | Vallis weighs and grades every lot; discrepancies above 0.5% suspend the lot |
+| Title | Bankruptcy-remote Vault SPV owns every lot |
+| Security | One OHADA pledge with dispossession, registered at the RCCM, held by a security agent |
+| Loss absorption | 10% subordinated first loss per lot; all-risks insurance |
+| Token | ERC-3643: transfers only between whitelisted identities; a liquidation can never leave the permissioned perimeter |
+| Minting | Shares minted only against a collateral-manager receipt; supply cannot exceed receipted kilograms |
+| Administration | Safe multisig with a timelock and an independent co-signer; pause guardian |
+| Price | Daily NAV with ICE cross-check, fallback and lower-of oracle for lending |
 
-[Describe your code review process, number of reviewers required, and how long a typical review cycle lasts.]
+## Code review and testing
 
-## Access Controls and Permissions
+Contracts that mint, auction and hold value will be independently audited before mainnet; no audit has been completed yet. Reports will be published on [Audits & Bug Bounty](/safety/audits-and-bug-bounty).
 
-Privileged functions (such as strategy upgrades and parameter changes) are restricted to specific addresses.
+## Access controls
 
-[List the key roles or multisig wallets and their responsibilities, such as [Multisig address].]
+- Privileged functions (minting, pausing, parameter changes, identity registry updates) are restricted to named roles.
+- The identity registry signer key is held under the Safe policy.
+- Parameter and rule changes follow 30 days' notice; only safety pauses are immediate.
 
-## Operational Security
+## Operational security and AML
 
-Off-chain systems that manage RWA allocation or reporting use secure infrastructure.
+- KYC and KYB through Persona, with sanctions, PEP and adverse-media screening.
+- Wallet screening on registration, on every new order and every six months; wallets exposed to sanctioned addresses are frozen pending review.
+- Source of funds checked above $100,000.
+- Identity data stays with the verification provider and the compliance team. Only a participant ID and wallet status go on-chain.
+- Deposit addresses are confirmed by phone with a named director and a test transfer, never by message.
 
-<Note>
-  [Describe hosting, key management, and signer hardware or cloud-HSM details.]
-</Note>
-
-## Incident Response
-
-Cargo maintains an incident response plan for emergency contract pauses or strategy exits.
+## Incident response
 
 <Steps>
   <Step title="Detect">
-    [Describe monitoring and alerting channels.]
+    Automatic triggers: NAV oracle failure, a collateral-manager discrepancy above 0.5%, a sanctions hit or a chain incident.
   </Step>
   <Step title="Contain">
-    [Describe how a pause or emergency withdrawal is triggered.]
+    The affected batch, creations or redemptions are suspended. A suspect lot is frozen until topped up or met from subordinated shares, with an independent recount.
   </Step>
   <Step title="Communicate">
-    [Describe where updates are posted and how quickly.]
+    The reason is published on the official channels and sent to eligible investors.
   </Step>
 </Steps>
 
-## Third-Party Dependencies
-
-Cargo relies on external oracle providers, custodians, and legal structures for RWA exposure.
-
 <Warning>
-  Review the security practices of each third party. Cargo standards do not eliminate counterparty risk.
+  Paper records (receipts, the pledge register and signed agreements) are the fallback if a chain or key fails. No set of controls removes all risk.
 </Warning>

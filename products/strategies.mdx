@@ -1,72 +1,47 @@
 ---
-title: "Cargo Strategies: How Vaults Generate Yield"
+title: "Ways to hold cvCOCOA: Hold, Rotate, provide liquidity"
 sidebarTitle: "Strategies"
-description: "Learn how Cargo generates yield across real-world asset strategies. Understand allocation rules, reinvestment, and rebalancing for vault deposits."
+description: "The ways to use Cargo Vault One: hold cvCOCOA bought below NAV, rotate the batch-auction discount every 12 days, make markets, bridge exits or lend against the shares."
 ---
 
-Each Cargo Vault follows a defined investment strategy governing capital allocation, yield distribution, and portfolio management. Strategies are established at launch and may be adjusted through governance to reflect changing market conditions.
-
-## Strategy Overview
-
-Each strategy defines the vault's target asset allocation, investment duration, risk exposure, and reinvestment approach.
+Cargo does not run a discretionary strategy with your money. The vault holds cocoa, one kilogram per share. What you earn depends on how you use the shares.
 
 <AccordionGroup>
-  <Accordion title="Allocation Rules">
-    Capital is allocated across curated real-world asset opportunities, including private credit, trade finance, and asset-backed financing.
+  <Accordion title="Hold: own the kilos" icon="weight-hanging">
+    Buy cvCOCOA below NAV and keep it. Your return is the discount you bought at, plus or minus the move in NAV, which follows the ONCC export price of cocoa.
 
-    - **Target Allocation:** Defined individually for each vault.
-    - **Counterparty Exposure:** Limited to reduce concentration risk.
-    - **Single-Asset Cap:** Maximum exposure determined by the vault's risk parameters.
-    - **Liquidity Reserves:** A portion of capital may be retained to support withdrawals and operational requirements.
+    - **Exit:** redeem at NAV − 0.10% from 1,000 shares, use the Liquidity Bridge at NAV − 1.0%, or take delivery from 10 t.
+    - **Genesis locks:** buyers who lock Genesis shares for 90 or 180 days receive **+1.0%** or **+2.5%** bonus shares.
+    - **Borrow (planned):** pledge your shares in a cvCOCOA/USDC Morpho market instead of selling them.
 
-    Specific allocation percentages and exposure limits are published in each vault's strategy parameters.
+    Best for allocators who want cocoa exposure backed by receipted stock.
   </Accordion>
 
-  <Accordion title="Reinvestment Logic">
-    Generated yield is managed according to the vault's investment terms and may be:
+  <Accordion title="Rotate: earn the discount every 12 days" icon="arrows-rotate">
+    <Steps>
+      <Step title="Buy">Your bid fills at the batch clearing price, below NAV.</Step>
+      <Step title="Pre-sell">The same kilos are sold to an offtaker at that day's NAV.</Step>
+      <Step title="Redeem and re-bid">NAV − 0.10% comes back in USDC before the next batch.</Step>
+    </Steps>
 
-    - **Auto-Compounded:** Reinvested to generate additional returns.
-    - **Distributed:** Paid to depositors at scheduled intervals.
-    - **Reserved:** Retained to support liquidity and risk management.
+    Each turn earns roughly the clearing discount less the 0.25% auction fee and the 0.10% redemption fee. The auction sets the discount, and it will compress as capital arrives. Returns are never annualised.
 
-    Reinvestment frequency and distribution schedules are defined at vault launch.
+    In Phase 1, Rotate runs as an **auto-roll on your own wallet**: no pool and no discretion. A pooled, compounding class (scvCOCOA) waits for the right fund route.
   </Accordion>
 
-  <Accordion title="Rebalancing Triggers">
-    Vault allocations may be adjusted in response to:
+  <Accordion title="Make markets" icon="arrow-right-arrow-left">
+    Panel market makers quote cvCOCOA/USDC around iNAV, answer RFQs, bid in every batch and act as authorised participants (create at NAV + 0.10%, redeem at NAV − 0.10%). They hedge the cocoa price on ICE London. Terms are in the Market Maker Offer (CV1-MM), available on request.
+  </Accordion>
 
-    - Portfolio deviations from target allocations.
-    - Maturity or repayment of underlying investments.
-    - Changes in borrower creditworthiness or collateral quality.
-    - Market conditions and liquidity requirements.
+  <Accordion title="Bridge exits" icon="bridge">
+    Liquidity Bridge LPs supply USDC that buys shares instantly from holders at NAV − 1.0% and redeems them at NAV − 0.10%, hedged on ICE. Each LP's USDC sits in its own segregated mandate, run by a licensed panel market maker; Cargo does not manage LP money. Minimum $50,000; $250,000 capacity at launch.
+  </Accordion>
 
-    Rebalancing follows predefined risk limits and applicable governance approvals.
+  <Accordion title="Lend (planned)" icon="hand-holding-dollar">
+    An isolated cvCOCOA/USDC Morpho market: 62.5% liquidation LTV at launch, a lower-of NAV oracle and whitelisted liquidators. Lenders earn the market's borrow rate. Targeted after Batch 4.
   </Accordion>
 </AccordionGroup>
 
-## Strategy Lifecycle
-
-<Steps>
-  <Step title="Proposal">
-    New strategies or changes to existing allocations are submitted through the [Cargo Governance](https://cargo-finance.mintlify.site/governance/governance) process.
-  </Step>
-  <Step title="Review">
-    Proposals undergo risk assessment, asset due diligence, and compliance checks before approval. Reviews evaluate expected returns, collateral quality, counterparty exposure, and alignment with vault objectives.
-
-    - **Review Period:** To be confirmed.
-    - **Approval Requirements:** Defined by the governance framework.
-  </Step>
-  <Step title="Deployment">
-    Approved strategies are implemented through the relevant vault and strategy contracts, subject to applicable authorization controls.
-
-    - **Timelock:** To be confirmed.
-    - **Execution:** Authorized protocol operators or governance mechanisms.
-    - **Transparency:** On-chain strategy updates and allocation records, where supported.
-
-    All strategy changes remain subject to the vault's investment mandate and applicable risk controls.
-  </Step>
-</Steps>
-
 <Info>
-  Strategy details for each vault are viewable on the app. Check the vault page for current allocation and recent rebalancing history.
+  Speculators can take a view on NAV or clearing prices through perps, options or prediction markets on third-party venues that license Cargo's data. Those venues never hold vault shares, and the vault never takes the other side.
 </Info>

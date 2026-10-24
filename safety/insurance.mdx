@@ -1,95 +1,41 @@
 ---
-title: "Insurance Coverage for Cargo Vault Deposits"
-description: "Learn about available insurance options for Cargo Finance RWA vaults, including coverage scope, providers, and how to verify your position."
+title: "Insurance and Loss Absorption for cvCOCOA"
 sidebarTitle: "Insurance"
+description: "What insurance covers the cocoa behind cvCOCOA, what it does not cover, and the other layers that absorb losses before a holder does."
 ---
 
-Third-party insurance may be available to protect against certain risks in Cargo Finance vaults. Coverage details vary by provider and vault type.
+The cocoa behind every share is insured as physical stock. Smart-contract risk is not insured.
 
-## Insurance Providers
+## What is covered
 
-Cargo has explored or partnered with on-chain insurance protocols for select vaults.
+| Cover | Scope | Paid by |
+| :-- | :-- | :-- |
+| All-risks stock insurance | Physical loss of or damage to receipted lots in the bay | Originator, at cost, until export |
+| Transit and export cover | Goods moving from the bay to the vessel | Within FOB costs, deducted in NAV |
 
-<CardGroup>
-  <Card title="[Provider A]" href="/safety/insurance">
-    Covers [risk type, e.g., smart contract] for [vault category].
-  </Card>
+The insurer and policy terms are shared with investors on signing and in the data room.
 
-  <Card title="[Provider B]" href="/safety/insurance">
-    Covers [risk type, e.g., custodial / RWA counterparty] for [vault category].
-  </Card>
-</CardGroup>
+## What is not covered
 
-## What Is Covered
+- Smart-contract exploits, key loss or chain failures.
+- Falls in the price of cocoa.
+- Losses from legal or regulatory change.
 
-Insurance terms depend on the provider and the specific policy.
-
-| Coverage Type | Typical Scope | Exclusions |
-| --- | --- | --- |
-| Smart contract exploit | [Describe covered events] | [Describe excluded events] |
-| Custodian / counterparty default | [Describe covered events] | [Describe excluded events] |
-
-## How to Verify Coverage
-
-Before depositing, confirm whether a vault is currently insured.
+## Loss absorption, in order
 
 <Steps>
-  <Step title="Check the vault page">
-    [Describe where the insurance badge or note appears.]
-  </Step>
-  <Step title="Review the policy">
-    Read the full terms on the insurer website for coverage limits and claim rules.
-  </Step>
-  <Step title="Monitor expiry">
-    Policies are time-bound. Verify the current coverage period before depositing.
-  </Step>
+  <Step title="Originator top-up">A weight or grade shortfall is topped up by the originator within five business days.</Step>
+  <Step title="Subordinated shares">If not, it is met from the originator's 10% subordinated shares (first loss).</Step>
+  <Step title="Insurance">Physical loss or damage is claimed under the all-risks policy.</Step>
+  <Step title="Enforcement">The security agent enforces the OHADA pledge, and the SPV sells the goods.</Step>
 </Steps>
 
-<Warning>
-  Insurance does not cover all loss scenarios. Read the policy carefully and never assume full protection.
-</Warning>
+## How to verify cover
 
-Third-party insurance may be available to protect against certain risks in Cargo Finance vaults. Coverage details vary by provider and vault type.
-
-## Insurance Providers
-
-Cargo has explored or partnered with on-chain insurance protocols for select vaults.
-
-<CardGroup>
-  <Card title="[Provider A]" href="/safety/insurance">
-    Covers [risk type, e.g., smart contract] for [vault category].
-  </Card>
-
-  <Card title="[Provider B]" href="/safety/insurance">
-    Covers [risk type, e.g., custodial / RWA counterparty] for [vault category].
-  </Card>
-</CardGroup>
-
-## What Is Covered
-
-Insurance terms depend on the provider and the specific policy.
-
-| Coverage Type | Typical Scope | Exclusions |
-| --- | --- | --- |
-| Smart contract exploit | [Describe covered events] | [Describe excluded events] |
-| Custodian / counterparty default | [Describe covered events] | [Describe excluded events] |
-
-## How to Verify Coverage
-
-Before depositing, confirm whether a vault is currently insured.
-
-<Steps>
-  <Step title="Check the vault page">
-    [Describe where the insurance badge or note appears.]
-  </Step>
-  <Step title="Review the policy">
-    Read the full terms on the insurer website for coverage limits and claim rules.
-  </Step>
-  <Step title="Monitor expiry">
-    Policies are time-bound. Verify the current coverage period before depositing.
-  </Step>
-</Steps>
+- Ask for the policy summary and certificate in the data room.
+- Check the lot's receipt in the lot registry: every receipted lot must be insured.
+- Policies are time-bound; check the cover period is current.
 
 <Warning>
-  Insurance does not cover all loss scenarios. Read the policy carefully and never assume full protection.
+  Insurance does not cover every loss. Never assume full protection.
 </Warning>

@@ -1,46 +1,43 @@
 ---
-title: "Strategy Contract Developer Reference"
-description: "Understand how Cargo strategy contracts allocate vault deposits into real-world asset positions, harvest yield, and report back to the vault."
+title: "Auction and Redemption Contracts"
 sidebarTitle: "Strategy Contract"
+description: "How the Genesis curve, the sealed batch auction and the creation and redemption flows work on-chain in Cargo Vault One."
 ---
 
-Strategy contracts implement the actual investment logic for Cargo vaults. Each vault can route funds into one or more strategies that target specific real-world asset pools or instruments.
+Cargo Vault One has no yield strategy contract. Capital is not deployed by code; it buys shares that are already backed by receipted cocoa. The on-chain logic that matters is how shares are sold and how they come back.
 
-## Core Responsibilities
+## Genesis curve
 
-- Allocation: receive capital from the vault and deploy it into target positions.
-- Harvesting: claim rewards or interest from the underlying instrument.
-- Reporting: return the current total value of deployed assets to the vault on demand.
+A primary sale by the Vault SPV on a linear price curve.
 
-## Key Functions
+```text
+P(R) = 4.793 + (5.118 − 4.793) × R / 1,500,000      R = USDC raised so far
+Shares for a ticket D = (1/b) × ln( P(R + D) / P(R) ),   b = 0.325 / 1,500,000
+```
 
-| Function | Visibility | Description |
-| --- | --- | --- |
-| `invest(uint256 amount)` | `external` | Deploy `amount` of underlying assets into the target position. |
-| `divest(uint256 amount)` | `external` | Withdraw up to `amount` from the position and return it to the vault. |
-| `harvest()` | `external` | Claim available yield and either compound or forward it. |
-| `estimatedTotalAssets()` | `view` | Return the current value of assets held in the strategy. |
+Each ticket pays the average price across its slice of the curve, so splitting a ticket gives exactly the same number of shares. Fills are ordered by time, the priority window first. Below the $500,000 minimum, all USDC is refunded; the cap is $1,500,000.
 
-## Integration Points
+## Batch auction
 
-<Steps>
-  <Step title="Vault calls invest">
-    The vault sends funds to the strategy after a user deposit.
-  </Step>
-  <Step title="Strategy deploys assets">
-    Assets enter the target instrument or custodial arrangement.
-  </Step>
-  <Step title="Periodic harvest">
-    Yield is realized and either reinvested or sent to the vault for distribution.
-  </Step>
-</Steps>
+| Step | Rule |
+| :-- | :-- |
+| Seller | The Vault SPV only, against newly receipted lots |
+| Bids | Sealed limit bids (price, quantity), minimum $5,000, editable until clearing |
+| Clearing | Every 12 days at 12:00 UTC; uniform price at the lowest winning bid; pro rata at the margin |
+| Settlement | Atomic: USDC against shares |
+| Fees | 0.25% each side; panel market makers fee-free |
+| Tape | Clearing price, discount to NAV, volume, bid-to-cover and lot IDs, emitted at clearing |
+| Errors | Reversed only for system error, within one hour of clearing |
+
+## Creation and redemption
+
+| Flow | Who | Price | Settlement |
+| :-- | :-- | :-- | :-- |
+| Creation | Authorised participants | NAV + 0.10% | Blocks of 1,000 shares, any business day, T+1 in USDC |
+| Redemption | Any holder from 1,000 shares | NAV − 0.10% | Requested until 24 h before a batch; struck at the batch; paid within 12 days |
+
+## Safeguards
 
 <Warning>
-  Every strategy must enforce a maximum loss threshold and implement an emergency exit path. [Describe safeguards here.]
+  Creations and redemptions pause when the NAV fallback triggers. Minting stops if the collateral-manager report is stale or a lot shows a discrepancy above 0.5%. Every contract that mints, auctions or holds value will be audited before mainnet; no audit has been completed yet.
 </Warning>
-
-## Developer Notes
-
-- Supported asset types: [List supported RWAs, e.g., treasury bills, private credit, commodities.]
-- Oracle dependency: [Specify which price feeds or valuation providers the strategy relies on.]
-- Permissions: [Define which addresses can trigger harvest or migration.]

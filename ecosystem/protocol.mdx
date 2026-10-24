@@ -1,35 +1,41 @@
 ---
 title: "Cargo Protocol Overview and Revenue Flow"
 sidebarTitle: "Cargo Protocol"
-description: "An overview of the Cargo Protocol architecture and how revenue and fees flow between depositors, strategies, and the protocol treasury."
+description: "How Cargo Vault One is structured, how money and goods move between holders, originators and buyers, and the full fee schedule."
 ---
 
-Cargo Finance connects on-chain capital with real-world yield-generating assets through a structured vault architecture. The protocol facilitates capital allocation, yield distribution, and transparent revenue management across its ecosystem.
+Cargo Vault One is a **venue for receipted commodities**. The Vault SPV is the only seller of new shares. Originators supply receipted lots, buyers bid for shares below NAV, and market makers keep the secondary price close to NAV. Cargo earns venue fees on that flow, not a spread on your capital.
 
-## Protocol Architecture
+## Architecture
 
-Cargo operates through **RWA Vault smart contracts** that receive investor deposits and allocate capital to curated investment strategies. Strategy contracts manage the on-chain allocation and accounting of capital deployed into real-world assets, while protocol-level contracts coordinate vault operations, fee collection, and distributions.
+| Layer | What it does |
+| :-- | :-- |
+| Goods | Receipted lots of 25 t or more in a collateral-managed bay at AGL Bonabéri, Douala |
+| Title and security | Vault SPV owns every lot; one OHADA pledge with dispossession, registered at the RCCM, held by a security agent |
+| Token | cvCOCOA, ERC-3643, 1 share = 1 kg; transfers only between whitelisted identities |
+| Primary market | Genesis curve, then a sealed batch auction every 12 days; the SPV is the only seller |
+| Anchor | Creation at NAV + 0.10%, redemption at NAV − 0.10%, Liquidity Bridge at NAV − 1.0%, physical delivery from 10 t |
+| Secondary | Bilateral: RFQ to panel market makers acting as principals; a permissioned pool is planned |
+| Data | Daily NAV and minute-by-minute iNAV; lot registry; weekly collateral-manager reports hashed on-chain |
 
-## Revenue and Fee Flow
+## How money and goods flow
 
-Revenue is generated through underlying real-world financing activities, including private credit interest, financing fees, and profit-sharing arrangements.
+**Originator lot → collateral manager receipt → mint (90% senior, 10% subordinated) → batch auction → buyer's wallet → hold, redeem, bridge or deliver → export sale at parity → USDC back to the vault**
 
-As strategies generate returns, applicable protocol fees are deducted from realized yield, with the remaining returns allocated to depositors according to their vault participation.
+## Fee schedule
 
-Protocol revenue may be directed to the **Cargo Treasury** to support ecosystem development, operations, and long-term sustainability.
+| Fee | Rate | Paid by | When |
+| :-- | :-- | :-- | :-- |
+| Genesis curve | None | — | — |
+| Listing and servicing | 0.50% of NAV | Originator | Once per lot, at first sale |
+| Batch auction | 0.25% each side | Buyer and seller | Each sale (panel market makers bid fee-free) |
+| Creation or redemption | 0.10% | Authorised participant or redeeming holder | Each creation or redemption |
+| Liquidity Bridge | 1.0% | Holder using the bridge | Paid to bridge LPs |
+| Storage, collateral management, insurance | At cost | Originator | Until export |
+| Management or storage fee for holders | None | — | — |
 
-## Fee Parameters
+Over a lot's life of about 45 days, venue fees come to about **1.35% of the lot**: 0.50% listing, plus 0.25% on each side of about 1.5 auction trades (0.75%), plus 0.10% on redemption. That is an estimate, not a fixed charge.
 
-| Fee Type | Value | Recipient |
-| :-- | :-- | :-- |
-| Performance Fee | TBD (% of realized yield) | Cargo Treasury |
-| Management Fee | TBD (% of AUM annually) | Cargo Treasury |
-| Withdrawal Fee | TBD (% of withdrawal) | Cargo Treasury |
-
-_Fee parameters are subject to final protocol configuration and may vary by vault or investment strategy._
-
-## Revenue Flow Summary
-
-**Depositors → RWA Vaults → Investment Strategies → Real-World Assets → Generated Yield → Protocol Fees + Depositor Returns**
-
-Cargo's revenue model is designed to align protocol sustainability with investor returns through transparent, performance-linked fee structures.Fee parameters are set per vault and may be adjusted through governance proposals. Always review the current fee schedule before depositing.
+<Note>
+  Rule and fee changes take effect after 30 days' notice, except safety fixes. The binding schedule is in the Rulebook and your signed agreement.
+</Note>

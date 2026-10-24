@@ -1,81 +1,60 @@
 ---
-title: "Cargo Vaults: Crypto to Real-World Yield"
+title: "Cargo Vault One and cvCOCOA"
 sidebarTitle: "Vaults"
-description: "Discover how Cargo Vaults convert crypto deposits into yield from real-world assets. Learn vault types, supported networks, and eligibility before you deposit."
+description: "cvCOCOA, the Cargo Vault One share: one kilogram of receipted cocoa in Douala. Token standard, vault lines, supported networks and what to check before you bid."
 ---
 
-Cargo Vaults are on-chain investment products connecting digital assets with real-world yield opportunities. Each vault offers a distinct risk profile, investment duration, and asset strategy, allowing depositors to select opportunities aligned with their investment goals.
+Cargo Vault One is the first Cargo vault. It holds export-grade soft commodities as receipted, pledged inventory at the port. Each commodity and each port is its own vault, with its own lots and its own NAV.
 
-## Vault Types
+## cvCOCOA at a glance
 
-We offer vaults across several risk categories.
+| | |
+| :-- | :-- |
+| Name | Cargo Vault Cocoa · Douala (cvCOCOA-DLA) |
+| Unit | 1 share = 1 kg of receipted cocoa |
+| Asset | Export-grade Cameroon cocoa beans, fermented, dried and bagged |
+| Location | Collateral-managed bay at AGL Bonabéri, Douala |
+| Owner of the goods | Bankruptcy-remote Seychelles Vault SPV |
+| Standard | ERC-3643 (permissioned): transfers only between whitelisted identities |
+| Settlement asset | USDC |
+| Custody | Holders' own wallets; administration through a Safe multisig with a timelock |
+| NAV | ONCC FOB reference − export levy − FOB costs, struck daily; $5.277 at 9 Oct 2026 |
+| Hedge equivalence | 10,000 shares move like one ICE London cocoa lot (10 t) |
+| Holder fees | No management or storage fee |
 
-<AccordionGroup>
-  <Accordion title="Core Vaults">
-    Core Vaults prioritize capital preservation and predictable yield through short-duration, high-quality credit instruments and collateral-backed financing.
+## Vault lines
 
-    - **Risk Profile:** Low to moderate
-    - **Investment Duration:** 90 days (indicative)
-    - **Supported Assets:** USDC, USDT (subject to confirmation)
-    - **Minimum Deposit:** TBD
-  </Accordion>
+| Ticker | Vault | Status |
+| :-- | :-- | :-- |
+| **cvCOCOA** | Cocoa, Douala | Cycle 1 |
+| cvCOCOA-KBI | Cocoa, Kribi | Planned: next port |
+| cvROBUSTA | Robusta coffee, Douala | Planned |
+| — | A second OHADA port (for example cvCOCOA-ABJ, Abidjan) | Planned |
+| — | White sugar | Under study |
+| scvCOCOA | Pooled, compounding Rotate class | Planned for Phase 2, subject to the fund route |
 
-  <Accordion title="Growth Vaults">
-    Growth Vaults target higher potential returns through diversified private credit, business financing, and emerging-market lending opportunities.
+A new port is a new vault with its own lots and NAV, named by its UN/LOCODE. Every new line must pass the same [eight collateral tests](/products/real-world-assets#eight-tests-for-any-commodity).
 
-    - **Risk Profile:** Moderate
-    - **Investment Duration:** 180 days (indicative)
-    - **Supported Assets:** USDC, USDT (subject to confirmation)
-    - **Minimum Deposit:** TBD
-  </Accordion>
-
-  <Accordion title="Specialized Vaults">
-    Specialized Vaults provide targeted exposure to opportunities such as trade finance, invoice factoring, and sector-specific asset-backed financing, with potential profit-sharing arrangements.
-
-    - **Risk Profile:** Moderate to high
-    - **Investment Duration:** 360 days (indicative)
-    - **Supported Assets:** USDC, USDT (subject to confirmation)
-    - **Eligibility:** May require additional KYC/KYB verification or investor qualification
-    - **Minimum Deposit:** TBD
-  </Accordion>
-</AccordionGroup>
-
-## Supported Networks
-
-Cargo Vaults are designed to operate on EVM-compatible blockchain infrastructure, enabling smart contract-based deposits, allocation, and yield accounting.
-
-- **Supported Networks:** [To be confirmed]
-- **Deposit Tokens:** [To be confirmed]
-- **Cross-Chain Support:** [To be confirmed]
-
-Network availability and supported assets may vary by vault.
-
-_All vaults carry investment risk, including potential loss of principal, borrower defaults, and liquidity restrictions. Risk classifications indicate relative exposure rather than guaranteed safety._
+## Supported networks
 
 <CardGroup cols={2}>
-  <Card title="[Chain name]" icon="network-wired" href="/resources/contract-addresses">
-    [Describe the deployment status, e.g., live or coming soon. Include the chain ID if relevant.]
+  <Card title="Arc" icon="network-wired" href="/resources/contract-addresses">
+    Target home. Circle's USDC-native chain, mainnet since 16 Sep 2026.
   </Card>
-
-  <Card title="[Chain name]" icon="network-wired" href="/resources/contract-addresses">
-    [Describe the deployment status. Include the chain ID if relevant.]
+  <Card title="Base" icon="network-wired" href="/resources/contract-addresses">
+    Fallback if Arc's launch gates are not met.
   </Card>
 </CardGroup>
 
-## Before You Deposit
+The live chain and contract addresses are published only on the [Contract Addresses](/resources/contract-addresses) page.
 
-<Check>
-  Connect a wallet that supports [Chain name].
-</Check>
+## Before you bid
 
-<Check>
-  Verify the vault contract address on the official [resources/contract-addresses](/resources/contract-addresses) page.
-</Check>
-
-<Check>
-  Review the [safety/risk-checklist](/safety/risk-checklist) for the vault category.
-</Check>
+<Check>Complete KYC or KYB and whitelist your wallet. See the [Quickstart](/quickstart).</Check>
+<Check>Verify the contract address on the [Contract Addresses](/resources/contract-addresses) page and the deposit address by phone, never from a message.</Check>
+<Check>Read the [Risk Checklist](/safety/risk-checklist) and the Risk Statement in the data room.</Check>
+<Check>Check today's NAV, the lots listed for the batch and their reserves.</Check>
 
 <Note>
-  Vault availability and minimum deposits are subject to change. Always confirm current parameters on the app before depositing.
+  cvCOCOA is for eligible non-US professional or institutional investors outside CEMAC and Seychelles. Parameters can change with 30 days' notice; your signed agreement and the Rulebook are binding.
 </Note>
