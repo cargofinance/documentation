@@ -7,16 +7,16 @@ description: "Step-by-step guides for Cargo vaults: KYC and wallets, the Genesis
 
 Where a guide quotes a size, price or interval, it is the Genesis Vault's (cvCOCOA, West African Grade 1 cocoa); each vault's term sheet sets its own.
 
-## Complete KYC and whitelist a wallet
+## Complete KYC and Whitelist a Wallet
 
 <Steps>
   <Step title="Verify">
     Complete Persona KYC (individuals: ID, liveness, proof of address) or KYB (entities: incorporation documents, directors, beneficial owners above 10%, signatory authority). Sign the Eligibility Declaration.
   </Step>
-  <Step title="Register wallets">
+  <Step title="Register Wallets">
     Send up to three wallet addresses and their chain to compliance. You receive a participant ID and a nonce.
   </Step>
-  <Step title="Sign the ownership message">
+  <Step title="Sign the Ownership Message">
     Sign this message from each wallet:
 
     ```text
@@ -33,37 +33,37 @@ Where a guide quotes a size, price or interval, it is the Genesis Vault's (cvCOC
   </Step>
 </Steps>
 
-## Add or change a wallet
+## Add or Change a Wallet
 
 <Steps>
-  <Step title="Tell compliance">Send the new address and its chain. You can have up to three registered wallets at a time.</Step>
-  <Step title="Sign the ownership message">Sign the message above from the new wallet, with a fresh nonce from compliance.</Step>
-  <Step title="Wait for confirmation">Only trade from the new wallet once it shows as verified. A transfer to an unregistered wallet fails on-chain.</Step>
+  <Step title="Tell Compliance">Send the new address and its chain. You can have up to three registered wallets at a time.</Step>
+  <Step title="Sign the Ownership Message">Sign the message above from the new wallet, with a fresh nonce from compliance.</Step>
+  <Step title="Wait for Confirmation">Only trade from the new wallet once it shows as verified. A transfer to an unregistered wallet fails on-chain.</Step>
 </Steps>
 
-## Take part in the Genesis Auction
+## Take Part in the Genesis Auction
 
 <Steps>
-  <Step title="Be ready before the window">Finish KYC or KYB and whitelist your wallets. Each vault opens with its own Genesis Auction; the Genesis Vault's rescheduled dates are announced on [Updates](/ecosystem/updates) and the official channels.</Step>
-  <Step title="Commit USDC on the curve">Each ticket pays the average price across its slice of the curve, so earlier money buys at a deeper discount. There is no fee on the curve.</Step>
-  <Step title="Choose to lock, or not">In the Genesis Vault, locking Genesis shares for 90 or 180 days adds +1.0% or +2.5% bonus shares.</Step>
+  <Step title="Be Ready Before the Window">Finish KYC or KYB and whitelist your wallets. Each vault opens with its own Genesis Auction; the Genesis Vault's rescheduled dates are announced on [Updates](/ecosystem/updates) and the official channels.</Step>
+  <Step title="Commit USDC on the Curve">Each ticket pays the average price across its slice of the curve, so earlier money buys at a deeper discount. There is no fee on the curve.</Step>
+  <Step title="Choose to Lock, or Not">In the Genesis Vault, locking Genesis shares for 90 or 180 days adds +1.0% or +2.5% bonus shares.</Step>
   <Step title="Settlement">If the minimum is reached ($500,000 in the Genesis Vault), shares are delivered to your wallet at settlement. If it is not, every dollar is refunded.</Step>
 </Steps>
 
-## Verify a deposit address
+## Verify a Deposit Address
 
 <Steps>
-  <Step title="Read it from your agreement">The address is printed in your signed agreement. Ignore any address sent by chat, DM or email.</Step>
-  <Step title="Check the signed announcement">The same address is posted, signed by the issuer key, on the official announcement channel.</Step>
-  <Step title="Call a named director">Use a phone number from the data room, not from a message. The director reads you the first 6 and last 4 characters.</Step>
-  <Step title="Send a test amount">Send a small amount first (for example 10 USDC) and wait for confirmation before sending the balance.</Step>
+  <Step title="Read It from Your Agreement">The address is printed in your signed agreement. Ignore any address sent by chat, DM or email.</Step>
+  <Step title="Check the Signed Announcement">The same address is posted, signed by the issuer key, on the official announcement channel.</Step>
+  <Step title="Call a Named Director">Use a phone number from the data room, not from a message. The director reads you the first 6 and last 4 characters.</Step>
+  <Step title="Send a Test Amount">Send a small amount first (for example 10 USDC) and wait for confirmation before sending the balance.</Step>
 </Steps>
 
-## Bid in a batch auction
+## Bid in a Batch Auction
 
 <Steps>
-  <Step title="Review the lots">Check the published lot IDs, quantity, grade, receipts and reserves, and today's NAV.</Step>
-  <Step title="Place a sealed bid">Enter price per share and quantity (minimum $5,000). You can edit it until clearing.</Step>
+  <Step title="Review the Lots">Check the published lot IDs, quantity, grade, receipts and reserves, and today's NAV.</Step>
+  <Step title="Place a Sealed Bid">Enter price per share and quantity (minimum $5,000). You can edit it until clearing.</Step>
   <Step title="Settle">At 12:00 UTC on the batch day, everyone filled pays the same clearing price, plus 0.25%. USDC and shares swap atomically.</Step>
 </Steps>
 
@@ -75,11 +75,11 @@ Where a guide quotes a size, price or interval, it is the Genesis Vault's (cvCOC
   <Step title="Paid">USDC is paid on delivery, within 12 days of the strike. In the Genesis Vault, the first redemptions strike at Batch 4.</Step>
 </Steps>
 
-## Exit instantly through the Liquidity Bridge
+## Exit Instantly Through the Liquidity Bridge
 
 Sell shares to the bridge at NAV − 1.0%, up to its published capacity. Check live capacity before you sell.
 
-## Check NAV and lot data
+## Check NAV and Lot Data
 
 - **NAV:** posted on-chain every day after the vault's reference price publishes (ICE London Cocoa, for the Genesis Vault).
 - **iNAV:** every minute by API and WebSocket, and every 15 minutes on-chain during reference-market hours. API keys come with onboarding.
@@ -88,25 +88,25 @@ Sell shares to the bridge at NAV − 1.0%, up to its published capacity. Check l
 
 See the [Data API](/developers/api).
 
-## Report a security issue
+## Report a Security Issue
 
 Email **cargovaults@gmail.com** with the subject line "Security". Do not post details publicly, and never test against mainnet contracts or real funds. See [Audits & Bug Bounty](/safety/audits-and-bug-bounty#reporting-a-vulnerability).
 
-## Become an approved buyer
+## Become an Approved Buyer
 
 <Steps>
-  <Step title="Get in touch">Email **cargovaults@gmail.com** with your company, the assets you buy, destination markets and typical volumes.</Step>
+  <Step title="Get in Touch">Email **cargovaults@gmail.com** with your company, the assets you buy, destination markets and typical volumes.</Step>
   <Step title="Complete KYB">Entity verification as for any participant, plus two trade references and evidence of contract-signing authority.</Step>
   <Step title="Sign the Approved Buyer Agreement">Provide import and shipping details for the destination and bank details for deposit refunds.</Step>
-  <Step title="Bid for lots">Receive the lot sheet and place offtake bids. See [Partnerships](/governance/partnerships#approved-buyers-offtake).</Step>
+  <Step title="Bid for Lots">Receive the lot sheet and place offtake bids. See [Partnerships](/governance/partnerships#approved-buyers-offtake).</Step>
 </Steps>
 
-## Take physical delivery
+## Take Physical Delivery
 
 Above the vault's minimum, request delivery ex-warehouse to your nominated buyer. In the Genesis Vault, that is from 10,000 shares (10 t), to your nominated licensed exporter. You pay cost, and receive the collateral manager's weight and quality certificates.
 
 <CardGroup cols={2}>
-  <Card title="Risk checklist" icon="shield" href="/safety/risk-checklist">
+  <Card title="Risk Checklist" icon="shield" href="/safety/risk-checklist">
     Read before you bid.
   </Card>
   <Card title="Returns and NAV" icon="chart-line" href="/faq/vault-apy">

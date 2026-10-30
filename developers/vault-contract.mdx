@@ -7,9 +7,9 @@ description: "How Cargo vault shares (starting with the Genesis Vault's cvCOCOA)
 
 Every Cargo vault issues its own permissioned **ERC-3643** share contract, one per asset. Each behaves like an ERC-20 for balances and approvals, but every transfer is checked against an on-chain identity registry. The first is **cvCOCOA**, the Genesis Vault share.
 
-## Share facts
+## Share Facts
 
-| Property | Every vault share | Genesis Vault (cvCOCOA) |
+| Property | Every Vault Share | Genesis Vault (cvCOCOA) |
 | :-- | :-- | :-- |
 | Standard | ERC-3643 (T-REX), ERC-20 compatible interface | Same |
 | Name / symbol | "Cargo Vault" + asset / "cv" + asset | Cargo Vault Cocoa / cvCOCOA |
@@ -22,15 +22,15 @@ Every Cargo vault issues its own permissioned **ERC-3643** share contract, one p
   Cargo vault shares are **not** ERC-4626 vaults. There is no `deposit()` that mints shares against USDC. New shares are minted only against collateral-manager receipts and sold by the Vault SPV through the auction contracts.
 </Note>
 
-## What integrators need to know
+## What Integrators Need to Know
 
-- **Transfers can fail.** `transfer` and `transferFrom` revert if the receiver is not a verified identity, or if a compliance rule blocks the transfer. Check eligibility before routing a transfer.
-- **The backing rule.** Total supply never exceeds receipted units in custody. Minting is guarded on-chain and requires a current collateral-manager receipt.
+- **Transfers Can Fail.** `transfer` and `transferFrom` revert if the receiver is not a verified identity, or if a compliance rule blocks the transfer. Check eligibility before routing a transfer.
+- **The Backing Rule.** Total supply never exceeds receipted units in custody. Minting is guarded on-chain and requires a current collateral-manager receipt.
 - **Pricing.** Value positions at NAV from the NAV feed, not from a pool price. For lending, use the lower of reference NAV and hedge-market-implied NAV.
 - **Pauses.** The share contract and auctions can be paused by the pause guardian. Treat a paused state as "no transfers, no mints".
-- **One share contract per vault.** Treat each vault's shares as a separate asset with its own NAV feed and lot registry.
+- **One Share Contract per Vault.** Treat each vault's shares as a separate asset with its own NAV feed and lot registry.
 
-## Standard ERC-3643 interface (excerpt)
+## Standard ERC-3643 Interface (Excerpt)
 
 ```solidity
 interface ICargoVaultToken {
@@ -51,7 +51,7 @@ interface IIdentityRegistry {
 }
 ```
 
-## Events to index
+## Events to Index
 
 | Event | Meaning |
 | :-- | :-- |

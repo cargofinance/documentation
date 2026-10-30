@@ -7,7 +7,7 @@ description: "The layers that protect every Cargo vault share: physical custody,
 
 A vault share is only as safe as the weakest link between the warehouse and the wallet. Cargo secures each link separately, in every vault.
 
-## The security stack
+## The Security Stack
 
 | Layer | Control |
 | :-- | :-- |
@@ -21,17 +21,17 @@ A vault share is only as safe as the weakest link between the warehouse and the 
 | Administration | Safe multisig with a timelock and an independent co-signer; pause guardian |
 | Price | Daily NAV with a hedge-market cross-check, fallback and lower-of oracle for lending |
 
-## Code review and testing
+## Code Review and Testing
 
 Contracts that mint, auction and hold value will be independently audited before mainnet; no audit has been completed yet. Reports will be published on [Audits & Bug Bounty](/safety/audits-and-bug-bounty).
 
-## Access controls
+## Access Controls
 
 - Privileged functions (minting, pausing, parameter changes, identity registry updates) are restricted to named roles.
 - The identity registry signer key is held under the Safe policy.
 - Parameter and rule changes follow 30 days' notice; only safety pauses are immediate.
 
-## Operational security and AML
+## Operational Security and AML
 
 - KYC and KYB through Persona, with sanctions, PEP and adverse-media screening.
 - Wallet screening on registration, on every new order and every six months; wallets exposed to sanctioned addresses are frozen pending review.
@@ -39,7 +39,7 @@ Contracts that mint, auction and hold value will be independently audited before
 - Identity data stays with the verification provider and the compliance team. Only a participant ID and wallet status go on-chain.
 - Deposit addresses are confirmed by phone with a named director and a test transfer, never by message.
 
-## Incident response
+## Incident Response
 
 <Steps>
   <Step title="Detect">

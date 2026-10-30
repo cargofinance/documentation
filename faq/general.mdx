@@ -6,43 +6,43 @@ description: "Answers to common questions about Cargo Finance and its vaults: wh
 ---
 
 <AccordionGroup>
-  <Accordion title="What is Cargo Finance?">
+  <Accordion title="What Is Cargo Finance?">
     Cargo Finance brings real-world assets on-chain. Each Cargo vault holds one physical asset (soft commodities such as cocoa, coffee and sugar, precious metals such as gold, or other goods that pass the eight collateral tests) as receipted, pledged inventory, and issues vault shares, where one share is one unit of the asset. The goods are owned by a bankruptcy-remote SPV and priced daily at NAV.
   </Accordion>
 
-  <Accordion title="Which assets can a Cargo vault hold?">
+  <Accordion title="Which Assets Can a Cargo Vault Hold?">
     Any asset that passes all [eight collateral tests](/products/real-world-assets#eight-tests-for-any-commodity): a standard grade, a deep reference price, storability, independent custody, a perfectable pledge, a liquid physical exit, insurability and traceability. Softs such as cocoa, coffee and sugar and metals such as gold score strongly. Each asset gets its own vault, added one at a time.
   </Accordion>
 
-  <Accordion title="What is the Genesis Vault?">
+  <Accordion title="What Is the Genesis Vault?">
     The first Cargo vault, opening the Cargo Vault One programme. It holds **West African Grade 1 cocoa** under an independent collateral manager and issues **cvCOCOA**: one share is one kilogram, priced daily off **ICE London Cocoa**.
   </Accordion>
 
-  <Accordion title="What is cvCOCOA, and what happened to KG?">
+  <Accordion title="What Is cvCOCOA, and What Happened to KG?">
     cvCOCOA (Cargo Vault Cocoa) is the Genesis Vault share. Earlier documents (v4) called the unit **KG**. From Launch Pack v5.0 (11 Oct 2026) the unit is renamed cvCOCOA and priced off a published reference; the v4 coupon tiers and 8-day rotations are withdrawn.
   </Accordion>
 
-  <Accordion title="When is the Genesis Auction?">
+  <Accordion title="When Is the Genesis Auction?">
     The Genesis Auction for the Genesis Vault (Cycle 1) was planned for 14–23 Oct 2026 and has been rescheduled. New dates will be announced on the [official channels](/governance/community#official-channels) and on [Updates](/ecosystem/updates). The curve published in Launch Pack v5.0 was priced against the NAV of 9 Oct 2026, so the final term sheet for the new window is the one that applies. You can complete KYC and whitelist your wallets now, so you are ready when the window opens. See the [Quickstart](/quickstart).
   </Accordion>
 
-  <Accordion title="Who can take part?">
+  <Accordion title="Who Can Take Part?">
     Non-US persons (Regulation S) who are professional or institutional investors and are not resident in any jurisdiction a vault's term sheet excludes. For the Genesis Vault, residents of the CEMAC region are excluded. Every holder passes KYC or KYB, and only whitelisted wallets can hold vault shares.
   </Accordion>
 
-  <Accordion title="Do I need KYC?">
+  <Accordion title="Do I Need KYC?">
     Yes. KYC and KYB run through Persona, with sanctions, PEP and adverse-media screening and an Eligibility Declaration. Entities verify beneficial owners above 10%. Source of funds is checked for larger tickets. See [How-To Guides](/faq/how-to-guides#complete-kyc-and-whitelist-a-wallet).
   </Accordion>
 
-  <Accordion title="Which chains does Cargo support?">
+  <Accordion title="Which Chains Does Cargo Support?">
     Cargo vault shares target **Arc**, Circle's USDC-native chain, with **Base** as the fallback if Arc's launch gates are not met. Wallets that hold vault shares are registered on that chain; compliance can also accept incoming USDC from Solana. The live chain and addresses are on [Contract Addresses](/resources/contract-addresses).
   </Accordion>
 
-  <Accordion title="What wallets are supported?">
+  <Accordion title="What Wallets Are Supported?">
     Any EVM wallet you control, including hardware wallets and Safe multisigs, as long as it is registered and whitelisted. You can register up to three wallets. Because vault shares use the ERC-3643 standard, a transfer to an unregistered wallet fails on-chain.
   </Accordion>
 
-  <Accordion title="Is there a minimum?">
+  <Accordion title="Is There a Minimum?">
     It depends on the route. These are the Genesis Vault's minimums:
 
     | Route | Minimum |
@@ -56,51 +56,51 @@ description: "Answers to common questions about Cargo Finance and its vaults: wh
     The Genesis Vault's Genesis Auction itself needs $500,000 raised in total, or every dollar is refunded.
   </Accordion>
 
-  <Accordion title="What backs each share?">
+  <Accordion title="What Backs Each Share?">
     One unit of the vault's asset in an approved warehouse or vault, signed for by an independent collateral manager, owned by the Vault SPV, pledged for all holders, insured, with 10% subordinated first loss from the originator. In the Genesis Vault, that is one kilogram of West African Grade 1 cocoa. See [RWA Vault Mechanism](/ecosystem/rwa-vault-mechanism).
   </Accordion>
 
-  <Accordion title="Can I check that the goods exist?">
+  <Accordion title="Can I Check That the Goods Exist?">
     Yes. Every lot's ID, quantity, grade and receipt hash is in the public lot registry, and the collateral manager's weekly stock report is hashed on-chain. Total supply can never exceed receipted units, and an independent accountant checks stock against shares every quarter. Investors also get the lot records in the data room.
   </Accordion>
 
-  <Accordion title="What happens if the sponsor or an originator fails?">
+  <Accordion title="What Happens if the Sponsor or an Originator Fails?">
     The goods do not belong to the sponsor. The bankruptcy-remote Vault SPV owns every receipted lot, the goods are pledged to the collateral manager for all holders, and the originator's 10% subordinated shares take the first loss on any shortfall. If needed, the security agent enforces the pledge and the SPV sells the goods. Above a set size you can also take the goods themselves. See the [Risk Checklist](/safety/risk-checklist).
   </Accordion>
 
-  <Accordion title="Can I take delivery of the goods?">
+  <Accordion title="Can I Take Delivery of the Goods?">
     Yes, above each vault's minimum, at cost. In the Genesis Vault, that is from 10,000 shares (10 t), ex-warehouse, to your nominated licensed exporter.
   </Accordion>
 
-  <Accordion title="What are the fees?">
+  <Accordion title="What Are the Fees?">
     No fee on the Genesis curve and no management or storage fee for holders. Batch auctions cost 0.25% per side, redemption 0.10% and the Liquidity Bridge 1.0%. See the [fee schedule](/ecosystem/protocol#fee-schedule).
   </Accordion>
 
-  <Accordion title="How does Cargo make money?">
+  <Accordion title="How Does Cargo Make Money?">
     From venue fees on the flow of lots, not from a share of the goods. Originators pay 0.50% of NAV to list a lot; buyers and sellers pay 0.25% per side in a batch auction; creations and redemptions pay 0.10%. The 1.0% Liquidity Bridge fee goes to the bridge LPs, not to Cargo. See [Treasury](/governance/treasury).
   </Accordion>
 
-  <Accordion title="Have the smart contracts been audited?">
+  <Accordion title="Have the Smart Contracts Been Audited?">
     The minting, Genesis curve and batch auction contracts will be independently audited before mainnet. No audit has been completed yet; reports will be published on [Audits & Bug Bounty](/safety/audits-and-bug-bounty). The stock is verified lot by lot, reported weekly, and checked quarterly by agreed-upon procedures.
   </Accordion>
 
-  <Accordion title="Where can I learn the terms?">
+  <Accordion title="Where Can I Learn the Terms?">
     The [Glossary](/resources/glossary) defines the commodity, legal and on-chain terms used across these docs, from reference prices and receipts to ERC-3643 and iNAV, plus Genesis Vault terms such as West African Grade 1 and ICE London Cocoa.
   </Accordion>
 
-  <Accordion title="Does Cargo run giveaways or side offers?">
+  <Accordion title="Does Cargo Run Giveaways or Side Offers?">
     No. Cargo runs no giveaways, airdrops or side offers, and vault shares are sold only through its auctions. Anyone offering otherwise is not Cargo.
   </Accordion>
 
-  <Accordion title="Is Cargo regulated?">
+  <Accordion title="Is Cargo Regulated?">
     The issuer's jurisdiction and regulatory status are set out in the term sheet and the data room. Offers are private and only to eligible investors. The issuer's regulator has been asked to confirm how it classifies cvCOCOA, and Cargo will move to the matching licence or a licensed partner if required. This is not legal advice.
   </Accordion>
 
-  <Accordion title="How do I know a message really comes from Cargo?">
+  <Accordion title="How Do I Know a Message Really Comes from Cargo?">
     Use only the contacts and accounts listed under [Official channels](/governance/community#official-channels). Cargo never sends a deposit address by chat, DM or email alone and never asks for a seed phrase or private key. Your deposit address is the one in your signed agreement, confirmed by phone with a named director using a number from the data room. If anything else asks you to send funds, treat it as a scam and tell us.
   </Accordion>
 
-  <Accordion title="Where can I get help or report an issue?">
+  <Accordion title="Where Can I Get Help or Report an Issue?">
     General questions, allocations, the data room, calls and offtake: **cargovaults@gmail.com**. Security issues: same address, with the subject "Security". Complaints are answered within five business days.
   </Accordion>
 </AccordionGroup>

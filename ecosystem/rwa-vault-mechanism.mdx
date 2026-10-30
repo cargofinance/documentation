@@ -1,5 +1,5 @@
 ---
-title: "RWA Vault Mechanism: from the warehouse to your wallet"
+title: "RWA Vault Mechanism: From the Warehouse to Your Wallet"
 sidebarTitle: "RWA Vault Mechanism"
 icon: "vault"
 description: "How a Cargo vault links each share to a receipted unit of a real-world asset: title, pledge, proof of reserve, NAV, price guards and redemption, with the Genesis Vault (West African Grade 1 cocoa) as the worked example."
@@ -7,7 +7,7 @@ description: "How a Cargo vault links each share to a receipted unit of a real-w
 
 Every Cargo vault share is backed by one unit of a real-world asset that already exists, sits in a named warehouse or vault, and has been signed for by an independent collateral manager. Worked examples on this page are from the **Genesis Vault**: West African Grade 1 cocoa, priced off ICE London Cocoa, issued as cvCOCOA.
 
-## What stands behind a share
+## What Stands Behind a Share
 
 Three layers: the shares on-chain, the legal title and pledge, and the physical goods under independent control.
 
@@ -53,7 +53,7 @@ flowchart LR
   <Accordion title="Proof" icon="magnifying-glass">
     An independent inspector weighs and grades every lot (Vallis in the Genesis Vault). Lot IDs, weights and grades are public, and the weekly stock report is hashed on-chain.
   </Accordion>
-  <Accordion title="First loss" icon="shield-halved">
+  <Accordion title="First Loss" icon="shield-halved">
     Originators keep **10% of every lot** as subordinated shares, released only when the lot is sold and reconciles. Senior cover at origination is 111%.
   </Accordion>
   <Accordion title="Insurance" icon="umbrella">
@@ -61,7 +61,7 @@ flowchart LR
   </Accordion>
 </AccordionGroup>
 
-## The mint
+## The Mint
 
 <Steps>
   <Step title="Deliver">A lot of at least the vault's minimum size enters the warehouse (25 t in the Genesis Vault).</Step>
@@ -70,15 +70,15 @@ flowchart LR
   <Step title="List">Lot ID, quantity, grade, receipt, originator and reserve price are published before the next batch window.</Step>
 </Steps>
 
-**The backing rule.** Supply can never exceed receipted units in custody, and no unit can count both as stock and as sale proceeds. The minting guard enforces this on-chain; the weekly stock report reconciles it.
+**The Backing Rule.** Supply can never exceed receipted units in custody, and no unit can count both as stock and as sale proceeds. The minting guard enforces this on-chain; the weekly stock report reconciles it.
 
-**Legal opinions.** Counsel give opinions on title, the pledge and enforcement before a vault's first mint. Investors' counsel can review them in the data room.
+**Legal Opinions.** Counsel give opinions on title, the pledge and enforcement before a vault's first mint. Investors' counsel can review them in the data room.
 
-## NAV: a published reference price, struck daily
+## NAV: A Published Reference Price, Struck Daily
 
 Each vault's NAV starts from a published reference price for the asset, less the fixed costs of getting it to a buyer, in USD:
 
-<Card title="NAV per share = (reference price − levies − delivery costs) ÷ FX" icon="calculator">
+<Card title="NAV per Share = (Reference Price − Levies − Delivery Costs) ÷ FX" icon="calculator">
   The reference is an exchange settlement price (ICE for cocoa, coffee and sugar) or a benchmark such as LBMA for gold.
 </Card>
 
@@ -95,7 +95,7 @@ The trade it captures, per kilogram: farmgate **$4.522** → receipted cost **$4
 
 **iNAV.** Between daily fixes, iNAV moves with ICE London Cocoa in real time: every minute by API and WebSocket, every 15 minutes on-chain during market hours. Creations and redemptions always strike at NAV.
 
-## Price guards
+## Price Guards
 
 Every vault's NAV has the same four guards. Genesis Vault values shown:
 
@@ -114,7 +114,7 @@ flowchart LR
     class F accent
 ```
 
-| Guard | Rule (Genesis Vault values) |
+| Guard | Rule (Genesis Vault Values) |
 | :-- | :-- |
 | Basis check | If the physical differential to the reference moves more than $250/t from its 30-day median, NAV uses the median differential and creations and redemptions pause for that batch |
 | Reference outage | No reference price for two business days: same fallback |
@@ -123,7 +123,7 @@ flowchart LR
 
 Each new vault publishes its own thresholds in its term sheet.
 
-## Redemption and exit
+## Redemption and Exit
 
 | Route | Who | Price | Timing |
 | :-- | :-- | :-- | :-- |
@@ -135,5 +135,5 @@ Each new vault publishes its own thresholds in its term sheet.
 Anyone can create near NAV and redeem near NAV, so a premium or discount gets arbitraged away. What remains is the asset price, which market makers hedge on ICE London Cocoa (10,000 shares ≈ one 10 t lot), and credit, which the structure bounds.
 
 <Info>
-  **Credit floor, Genesis Vault.** If the cocoa ever had to be sold locally at the exporter bid ($4.70–$4.87 per kg) instead of at NAV, a senior share would still be covered at **98.9%–102.5%** of NAV, thanks to the 10% subordination.
+  **Credit Floor, Genesis Vault.** If the cocoa ever had to be sold locally at the exporter bid ($4.70–$4.87 per kg) instead of at NAV, a senior share would still be covered at **98.9%–102.5%** of NAV, thanks to the 10% subordination.
 </Info>

@@ -7,7 +7,7 @@ description: "How the Genesis curve, the sealed batch auction and the creation a
 
 Cargo vaults have no yield strategy contract. Capital is not deployed by code; it buys shares that are already backed by receipted goods. The on-chain logic that matters is how shares are sold and how they come back. The same contracts run every vault; each vault sets its own parameters, shown here for the Genesis Vault (cvCOCOA).
 
-## Genesis curve
+## Genesis Curve
 
 A primary sale by the Vault SPV on a linear price curve from a start price P₀ to an end price P₁ over the cap C:
 
@@ -16,11 +16,11 @@ P(R) = P₀ + (P₁ − P₀) × R / C                    R = USDC raised so far
 Shares for a ticket D = (1/b) × ln( P(R + D) / P(R) ),   b = (P₁ − P₀) / C
 ```
 
-**Genesis Vault parameters:** P₀ = 4.793, P₁ = 5.118, C = 1,500,000, so b = 0.325 / 1,500,000.
+**Genesis Vault Parameters:** P₀ = 4.793, P₁ = 5.118, C = 1,500,000, so b = 0.325 / 1,500,000.
 
 Each ticket pays the average price across its slice of the curve, so splitting a ticket gives exactly the same number of shares. Fills are ordered by time, the priority window first. Below the minimum ($500,000 in the Genesis Vault), all USDC is refunded.
 
-## Batch auction
+## Batch Auction
 
 | Step | Rule |
 | :-- | :-- |
@@ -32,7 +32,7 @@ Each ticket pays the average price across its slice of the curve, so splitting a
 | Tape | Clearing price, discount to NAV, volume, bid-to-cover and lot IDs, emitted at clearing |
 | Errors | Reversed only for system error, within one hour of clearing |
 
-## Creation and redemption
+## Creation and Redemption
 
 | Flow | Who | Price | Settlement |
 | :-- | :-- | :-- | :-- |

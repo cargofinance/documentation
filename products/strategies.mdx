@@ -1,5 +1,5 @@
 ---
-title: "Ways to hold vault shares: Hold, Rotate, provide liquidity"
+title: "Ways to Hold Vault Shares: Hold, Rotate, Provide Liquidity"
 sidebarTitle: "Strategies"
 icon: "chess"
 description: "The ways to use a Cargo vault: hold shares bought below NAV, rotate the batch-auction discount every batch, make markets, bridge exits or lend against the shares."
@@ -8,21 +8,21 @@ description: "The ways to use a Cargo vault: hold shares bought below NAV, rotat
 Cargo does not run a discretionary strategy with your money. Each vault holds a physical asset, one unit per share. What you earn depends on how you use the shares. The figures below are the Genesis Vault's (cvCOCOA, West African Grade 1 cocoa).
 
 <AccordionGroup>
-  <Accordion title="Hold: own the asset" icon="weight-hanging">
+  <Accordion title="Hold: Own the Asset" icon="weight-hanging">
     Buy vault shares below NAV and keep them. Your return is the discount you bought at, plus or minus the move in NAV, which follows the asset's reference price (for cvCOCOA, ICE London Cocoa).
 
     - **Exit:** redeem at NAV − 0.10% above the vault minimum, use the Liquidity Bridge at NAV − 1.0%, or take delivery (from 10 t in the Genesis Vault).
-    - **Genesis locks:** in the Genesis Vault, buyers who lock Genesis shares for 90 or 180 days receive **+1.0%** or **+2.5%** bonus shares.
-    - **Borrow (planned):** pledge your shares in an isolated Morpho market against USDC instead of selling them, starting with cvCOCOA/USDC.
+    - **Genesis Locks:** in the Genesis Vault, buyers who lock Genesis shares for 90 or 180 days receive **+1.0%** or **+2.5%** bonus shares.
+    - **Borrow (Planned):** pledge your shares in an isolated Morpho market against USDC instead of selling them, starting with cvCOCOA/USDC.
 
     Best for allocators who want exposure to a real-world asset backed by receipted stock.
   </Accordion>
 
-  <Accordion title="Rotate: earn the discount every batch" icon="arrows-rotate">
+  <Accordion title="Rotate: Earn the Discount Every Batch" icon="arrows-rotate">
     <Steps>
       <Step title="Buy">Your bid fills at the batch clearing price, below NAV.</Step>
-      <Step title="Pre-sell">The same units are sold to an offtaker at that day's NAV.</Step>
-      <Step title="Redeem and re-bid">NAV − 0.10% comes back in USDC before the next batch.</Step>
+      <Step title="Pre-Sell">The same units are sold to an offtaker at that day's NAV.</Step>
+      <Step title="Redeem and Re-Bid">NAV − 0.10% comes back in USDC before the next batch.</Step>
     </Steps>
 
     Each turn earns roughly the clearing discount less the 0.25% auction fee and the 0.10% redemption fee. In the Genesis Vault, a turn is 12 days. The auction sets the discount, and it will compress as capital arrives. Returns are never annualised.
@@ -30,15 +30,15 @@ Cargo does not run a discretionary strategy with your money. Each vault holds a 
     In Phase 1, Rotate runs as an **auto-roll on your own wallet**: no pool and no discretion. A pooled, compounding class for the Genesis Vault (scvCOCOA) waits for the right fund route.
   </Accordion>
 
-  <Accordion title="Make markets" icon="arrow-right-arrow-left">
+  <Accordion title="Make Markets" icon="arrow-right-arrow-left">
     Panel market makers quote each vault's shares against USDC around iNAV, answer RFQs, bid in every batch and act as authorised participants (create at NAV + 0.10%, redeem at NAV − 0.10%). They hedge the asset price on its reference market (ICE London Cocoa for cvCOCOA). Terms are in the Market Maker Offer (CV1-MM), available on request.
   </Accordion>
 
-  <Accordion title="Bridge exits" icon="bridge">
+  <Accordion title="Bridge Exits" icon="bridge">
     Liquidity Bridge LPs supply USDC that buys shares instantly from holders at NAV − 1.0% and redeems them at NAV − 0.10%, hedged on the reference market. Each LP's USDC sits in its own segregated mandate, run by a licensed panel market maker; Cargo does not manage LP money. Minimum $50,000; $250,000 capacity at Genesis Vault launch.
   </Accordion>
 
-  <Accordion title="Lend (planned)" icon="hand-holding-dollar">
+  <Accordion title="Lend (Planned)" icon="hand-holding-dollar">
     Isolated Morpho markets per vault share, starting with cvCOCOA/USDC: 62.5% liquidation LTV at launch, a lower-of NAV oracle and whitelisted liquidators. Lenders earn the market's borrow rate. Targeted after Batch 4 of the Genesis Vault.
   </Accordion>
 </AccordionGroup>
