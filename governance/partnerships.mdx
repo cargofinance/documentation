@@ -25,15 +25,15 @@ The trustee, security agent, auditor and insurer for each vault are named to inv
 | :-- | :-- | :-- |
 | Arc (Circle) | Target chain; USDC-native | Target |
 | Base | Fallback chain | Fallback |
-| ERC-3643 | Permissioned token standard and identity registry | Live with the first token |
-| Safe | Multisig administration with timelock | Live with the first token |
-| Morpho | Isolated lending markets per vault token, starting with cvCOCOA/USDC | Planned |
+| ERC-3643 | Permissioned token standard and identity registry | Live with the first vault |
+| Safe | Multisig administration with timelock | Live with the first vault |
+| Morpho | Isolated lending markets per vault share, starting with cvCOCOA/USDC | Planned |
 
 ## Partner programmes
 
 <CardGroup cols={2}>
   <Card title="Market makers and APs" icon="arrow-right-arrow-left">
-    Quote vault tokens against USDC around iNAV, answer RFQs and bid in every batch. In return: authorised-participant status, an inventory loan, fee rebates and a share of auction fees.
+    Quote vault shares against USDC around iNAV, answer RFQs and bid in every batch. In return: authorised-participant status, an inventory loan, fee rebates and a share of auction fees.
   </Card>
   <Card title="Liquidity Bridge LPs" icon="bridge">
     Buy exits at NAV − 1.0% and redeem at NAV − 0.10%, in a segregated mandate run by a licensed panel market maker. Cargo does not manage LP money. Minimum $50,000.
@@ -42,7 +42,7 @@ The trustee, security agent, auditor and insurer for each vault are named to inv
     Licensed producers, exporters and dealers list receipted lots and sell at the reference price less the clearing discount, instead of at the local bid. In the Genesis Vault: licensed cocoa exporters and cooperatives, with lots of 25 t or more.
   </Card>
   <Card title="Private venues" icon="building-columns">
-    Licensed venues can list Cargo vault tokens with our NAV feed, whitelist and APs. No listing fees either way.
+    Licensed venues can list Cargo vault shares with our NAV feed, whitelist and APs. No listing fees either way.
   </Card>
 </CardGroup>
 
@@ -57,7 +57,7 @@ Processors, exporters, refiners and traders who want to buy the goods in a Cargo
 
 ## Listing on other private venues
 
-We want Cargo vault tokens wherever eligible buyers already trade, as long as the venue keeps the whitelist and the NAV anchor intact.
+We want Cargo vault shares wherever eligible buyers already trade, as long as the venue keeps the whitelist and the NAV anchor intact.
 
 | A venue qualifies if it | We provide |
 | :-- | :-- |

@@ -9,13 +9,13 @@ Every Cargo vault share is backed by one unit of a real-world asset that already
 
 ## What stands behind a share
 
-Three layers: the token on-chain, the legal title and pledge, and the physical goods under independent control.
+Three layers: the shares on-chain, the legal title and pledge, and the physical goods under independent control.
 
 ```mermaid
 flowchart LR
     subgraph CHAIN["On-chain"]
         direction TB
-        W(["Holder wallet<br/>vault token · ERC-3643"]) -. "checked against" .-> IR["Identity registry<br/>whitelisted wallets"]
+        W(["Holder wallet<br/>vault shares · ERC-3643"]) -. "checked against" .-> IR["Identity registry<br/>whitelisted wallets"]
     end
     subgraph LEGAL["Legal"]
         direction TB
