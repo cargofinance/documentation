@@ -7,7 +7,7 @@ description: "Answers to common questions about Cargo Finance and its vaults: wh
 
 <AccordionGroup>
   <Accordion title="What is Cargo Finance?">
-    Cargo Finance brings real-world assets on-chain. Each Cargo vault holds one physical asset (soft commodities such as cocoa, coffee and sugar, precious metals such as gold, or other goods that pass the eight collateral tests) as receipted, pledged inventory, and issues a token where one share is one unit of the asset. The goods are owned by a bankruptcy-remote SPV and priced daily at NAV. Cargo Finance is a product by Nova.
+    Cargo Finance brings real-world assets on-chain. Each Cargo vault holds one physical asset (soft commodities such as cocoa, coffee and sugar, precious metals such as gold, or other goods that pass the eight collateral tests) as receipted, pledged inventory, and issues vault shares, where one share is one unit of the asset. The goods are owned by a bankruptcy-remote SPV and priced daily at NAV.
   </Accordion>
 
   <Accordion title="Which assets can a Cargo vault hold?">
@@ -27,7 +27,7 @@ description: "Answers to common questions about Cargo Finance and its vaults: wh
   </Accordion>
 
   <Accordion title="Who can take part?">
-    Non-US persons (Regulation S) who are professional or institutional investors and are not resident in Seychelles or in any jurisdiction a vault's term sheet excludes. For the Genesis Vault, residents of the CEMAC region are excluded. Every holder passes KYC or KYB, and only whitelisted wallets can hold vault shares.
+    Non-US persons (Regulation S) who are professional or institutional investors and are not resident in any jurisdiction a vault's term sheet excludes. For the Genesis Vault, residents of the CEMAC region are excluded. Every holder passes KYC or KYB, and only whitelisted wallets can hold vault shares.
   </Accordion>
 
   <Accordion title="Do I need KYC?">
@@ -35,11 +35,11 @@ description: "Answers to common questions about Cargo Finance and its vaults: wh
   </Accordion>
 
   <Accordion title="Which chains does Cargo support?">
-    Cargo vault tokens target **Arc**, Circle's USDC-native chain, with **Base** as the fallback if Arc's launch gates are not met. Wallets that hold vault shares are registered on that chain; compliance can also accept incoming USDC from Solana. The live chain and addresses are on [Contract Addresses](/resources/contract-addresses).
+    Cargo vault shares target **Arc**, Circle's USDC-native chain, with **Base** as the fallback if Arc's launch gates are not met. Wallets that hold vault shares are registered on that chain; compliance can also accept incoming USDC from Solana. The live chain and addresses are on [Contract Addresses](/resources/contract-addresses).
   </Accordion>
 
   <Accordion title="What wallets are supported?">
-    Any EVM wallet you control, including hardware wallets and Safe multisigs, as long as it is registered and whitelisted. You can register up to three wallets. Because vault tokens are ERC-3643 tokens, a transfer to an unregistered wallet fails on-chain.
+    Any EVM wallet you control, including hardware wallets and Safe multisigs, as long as it is registered and whitelisted. You can register up to three wallets. Because vault shares use the ERC-3643 standard, a transfer to an unregistered wallet fails on-chain.
   </Accordion>
 
   <Accordion title="Is there a minimum?">
@@ -65,7 +65,7 @@ description: "Answers to common questions about Cargo Finance and its vaults: wh
   </Accordion>
 
   <Accordion title="What happens if the sponsor or an originator fails?">
-    The goods do not belong to the sponsor (Nova, for the Genesis Vault). The bankruptcy-remote Vault SPV owns every receipted lot, the goods are pledged to the collateral manager for all holders, and the originator's 10% subordinated shares take the first loss on any shortfall. If needed, the security agent enforces the pledge and the SPV sells the goods. Above a set size you can also take the goods themselves. See the [Risk Checklist](/safety/risk-checklist).
+    The goods do not belong to the sponsor. The bankruptcy-remote Vault SPV owns every receipted lot, the goods are pledged to the collateral manager for all holders, and the originator's 10% subordinated shares take the first loss on any shortfall. If needed, the security agent enforces the pledge and the SPV sells the goods. Above a set size you can also take the goods themselves. See the [Risk Checklist](/safety/risk-checklist).
   </Accordion>
 
   <Accordion title="Can I take delivery of the goods?">
@@ -88,12 +88,12 @@ description: "Answers to common questions about Cargo Finance and its vaults: wh
     The [Glossary](/resources/glossary) defines the commodity, legal and on-chain terms used across these docs, from reference prices and receipts to ERC-3643 and iNAV, plus Genesis Vault terms such as West African Grade 1 and ICE London Cocoa.
   </Accordion>
 
-  <Accordion title="Is there a Cargo token or airdrop?">
-    No. Cargo has no governance token and runs no airdrop. Anyone offering one is not Cargo.
+  <Accordion title="Does Cargo run giveaways or side offers?">
+    No. Cargo runs no giveaways, airdrops or side offers, and vault shares are sold only through its auctions. Anyone offering otherwise is not Cargo.
   </Accordion>
 
   <Accordion title="Is Cargo regulated?">
-    The issuer group is in Seychelles. Offers are private and only to eligible investors. The Seychelles Financial Services Authority has been asked to confirm how it classifies cvCOCOA, and Cargo will move to the matching licence or a licensed partner if required. This is not legal advice.
+    The issuer's jurisdiction and regulatory status are set out in the term sheet and the data room. Offers are private and only to eligible investors. The issuer's regulator has been asked to confirm how it classifies cvCOCOA, and Cargo will move to the matching licence or a licensed partner if required. This is not legal advice.
   </Accordion>
 
   <Accordion title="How do I know a message really comes from Cargo?">
