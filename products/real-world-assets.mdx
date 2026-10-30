@@ -7,32 +7,32 @@ description: "Which real-world assets Cargo vaults can hold, how they are held a
 
 Cargo vaults hold **real-world assets** as receipted, pledged inventory: goods with a standard grade, a deep reference price and a short path to a buyer. Soft commodities such as cocoa, coffee and sugar, metals such as gold, and anything else that passes the [eight tests](#eight-tests-for-any-commodity). Each asset is its own vault, with its own lots, NAV and vault shares.
 
-## What makes a good collateral asset
+## What Makes a Good Collateral Asset
 
 <CardGroup cols={3}>
-  <Card title="Standard grade" icon="certificate">
+  <Card title="Standard Grade" icon="certificate">
     A graded bean, a sugar spec or a good-delivery gold bar means the same thing everywhere.
   </Card>
-  <Card title="Deep reference price" icon="chart-line">
+  <Card title="Deep Reference Price" icon="chart-line">
     An exchange or benchmark (ICE, LME, LBMA) gives a daily mark and a hedge.
   </Card>
-  <Card title="Self-liquidating" icon="arrows-spin">
+  <Card title="Self-Liquidating" icon="arrows-spin">
     Goods are bought to be sold. Collateral turns into cash within weeks.
   </Card>
 </CardGroup>
 
 Physical assets are hard for four reasons: volatility, basis between physical and futures prices, quality decay and legal reach. Cargo's structure answers each one, and the eight tests decide whether an asset qualifies at all.
 
-## Custody and verification
+## Custody and Verification
 
 The same controls apply in every vault:
 
-- **Collateral manager:** independent, with sole release authority. Goods leave only against payment.
+- **Collateral Manager:** independent, with sole release authority. Goods leave only against payment.
 - **Verification:** an independent inspector weighs and grades every lot. A discrepancy above 0.5% suspends the lot until it is made good, and triggers a recount.
 - **Reporting:** weekly stock reports hashed on-chain; lot IDs, weights and grades public.
 - **Insurance:** all-risks stock cover on every lot.
 
-## Legal structure
+## Legal Structure
 
 | Layer | Instrument |
 | :-- | :-- |
@@ -43,7 +43,7 @@ The same controls apply in every vault:
 | Originator retention | 10% of each lot as subordinated shares (first loss) |
 | Offering | Private, to eligible non-US professional or institutional investors (Regulation S). Residents of any jurisdiction the vault's term sheet excludes cannot invest |
 
-## Eight tests for any commodity
+## Eight Tests for Any Commodity
 
 An asset becomes a Cargo vault only if it passes all eight:
 
@@ -58,7 +58,7 @@ An asset becomes a Cargo vault only if it passes all eight:
 | 7 | Insurable | All-risk stock and transit cover at commercial rates |
 | 8 | Traceable | Lot-level origin documents, including EUDR data where required |
 
-## Which assets fit
+## Which Assets Fit
 
 | Class | Examples | Reference | Fit |
 | :-- | :-- | :-- | :-- |

@@ -7,22 +7,22 @@ description: "What insurance covers the goods behind every Cargo vault share, wh
 
 The goods behind every share are insured as physical stock, in every vault. Smart-contract risk is not insured.
 
-## What is covered
+## What Is Covered
 
-| Cover | Scope | Paid by |
+| Cover | Scope | Paid By |
 | :-- | :-- | :-- |
 | All-risks stock insurance | Physical loss of or damage to receipted lots in storage | Originator, at cost, until the goods are sold |
 | Transit cover | Goods moving from storage to the buyer | Within delivery costs, deducted in NAV |
 
 The insurer and policy terms for each vault are shared with investors on signing and in the data room.
 
-## What is not covered
+## What Is Not Covered
 
 - Smart-contract exploits, key loss or chain failures.
 - Falls in the price of the underlying asset.
 - Losses from legal or regulatory change.
 
-## Loss absorption, in order
+## Loss Absorption, in Order
 
 ```mermaid
 flowchart TB
@@ -44,13 +44,13 @@ flowchart TB
 ```
 
 <Steps>
-  <Step title="Originator top-up">A weight or grade shortfall is topped up by the originator within five business days.</Step>
-  <Step title="Subordinated shares">If not, it is met from the originator's 10% subordinated shares (first loss).</Step>
+  <Step title="Originator Top-Up">A weight or grade shortfall is topped up by the originator within five business days.</Step>
+  <Step title="Subordinated Shares">If not, it is met from the originator's 10% subordinated shares (first loss).</Step>
   <Step title="Insurance">Physical loss or damage is claimed under the all-risks policy.</Step>
   <Step title="Enforcement">The security agent enforces the pledge, and the SPV sells the goods.</Step>
 </Steps>
 
-## How to verify cover
+## How to Verify Cover
 
 - Ask for the policy summary and certificate in the data room.
 - Check the lot's receipt in the lot registry: every receipted lot must be insured.

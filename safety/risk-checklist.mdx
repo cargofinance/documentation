@@ -8,25 +8,25 @@ description: "The risks of holding Cargo vault shares, from asset price and basi
 Read this before you bid. The risks below apply to every Cargo vault; the examples are from the Genesis Vault (cvCOCOA, West African Grade 1 cocoa). The binding version is the Risk Statement for each vault in the data room, which every investor signs.
 
 <AccordionGroup>
-  <Accordion title="Asset price">
+  <Accordion title="Asset Price">
     NAV follows the reference price of the underlying asset (for cvCOCOA, ICE London Cocoa) and can fall.
 
     <Info>The discount you buy at is your cushion. Holders and market makers can hedge on the asset's reference market. In the Genesis Vault, 10,000 shares move like one 10 t ICE London Cocoa lot.</Info>
   </Accordion>
 
-  <Accordion title="Basis and oracle">
+  <Accordion title="Basis and Oracle">
     The reference price can diverge from the hedge market, the reference can fail to publish, and the vault's realised sale prices can come in below NAV.
 
     <Info>Every vault has a differential check with a hedge-market fallback and a pause, an outage fallback, a cost reset when realised sales run below NAV, and a lower-of oracle for lending. Genesis Vault values: $250/t basis move from the 30-day median; outage fallback after two business days with no reference price; cost reset if realised sales average $150/t below NAV over 30 days.</Info>
   </Accordion>
 
-  <Accordion title="Custody, quality and fraud">
+  <Accordion title="Custody, Quality and Fraud">
     Goods could be missing, short-weight, off-grade or damaged.
 
     <Info>Independent collateral manager with sole release authority; independent verification of every lot (Vallis in the Genesis Vault); weekly reports hashed on-chain; suspension and recount above 0.5% discrepancy; all-risks insurance; 10% subordinated first loss.</Info>
   </Accordion>
 
-  <Accordion title="Counterparty and sponsor">
+  <Accordion title="Counterparty and Sponsor">
     The originator, buyer, exporter or dealer, or the sponsor could fail.
 
     <Info>The Vault SPV owns the goods, not the sponsor; one pledge for all holders; originators warrant weight, grade and title and top up shortfalls; physical delivery above a set size (10 t in the Genesis Vault).</Info>
@@ -38,13 +38,13 @@ Read this before you bid. The risks below apply to every Cargo vault; the exampl
     <Info>Redemption at NAV − 0.10% at each batch (in the Genesis Vault, first at Batch 4, paid within 12 days); Liquidity Bridge at NAV − 1.0% up to its capacity; RFQ with panel market makers, with no guarantee of a bid; redemptions may be pro rata if the queue exceeds bridge capacity.</Info>
   </Accordion>
 
-  <Accordion title="Legal and regulatory">
+  <Accordion title="Legal and Regulatory">
     Security could be harder to enforce than expected, and rules where the SPV is incorporated or the goods are stored could change or be applied differently.
 
     <Info>Title to the SPV plus a registered pledge where the goods are stored; legal opinions on title, pledge and enforcement before a vault's first mint; private offers to eligible investors only; the issuer's regulator has been asked to classify cvCOCOA, and the venue will move to a licensed route if required.</Info>
   </Accordion>
 
-  <Accordion title="Smart contract and keys">
+  <Accordion title="Smart Contract and Keys">
     Code can have bugs; keys can be lost; chains can halt.
 
     <Info>Independent audit before mainnet (not yet completed); Safe administration with timelock and independent co-signer; pause guardian; non-custodial atomic settlement; paper records as fallback.</Info>

@@ -23,7 +23,7 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Get started",
+      "label": "Get Started",
       "href": "https://cargo-finance.mintlify.app/quickstart"
     }
   },

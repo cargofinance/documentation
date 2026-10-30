@@ -1,5 +1,5 @@
 ---
-title: "Research: how real-world assets find buyers, exits and prices"
+title: "Research: How Real-World Assets Find Buyers, Exits and Prices"
 sidebarTitle: "Research"
 icon: "flask"
 description: "Cargo's three public research notes on RFQ, auctions and distribution for real-world assets, and how each one shaped the design of Cargo vaults."
@@ -11,7 +11,7 @@ Putting an asset on-chain is the easy part. Selling it, exiting it and pricing i
   The articles were written when Cargo Vault One still used the v4 design (the KG unit and an exit auction at every rotation close). The market-design reasoning still holds; the current parameters are on [Buying and exiting vault shares](/products/deposits-and-withdrawals).
 </Note>
 
-## 1. On-chain is not liquid: is RFQ the right market for real-world assets?
+## 1. On-Chain Is Not Liquid: Is RFQ the Right Market for Real-World Assets?
 
 On-chain real-world assets grew fast in 2026, to roughly $23.6 billion by DefiLlama's count in March, but most of them barely trade. The article compares four market structures (AMM pools, order books, RFQ and periodic auctions) and argues that pools and order books suit assets priced on-chain with steady flow, not assets whose price is set elsewhere and moves in jumps.
 
@@ -19,7 +19,7 @@ Its evidence comes from fixed income. US investment-grade corporate bonds moved 
 
 **Conclusion:** for assets priced off-chain, traded in irregular sizes and held by permissioned investors, RFQ with a periodic auction beside it is the right default, provided there are three to five committed dealers, firm quotes, a verifiable price anchor and a public tape.
 
-## 2. How to build a secondary market for an on-chain commodity
+## 2. How to Build a Secondary Market for an On-Chain Commodity
 
 An on-chain share backed by receipted physical goods has a public reference price (an exchange such as ICE for softs), moves in discrete lots, receives information in events (receipts, sales, payments), has a short life per lot and is held only by whitelisted wallets. The article turns those properties into eight design rules:
 
@@ -34,15 +34,15 @@ An on-chain share backed by receipted physical goods has a public reference pric
 | Atomic settlement | Shares and USDC swap in one transaction |
 | Publish the tape, keep a physical anchor | A price history lets allocators underwrite exit risk; delivery ties the share to the goods |
 
-## 3. Distribution is the product
+## 3. Distribution Is the Product
 
 Issuing an asset on-chain creates supply, not holders. The real-world asset products that broke out in 2025 and 2026 had three things: somewhere useful to put the asset (for example as trading collateral), dealers who always make a price, and a fair primary market that built a wide holder base.
 
 The article argues for pairing an open, price-setting auction with a committed set of participants, as the US Treasury does with primary dealers and cocoa boards do with licensed exporters. For on-chain commodities, distribution has to carry lot-level information (grade, warehouse, crop year, documents), because a tonne of cocoa is not a gold bar.
 
-## How the research shaped Cargo vaults
+## How the Research Shaped Cargo Vaults
 
-| Finding | Where it shows up |
+| Finding | Where It Shows Up |
 | :-- | :-- |
 | Batch auctions concentrate thin liquidity | [A sealed batch auction at a fixed interval](/products/deposits-and-withdrawals#batch-auctions-every-12-days) |
 | A verifiable anchor keeps prices honest | [NAV from a published reference price, cross-checked against a hedge market](/ecosystem/rwa-vault-mechanism#nav-a-published-reference-price-struck-daily) (ICE London Cocoa in the Genesis Vault) |
